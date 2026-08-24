@@ -308,9 +308,15 @@ h1 {
 .contact a:hover {
     transform: translateY(-3px);
 }
+.contact-image {
+    margin-top: 30px; /* Adjust this value to push it further down or closer */
+}
+
 .contact-image img {
-    width: 100px; /* Adjust pixel value as needed */
-    height: auto; /* Maintains original proportions without stretching */
+    width: 100px;
+    height: auto;
+    display: block;  /* Removes extra inline space under the image */
+    margin: 0 auto;  /* Keeps the image centered inside the section */
 }
 /* =========================
    FOOTER
