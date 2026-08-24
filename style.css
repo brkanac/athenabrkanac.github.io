@@ -309,7 +309,10 @@ h1 {
     transform: translateY(-3px);
 }
 
-
+hellokitty.png {
+  width: 150px; /* Adjust this value to your preferred width */
+  height: auto;  /* Maintains the correct proportions */
+}
 /* =========================
    FOOTER
    ========================= */
