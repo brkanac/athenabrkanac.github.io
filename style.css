@@ -310,8 +310,8 @@ h1 {
 }
 
 hellokitty.png {
-  width: 150px; /* Adjust this value to your preferred width */
-  height: auto;  /* Maintains the correct proportions */
+  width: auto; /* Adjust this value to your preferred width */
+  height: 150px;  /* Maintains the correct proportions */
 }
 /* =========================
    FOOTER
