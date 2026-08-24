@@ -1,3 +1,25 @@
+/* =========================
+   COLOR PALETTE
+   ========================= */
+
+:root {
+    --pink: #F8D9E3;
+    --pink-light: #FCECEF;
+    --pink-dark: #A85C73;
+
+    --yellow: #F8E7A8;
+    --yellow-light: #FFF5CC;
+
+    --cream: #FFFDF8;
+    --text: #3F3035;
+    --border: #E8C7D0;
+}
+
+
+/* =========================
+   GENERAL
+   ========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +32,8 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: #111;
-    background: #f7f6f2;
+    color: var(--text);
+    background: var(--cream);
 }
 
 a {
@@ -20,7 +42,9 @@ a {
 }
 
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+   ========================= */
 
 nav {
     height: 80px;
@@ -30,7 +54,8 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: 1px solid #ddd;
+    background: var(--pink);
+    border-bottom: 1px solid var(--border);
 }
 
 .logo {
@@ -46,10 +71,17 @@ nav {
 
 .nav-links a {
     font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--pink-dark);
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+   ========================= */
 
 .hero {
     min-height: calc(100vh - 80px);
@@ -61,12 +93,19 @@ nav {
     gap: 6vw;
 
     align-items: center;
+
+    background: var(--pink-light);
+}
+
+.hero-text {
+    position: relative;
 }
 
 .eyebrow {
     font-size: 11px;
     letter-spacing: 0.15em;
     margin-bottom: 25px;
+    color: var(--pink-dark);
 }
 
 h1 {
@@ -86,21 +125,57 @@ h1 {
 .button {
     display: inline-block;
     margin-top: 35px;
-    border-bottom: 1px solid #111;
-    padding-bottom: 5px;
+
+    background: var(--yellow);
+    padding: 14px 22px;
+
+    border-radius: 30px;
+
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+    background: #F4DB82;
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image::after {
+    content: "";
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: var(--yellow);
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 0;
 }
 
 .hero-image img {
+    position: relative;
+    z-index: 1;
+
     width: 100%;
     height: 75vh;
+
     object-fit: cover;
 }
 
 
-/* SECTIONS */
+/* =========================
+   GENERAL SECTIONS
+   ========================= */
 
 .section {
     padding: 10vw 5vw;
+    background: var(--cream);
 }
 
 .section-heading {
@@ -116,7 +191,13 @@ h1 {
 }
 
 
-/* PHOTO GRID */
+/* =========================
+   PHOTOGRAPHY
+   ========================= */
+
+#photography {
+    background: var(--yellow-light);
+}
 
 .photo-grid {
     columns: 2;
@@ -127,14 +208,26 @@ h1 {
     width: 100%;
     display: block;
     margin-bottom: 20px;
+
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.015);
 }
 
 
-/* MARKETING */
+/* =========================
+   MARKETING
+   ========================= */
 
 .marketing {
-    background: #111;
-    color: white;
+    background: var(--pink);
+    color: var(--text);
+}
+
+.marketing .eyebrow {
+    color: var(--pink-dark);
 }
 
 .marketing-content {
@@ -151,11 +244,13 @@ h1 {
 
 .marketing-content p {
     line-height: 1.7;
-    color: #ccc;
+    color: #634953;
 }
 
 
-/* ABOUT */
+/* =========================
+   ABOUT
+   ========================= */
 
 .about {
     padding: 10vw 5vw;
@@ -163,6 +258,8 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10vw;
+
+    background: var(--cream);
 }
 
 .about-text {
@@ -175,11 +272,19 @@ h1 {
 }
 
 
-/* CONTACT */
+/* =========================
+   CONTACT
+   ========================= */
 
 .contact {
     padding: 12vw 5vw;
     text-align: center;
+
+    background: var(--yellow);
+}
+
+.contact .eyebrow {
+    color: var(--pink-dark);
 }
 
 .contact h2 {
@@ -188,26 +293,48 @@ h1 {
 
 .contact a {
     font-size: 20px;
-    border-bottom: 1px solid #111;
+
+    background: var(--cream);
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    display: inline-block;
+
+    transition: transform 0.2s ease;
+}
+
+.contact a:hover {
+    transform: translateY(-3px);
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+   ========================= */
 
 footer {
     padding: 30px 5vw;
-    border-top: 1px solid #ddd;
+
+    background: var(--pink-light);
+
+    border-top: 1px solid var(--border);
+
     font-size: 12px;
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 700px) {
 
     nav {
         height: auto;
         padding: 25px 5vw;
+
         align-items: flex-start;
     }
 
@@ -236,4 +363,5 @@ footer {
     .about {
         grid-template-columns: 1fr;
     }
+
 }
