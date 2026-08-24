@@ -308,7 +308,10 @@ h1 {
 .contact a:hover {
     transform: translateY(-3px);
 }
-
+.contact-image img {
+    width: 100px; /* Adjust pixel value as needed */
+    height: auto; /* Maintains original proportions without stretching */
+}
 /* =========================
    FOOTER
    ========================= */
