@@ -250,92 +250,75 @@ h1 {
 
 
 
-/* ==================================================
+/* =========================
    STAR MARQUEE
-   ================================================== */
+   ========================= */
 
 .marquee {
-
     width: 100%;
-
-    height: 56px;
+    height: 54px;
 
     overflow: hidden;
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
-    border-top:
-        1px solid var(--border);
-
-    border-bottom:
-        1px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 
     display: flex;
-
     align-items: center;
 }
 
-
 .marquee-track {
-
     display: flex;
+    flex-shrink: 0;
 
     width: max-content;
 
-    height: 100%;
-
-    animation:
-        star-scroll 22s linear infinite;
+    animation: star-scroll 18s linear infinite;
 }
-
 
 .marquee-group {
-
-    flex:
-        0 0 100vw;
-
     width: 100vw;
-
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-around;
-
-    white-space: nowrap;
-}
-
-
-.marquee-group span {
+    min-width: 100vw;
 
     flex-shrink: 0;
 
-    font-size: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
-    line-height: 1;
-
-    color:
-        var(--pink-dark);
+    padding: 0;
+    margin: 0;
 }
 
+.marquee-group span {
+    display: block;
+
+    font-size: 22px;
+    line-height: 1;
+
+    color: var(--pink-dark);
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   STAR ANIMATION
+   ========================= */
 
 @keyframes star-scroll {
 
     from {
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 
     to {
-        transform:
-            translateX(-100vw);
+        transform: translateX(-100vw);
     }
 
 }
-
 
 
 /* ==================================================
