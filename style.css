@@ -458,75 +458,169 @@ h1 span {
 
 }
 
-
-/* =====================================================
+/* =========================
    PHOTOGRAPHY
-   ===================================================== */
+   ========================= */
 
-.photography-section {
-
-    background:
-        var(--yellow-light);
-
+#photography {
+    background: var(--yellow-light);
 }
 
 
-/*
-   Masonry-style layout
-*/
+/* SECTION HEADING */
 
-.photo-grid {
-
-    columns:
-        2 400px;
-
-    column-gap:
-        25px;
-
+#photography .section-heading {
+    margin-bottom: 100px;
 }
 
 
-.photo {
+/* PHOTO CATEGORY */
 
-    break-inside:
-        avoid;
+.photo-category {
+    margin-bottom: 130px;
+}
 
-    margin-bottom:
-        25px;
-
-    overflow:
-        hidden;
-
-    background:
-        var(--cream);
-
+.photo-category:last-child {
+    margin-bottom: 0;
 }
 
 
-.photo img {
+/* CATEGORY TITLE */
 
-    width:
-        100%;
+.photo-category-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
 
-    height:
-        auto;
+    margin-bottom: 40px;
 
-    display:
-        block;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 18px;
+}
+
+.photo-category-heading h3 {
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.photo-category-heading p {
+    font-size: 13px;
+    color: var(--pink-dark);
+    max-width: 300px;
+    text-align: right;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   LANDSCAPE
+   ========================= */
+
+.landscape-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.landscape-grid img {
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+    display: block;
 
     transition:
-        transform 0.5s ease;
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
 
+.landscape-grid img:hover {
+    transform: translateY(-6px);
+    box-shadow: 10px 10px 0 var(--pink);
 }
 
 
-.photo:hover img {
+/* Make the first landscape image larger */
 
-    transform:
-        scale(1.03);
-
+.landscape-grid img:first-child {
+    grid-column: span 2;
+    height: 650px;
 }
 
+
+/* =========================
+   PORTRAIT
+   ========================= */
+
+.portrait-grid {
+    columns: 3;
+    column-gap: 24px;
+}
+
+.portrait-grid img {
+    width: 100%;
+    display: block;
+
+    margin-bottom: 24px;
+
+    break-inside: avoid;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.portrait-grid img:hover {
+    transform: scale(1.015);
+    box-shadow: 10px 10px 0 var(--yellow);
+}
+
+
+/* =========================
+   PHOTO MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    #photography .section-heading {
+        margin-bottom: 60px;
+    }
+
+    .photo-category {
+        margin-bottom: 80px;
+    }
+
+    .photo-category-heading {
+        display: block;
+    }
+
+    .photo-category-heading h3 {
+        margin-bottom: 10px;
+    }
+
+    .photo-category-heading p {
+        text-align: left;
+    }
+
+    .landscape-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .landscape-grid img {
+        height: auto;
+    }
+
+    .landscape-grid img:first-child {
+        grid-column: span 1;
+        height: auto;
+    }
+
+    .portrait-grid {
+        columns: 1;
+    }
+
+}
 
 /* =====================================================
    MARKETING
