@@ -152,9 +152,8 @@ h1 {
 
     background: var(--yellow);
 
-    top: 18px;
-    left: 18px;
-
+   top: 20px;
+   left: 20px;
     z-index: 0;
 }
 
@@ -166,6 +165,8 @@ h1 {
     height: 75vh;
 
     object-fit: cover;
+
+    border-radius: 2px;
 }
 
 
@@ -180,6 +181,19 @@ h1 {
 
 .section-heading {
     margin-bottom: 60px;
+    max-width: 900px;
+}
+
+.section-heading h2 {
+    position: relative;
+}
+
+.section-heading h2::after {
+    content: "✦";
+    font-size: 25px;
+    color: var(--pink-dark);
+    margin-left: 15px;
+    vertical-align: middle;
 }
 
 .section-heading h2,
@@ -201,19 +215,24 @@ h1 {
 
 .photo-grid {
     columns: 2;
-    column-gap: 20px;
+    column-gap: 24px;
 }
 
 .photo-grid img {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 
-    transition: transform 0.3s ease;
+    break-inside: avoid;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
 .photo-grid img:hover {
-    transform: scale(1.015);
+    transform: scale(1.02) rotate(-0.3deg);
+    box-shadow: 10px 10px 0 var(--pink);
 }
 
 
@@ -233,7 +252,29 @@ h1 {
 .marketing-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    gap: 24px;
+}
+
+.marketing-content > div {
+    padding: 35px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+
+    min-height: 280px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.marketing-content > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 10px 10px 0 var(--yellow);
+}
 }
 
 .marketing-content h3 {
