@@ -326,91 +326,53 @@ h1 span {
    STAR MARQUEE
    ===================================================== */
 
+/* =========================
+   STAR MARQUEE
+   ========================= */
+
 .marquee {
+    width: 100%;
+    overflow: hidden;
 
-    width:
-        100%;
+    background: var(--cream);
 
-    overflow:
-        hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 
-    background:
-        var(--cream);
-
-    border-top:
-        1px solid
-        var(--border);
-
-    border-bottom:
-        1px solid
-        var(--border);
-
-    padding:
-        13px 0;
-
+    padding: 14px 0;
 }
-
 
 .marquee-track {
+    display: flex;
+    width: max-content;
 
-    display:
-        flex;
+    animation: stars 18s linear infinite;
+}
 
-    width:
-        max-content;
+.marquee-track span {
+    flex-shrink: 0;
 
-    animation:
-        stars 22s linear infinite;
+    font-size: 22px;
+    letter-spacing: 22px;
+    color: var(--pink-dark);
 
+    padding-right: 22px;
 }
 
 
-.star-line {
-
-    flex-shrink:
-        0;
-
-    width:
-        100vw;
-
-    text-align:
-        center;
-
-    white-space:
-        nowrap;
-
-    font-size:
-        18px;
-
-    letter-spacing:
-        0.8em;
-
-    color:
-        var(--pink-dark);
-
-}
-
-
-/*
-   The two identical lines make the animation
-   seamless.
-*/
+/* CONTINUOUS LOOP */
 
 @keyframes stars {
 
     from {
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 
     to {
-        transform:
-            translateX(-100vw);
+        transform: translateX(-25%);
     }
 
 }
-
-
 /* =====================================================
    GENERAL SECTIONS
    ===================================================== */
