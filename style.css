@@ -942,3 +942,120 @@ footer {
     }
 
 }
+/* =========================
+   PHOTOGRAPHY PORTFOLIO
+   ========================= */
+
+.photography {
+    background: var(--yellow-light);
+}
+
+.photo-category {
+    margin-top: 80px;
+}
+
+.category-heading {
+    margin-bottom: 30px;
+}
+
+.category-heading h3 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.category-heading p {
+    font-size: 15px;
+    color: #634953;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   LANDSCAPE
+   ========================= */
+
+.landscape-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.photo-card {
+    margin: 0;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.landscape-grid .photo-card {
+    height: 500px;
+}
+
+.landscape-grid .photo-card.large {
+    height: 650px;
+}
+
+.photo-card:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================
+   PORTRAIT
+   ========================= */
+
+.portrait-category {
+    margin-top: 120px;
+}
+
+.portrait-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+}
+
+.portrait-grid .photo-card {
+    aspect-ratio: 3 / 4;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .photo-category {
+        margin-top: 60px;
+    }
+
+    .landscape-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .landscape-grid .photo-card,
+    .landscape-grid .photo-card.large {
+        height: auto;
+    }
+
+    .portrait-category {
+        margin-top: 80px;
+    }
+
+    .portrait-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
