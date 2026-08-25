@@ -189,14 +189,12 @@ h1 {
     border-radius: 2px;
 }
 
-
 /* =========================
    MARQUEE
    ========================= */
 
 .marquee {
     width: 100%;
-
     overflow: hidden;
 
     background: var(--cream);
@@ -204,26 +202,27 @@ h1 {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
 
-    padding: 14px 0;
+    padding: 16px 0;
+
+    white-space: nowrap;
 }
 
 .marquee-track {
     display: flex;
-
     width: max-content;
 
-    font-size: 13px;
-
-    letter-spacing: 0.12em;
-
-    color: var(--text);
-
-    animation: marquee 22s linear infinite;
+    animation: marquee 18s linear infinite;
 }
 
 .marquee-track span {
-    white-space: nowrap;
-    padding-right: 40px;
+    display: block;
+
+    padding-right: 60px;
+
+    font-size: 13px;
+    letter-spacing: 0.12em;
+
+    color: var(--text);
 }
 
 @keyframes marquee {
@@ -237,7 +236,6 @@ h1 {
     }
 
 }
-
 
 /* =========================
    GENERAL SECTIONS
