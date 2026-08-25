@@ -1,8 +1,15 @@
-/* =========================
+/* =====================================================
+   ATHENA BRKANAC
+   PHOTOGRAPHY · FILM · MARKETING
+   ===================================================== */
+
+
+/* =====================================================
    COLOR PALETTE
-   ========================= */
+   ===================================================== */
 
 :root {
+
     --pink: #F8D9E3;
     --pink-light: #FCECEF;
     --pink-dark: #A85C73;
@@ -11,14 +18,17 @@
     --yellow-light: #FFF5CC;
 
     --cream: #FFFDF8;
+
     --text: #3F3035;
+
     --border: #E8C7D0;
+
 }
 
 
-/* =========================
-   GENERAL
-   ========================= */
+/* =====================================================
+   RESET
+   ===================================================== */
 
 * {
     margin: 0;
@@ -26,32 +36,42 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color: var(--text);
+
     background: var(--cream);
+
+    overflow-x: hidden;
+
 }
+
 
 a {
     color: inherit;
     text-decoration: none;
 }
 
-img {
-    max-width: 100%;
-}
 
-
-/* =========================
+/* =====================================================
    NAVIGATION
-   ========================= */
+   ===================================================== */
 
 nav {
+
     height: 80px;
+
     padding: 0 5vw;
 
     display: flex;
@@ -59,543 +79,916 @@ nav {
     justify-content: space-between;
 
     background: var(--pink);
-    border-bottom: 1px solid var(--border);
 
-    position: relative;
-    z-index: 10;
+    border-bottom:
+        1px solid
+        var(--border);
+
 }
+
 
 .logo {
+
     font-size: 14px;
+
     font-weight: bold;
+
     letter-spacing: 0.08em;
+
 }
+
 
 .nav-links {
+
     display: flex;
+
     gap: 30px;
+
 }
+
 
 .nav-links a {
+
     font-size: 13px;
-    transition: color 0.2s ease;
+
+    transition:
+        color 0.2s ease;
+
 }
+
 
 .nav-links a:hover {
-    color: var(--pink-dark);
+
+    color:
+        var(--pink-dark);
+
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-   ========================= */
+   ===================================================== */
 
 .hero {
-    min-height: calc(100vh - 80px);
 
-    padding: 6vw 5vw;
+    min-height:
+        calc(100vh - 80px);
+
+    padding:
+        6vw 5vw 7vw;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5vw;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 6vw;
 
     align-items: center;
 
-    background: var(--pink-light);
+    background:
+        var(--pink-light);
+
 }
+
 
 .hero-text {
-    position: relative;
+
+    max-width: 650px;
+
 }
+
 
 .eyebrow {
+
     font-size: 11px;
-    letter-spacing: 0.15em;
-    margin-bottom: 25px;
-    color: var(--pink-dark);
+
+    letter-spacing:
+        0.15em;
+
+    margin-bottom:
+        25px;
+
+    color:
+        var(--pink-dark);
+
 }
+
 
 h1 {
-    font-size: clamp(50px, 6vw, 90px);
-    line-height: 0.95;
-    font-weight: 400;
-    letter-spacing: -0.04em;
+
+    font-size:
+        clamp(55px, 7vw, 105px);
+
+    line-height:
+        0.92;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        -0.055em;
+
 }
+
+
+h1 span {
+
+    color:
+        var(--pink-dark);
+
+}
+
 
 .intro {
-    max-width: 430px;
-    margin-top: 35px;
 
-    font-size: 17px;
-    line-height: 1.6;
+    max-width:
+        480px;
+
+    margin-top:
+        35px;
+
+    font-size:
+        17px;
+
+    line-height:
+        1.6;
+
 }
+
 
 .button {
-    display: inline-block;
 
-    margin-top: 35px;
+    display:
+        inline-block;
 
-    background: var(--yellow);
+    margin-top:
+        35px;
 
-    padding: 14px 22px;
+    background:
+        var(--yellow);
 
-    border-radius: 30px;
+    padding:
+        15px 24px;
+
+    border-radius:
+        30px;
+
+    font-size:
+        15px;
 
     transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+        transform 0.25s ease,
+        background 0.25s ease;
+
 }
+
 
 .button:hover {
-    background: #F4DB82;
-    transform: translateY(-3px);
+
+    background:
+        #F4DB82;
+
+    transform:
+        translateY(-4px);
+
 }
 
 
-/* HERO IMAGE */
+/* =====================================================
+   HERO IMAGE
+   ===================================================== */
 
 .hero-image {
-    position: relative;
-    width: 100%;
+
+    position:
+        relative;
+
+    width:
+        100%;
+
 }
+
 
 .hero-image::after {
-    content: "";
 
-    position: absolute;
+    content:
+        "";
 
-    width: 100%;
-    height: 100%;
+    position:
+        absolute;
 
-    background: var(--yellow);
+    width:
+        100%;
 
-    top: 18px;
-    left: 18px;
+    height:
+        100%;
 
-    z-index: 0;
+    background:
+        var(--yellow);
+
+    top:
+        20px;
+
+    left:
+        20px;
+
+    z-index:
+        0;
+
 }
+
 
 .hero-image img {
-    position: relative;
-    z-index: 1;
 
-    width: 100%;
-    height: 70vh;
+    position:
+        relative;
 
-    object-fit: cover;
+    z-index:
+        1;
 
-    display: block;
+    display:
+        block;
 
-    border-radius: 2px;
+    width:
+        100%;
+
+    height:
+        min(72vh, 700px);
+
+    object-fit:
+        cover;
+
 }
 
-/* =========================
-   MARQUEE
-   ========================= */
+
+/* =====================================================
+   STAR MARQUEE
+   ===================================================== */
 
 .marquee {
-    width: 100%;
-    overflow: hidden;
 
-    background: var(--cream);
+    width:
+        100%;
 
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    overflow:
+        hidden;
 
-    padding: 16px 0;
+    background:
+        var(--cream);
 
-    white-space: nowrap;
+    border-top:
+        1px solid
+        var(--border);
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    padding:
+        13px 0;
+
 }
+
 
 .marquee-track {
-    display: flex;
-    width: max-content;
 
-    animation: marquee 18s linear infinite;
+    display:
+        flex;
+
+    width:
+        max-content;
+
+    animation:
+        stars 22s linear infinite;
+
 }
 
-.marquee-track span {
-    display: block;
 
-    padding-right: 60px;
+.star-line {
 
-    font-size: 13px;
-    letter-spacing: 0.12em;
+    flex-shrink:
+        0;
 
-    color: var(--text);
+    width:
+        100vw;
+
+    text-align:
+        center;
+
+    white-space:
+        nowrap;
+
+    font-size:
+        18px;
+
+    letter-spacing:
+        0.8em;
+
+    color:
+        var(--pink-dark);
+
 }
 
-@keyframes marquee {
+
+/*
+   The two identical lines make the animation
+   seamless.
+*/
+
+@keyframes stars {
 
     from {
-        transform: translateX(0);
+        transform:
+            translateX(0);
     }
 
     to {
-        transform: translateX(-50%);
+        transform:
+            translateX(-100vw);
     }
 
 }
 
-/* =========================
+
+/* =====================================================
    GENERAL SECTIONS
-   ========================= */
+   ===================================================== */
 
 .section {
-    padding: 9vw 5vw;
 
-    background: var(--cream);
+    padding:
+        9vw 5vw;
+
 }
+
 
 .section-heading {
-    margin-bottom: 55px;
 
-    max-width: 900px;
+    margin-bottom:
+        55px;
+
 }
 
-.section-heading h2 {
-    position: relative;
-}
-
-.section-heading h2::after {
-    content: "✦";
-
-    font-size: 25px;
-
-    color: var(--pink-dark);
-
-    margin-left: 15px;
-
-    vertical-align: middle;
-}
 
 .section-heading h2,
 .about h2,
 .contact h2 {
-    font-size: clamp(40px, 5vw, 70px);
 
-    font-weight: 400;
+    font-size:
+        clamp(45px, 5.5vw, 78px);
 
-    letter-spacing: -0.04em;
+    font-weight:
+        400;
+
+    letter-spacing:
+        -0.05em;
+
+    line-height:
+        0.95;
+
 }
 
 
-/* =========================
+.section-heading h2 span,
+.about h2 span {
+
+    color:
+        var(--pink-dark);
+
+}
+
+
+/* =====================================================
    PHOTOGRAPHY
-   ========================= */
+   ===================================================== */
 
-#photography {
-    background: var(--yellow-light);
+.photography-section {
 
-    padding-top: 8vw;
+    background:
+        var(--yellow-light);
+
 }
 
 
-/* PHOTO GRID */
+/*
+   Masonry-style layout
+*/
 
 .photo-grid {
-    display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    columns:
+        2 400px;
 
-    gap: 25px;
+    column-gap:
+        25px;
 
-    align-items: start;
 }
 
-.photo-grid img {
-    width: 100%;
 
-    height: auto;
+.photo {
 
-    display: block;
+    break-inside:
+        avoid;
+
+    margin-bottom:
+        25px;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--cream);
+
+}
+
+
+.photo img {
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    display:
+        block;
 
     transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
+        transform 0.5s ease;
 
-.photo-grid img:hover {
-    transform: scale(1.02) rotate(-0.3deg);
-
-    box-shadow: 10px 10px 0 var(--pink);
 }
 
 
-/* Make some images slightly offset
-   for a more editorial layout */
+.photo:hover img {
 
-.photo-grid img:nth-child(2) {
-    margin-top: 70px;
-}
+    transform:
+        scale(1.03);
 
-.photo-grid img:nth-child(4) {
-    margin-top: 40px;
 }
 
 
-/* =========================
+/* =====================================================
    MARKETING
-   ========================= */
+   ===================================================== */
 
 .marketing {
-    background: var(--pink);
 
-    color: var(--text);
+    background:
+        var(--pink);
+
 }
 
-.marketing .eyebrow {
-    color: var(--pink-dark);
-}
 
 .marketing-content {
-    display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    display:
+        grid;
 
-    gap: 24px;
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        25px;
+
 }
 
-.marketing-content > div {
-    padding: 35px;
 
-    background: var(--cream);
+.marketing-card {
 
-    border: 1px solid var(--border);
+    min-height:
+        320px;
 
-    min-height: 280px;
+    padding:
+        35px;
 
-    display: flex;
+    background:
+        var(--cream);
 
-    flex-direction: column;
+    border:
+        1px solid
+        var(--border);
 
-    justify-content: flex-end;
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        flex-end;
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-}
 
-.marketing-content > div:hover {
-    transform: translateY(-8px);
-
-    box-shadow: 10px 10px 0 var(--yellow);
-}
-
-.marketing-content h3 {
-    font-size: 20px;
-
-    font-weight: 400;
-
-    margin-bottom: 20px;
-}
-
-.marketing-content p {
-    line-height: 1.7;
-
-    color: #634953;
 }
 
 
-/* =========================
+.marketing-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        10px 10px 0
+        var(--yellow);
+
+}
+
+
+.card-number {
+
+    margin-bottom:
+        auto;
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        0.1em;
+
+    color:
+        var(--pink-dark);
+
+}
+
+
+.marketing-card h3 {
+
+    font-size:
+        22px;
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.marketing-card p {
+
+    font-size:
+        15px;
+
+    line-height:
+        1.7;
+
+    color:
+        #634953;
+
+}
+
+
+/* =====================================================
    ABOUT
-   ========================= */
+   ===================================================== */
 
 .about {
-    padding: 10vw 5vw;
 
-    display: grid;
+    padding:
+        10vw 5vw;
 
-    grid-template-columns: 1fr 1fr;
+    display:
+        grid;
 
-    gap: 10vw;
+    grid-template-columns:
+        1fr 1fr;
 
-    background: var(--cream);
+    gap:
+        10vw;
+
+    background:
+        var(--cream);
+
 }
+
+
+.about-heading {
+
+    position:
+        relative;
+
+}
+
 
 .about-text {
-    font-size: 22px;
 
-    line-height: 1.6;
+    max-width:
+        600px;
+
+    font-size:
+        22px;
+
+    line-height:
+        1.6;
+
 }
+
 
 .about-text p + p {
-    margin-top: 30px;
+
+    margin-top:
+        30px;
+
 }
 
 
-/* =========================
+/* =====================================================
    CONTACT
-   ========================= */
+   ===================================================== */
 
 .contact {
-    padding: 10vw 5vw;
 
-    text-align: center;
+    padding:
+        11vw 5vw;
 
-    background: var(--yellow);
+    text-align:
+        center;
+
+    background:
+        var(--yellow);
+
 }
+
 
 .contact .eyebrow {
-    color: var(--pink-dark);
+
+    color:
+        var(--pink-dark);
+
 }
+
 
 .contact h2 {
-    margin-bottom: 30px;
+
+    margin-bottom:
+        35px;
+
 }
 
-.contact > a {
-    font-size: 20px;
 
-    background: var(--cream);
+.email-button {
 
-    padding: 14px 25px;
+    display:
+        inline-block;
 
-    border-radius: 30px;
+    padding:
+        15px 28px;
 
-    display: inline-block;
+    background:
+        var(--cream);
+
+    border-radius:
+        30px;
+
+    font-size:
+        18px;
 
     transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-}
+        transform 0.25s ease;
 
-.contact > a:hover {
-    transform: translateY(-3px);
-
-    background: var(--pink-light);
 }
 
 
-/* HELLO KITTY IMAGE */
+.email-button:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
 
 .contact-image {
-    margin-top: 40px;
+
+    margin-top:
+        40px;
+
 }
+
 
 .contact-image img {
-    width: 100px;
 
-    height: auto;
+    display:
+        block;
 
-    display: block;
+    width:
+        105px;
 
-    margin: 0 auto;
+    height:
+        auto;
+
+    margin:
+        0 auto;
+
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-   ========================= */
+   ===================================================== */
 
 footer {
-    padding: 30px 5vw;
 
-    background: var(--pink-light);
+    padding:
+        25px 5vw;
 
-    border-top: 1px solid var(--border);
+    display:
+        flex;
 
-    font-size: 12px;
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    background:
+        var(--pink-light);
+
+    border-top:
+        1px solid
+        var(--border);
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        0.05em;
+
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-   ========================= */
+   ===================================================== */
 
 @media (max-width: 700px) {
+
 
     /* NAV */
 
     nav {
-        height: auto;
 
-        padding: 25px 5vw;
+        height:
+            auto;
 
-        align-items: flex-start;
+        padding:
+            22px 5vw;
+
+        align-items:
+            flex-start;
+
     }
 
+
     .nav-links {
-        gap: 12px;
 
-        flex-direction: column;
+        gap:
+            10px;
 
-        text-align: right;
+        flex-direction:
+            column;
+
+        text-align:
+            right;
+
     }
 
 
     /* HERO */
 
     .hero {
-        min-height: auto;
 
-        grid-template-columns: 1fr;
+        min-height:
+            auto;
 
-        padding: 15vw 5vw;
+        grid-template-columns:
+            1fr;
+
+        padding:
+            15vw 7vw;
+
     }
+
 
     h1 {
-        font-size: clamp(50px, 15vw, 75px);
+
+        font-size:
+            clamp(55px, 15vw, 85px);
+
     }
+
 
     .hero-image {
-        margin-top: 30px;
+
+        margin-top:
+            30px;
+
     }
 
+
     .hero-image img {
-        height: 60vh;
+
+        height:
+            65vh;
+
     }
 
 
     /* MARQUEE */
 
-    .marquee {
-        padding: 12px 0;
+    .star-line {
+
+        font-size:
+            15px;
+
+        letter-spacing:
+            0.55em;
+
     }
 
-    .marquee-track {
-        font-size: 11px;
+
+    /* SECTIONS */
+
+    .section {
+
+        padding:
+            18vw 7vw;
+
     }
 
 
     /* PHOTOGRAPHY */
 
     .photo-grid {
-        grid-template-columns: 1fr;
 
-        gap: 20px;
-    }
+        columns:
+            1;
 
-    .photo-grid img:nth-child(2),
-    .photo-grid img:nth-child(4) {
-        margin-top: 0;
     }
 
 
     /* MARKETING */
 
     .marketing-content {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .marketing-card {
+
+        min-height:
+            280px;
+
     }
 
 
     /* ABOUT */
 
     .about {
-        grid-template-columns: 1fr;
 
-        gap: 50px;
+        padding:
+            18vw 7vw;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            50px;
+
     }
 
+
     .about-text {
-        font-size: 19px;
+
+        font-size:
+            19px;
+
     }
 
 
     /* CONTACT */
 
     .contact {
-        padding: 20vw 5vw;
+
+        padding:
+            20vw 7vw;
+
+    }
+
+
+    /* FOOTER */
+
+    footer {
+
+        flex-direction:
+            column;
+
     }
 
 }
