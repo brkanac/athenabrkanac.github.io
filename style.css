@@ -3,7 +3,6 @@
    ================================================== */
 
 :root {
-
     --pink: #F8D9E3;
     --pink-light: #FCECEF;
     --pink-dark: #A85C73;
@@ -14,15 +13,14 @@
     --cream: #FFFDF8;
 
     --text: #3F3035;
+    --text-soft: #634953;
 
     --border: #E8C7D0;
-
 }
 
 
-
 /* ==================================================
-   GENERAL
+   RESET AND GENERAL
    ================================================== */
 
 * {
@@ -36,17 +34,12 @@ html {
 }
 
 body {
+    overflow-x: hidden;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     color: var(--text);
-
     background: var(--cream);
-
-    overflow-x: hidden;
 }
 
 a {
@@ -58,23 +51,26 @@ img {
     max-width: 100%;
 }
 
+main {
+    display: block;
+}
 
 
 /* ==================================================
    NAVIGATION
    ================================================== */
 
-nav {
+.site-nav {
+    position: relative;
+    z-index: 20;
 
-    height: 80px;
-
-    padding: 0 5vw;
+    min-height: 80px;
+    padding: 20px 5vw;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
+    gap: 30px;
 
     background: var(--pink);
 
@@ -82,177 +78,210 @@ nav {
 }
 
 .logo {
-
     font-size: 14px;
-
-    font-weight: bold;
-
+    font-weight: 700;
     letter-spacing: 0.08em;
 }
 
 .nav-links {
-
     display: flex;
-
+    align-items: center;
     gap: 30px;
 }
 
 .nav-links a {
+    position: relative;
 
     font-size: 13px;
-
-    transition:
-        color 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-links a::after {
+    content: "";
 
-    color: var(--pink-dark);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--pink-dark);
+
+    transition: width 0.25s ease;
 }
 
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+    width: 100%;
+}
 
 
 /* ==================================================
-   HERO
+   SHARED TYPOGRAPHY
    ================================================== */
 
-.hero {
-
-    min-height:
-        calc(100vh - 80px);
-
-    padding:
-        7vw 5vw;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 6vw;
-
-    align-items: center;
-
-    background:
-        var(--pink-light);
-}
-
-.hero-text {
-    position: relative;
-}
-
 .eyebrow {
+    margin-bottom: 24px;
 
     font-size: 11px;
-
     letter-spacing: 0.15em;
 
-    margin-bottom: 25px;
-
     color: var(--pink-dark);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
 }
 
 h1 {
-
-    font-size:
-        clamp(50px, 6vw, 90px);
-
-    line-height: 0.95;
-
-    font-weight: 400;
-
-    letter-spacing: -0.04em;
+    font-size: clamp(55px, 7vw, 105px);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
 }
 
-.intro {
-
-    max-width: 430px;
-
-    margin-top: 35px;
-
-    font-size: 17px;
-
-    line-height: 1.6;
+h2 {
+    font-size: clamp(45px, 5.5vw, 78px);
+    line-height: 0.96;
+    letter-spacing: -0.05em;
 }
 
-.button {
-
-    display: inline-block;
-
-    margin-top: 35px;
-
-    background:
-        var(--yellow);
-
-    padding:
-        14px 22px;
-
-    border-radius: 30px;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+.accent-star,
+.heading-star {
+    color: var(--pink-dark);
 }
 
-.button:hover {
+.section-intro {
+    max-width: 550px;
+    margin-top: 24px;
 
-    background: #F4DB82;
+    font-size: 16px;
+    line-height: 1.7;
 
-    transform:
-        translateY(-3px);
+    color: var(--text-soft);
 }
-
 
 
 /* ==================================================
-   HERO IMAGE
+   BUTTONS AND LINKS
    ================================================== */
 
-.hero-image {
+.pill-button {
+    display: inline-block;
 
+    padding: 15px 24px;
+
+    background: var(--yellow);
+    border-radius: 100px;
+
+    font-size: 15px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.pill-button:hover,
+.pill-button:focus-visible {
+    transform: translateY(-4px);
+
+    background: #F4DB82;
+}
+
+.portfolio-link-wrapper {
+    margin-top: 80px;
+
+    text-align: center;
+}
+
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid var(--text);
+
+    font-size: clamp(18px, 2vw, 24px);
+
+    transition:
+        color 0.2s ease,
+        gap 0.2s ease;
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus-visible {
+    gap: 22px;
+
+    color: var(--pink-dark);
+}
+
+
+/* ==================================================
+   HOME HERO
+   ================================================== */
+
+.hero {
+    min-height: calc(100vh - 80px);
+    padding: 7vw 5vw;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 6vw;
+
+    background: var(--pink-light);
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.intro {
+    max-width: 480px;
+    margin-top: 35px;
+
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.hero-text .pill-button {
+    margin-top: 35px;
+}
+
+.hero-image {
     position: relative;
 }
 
 .hero-image::after {
-
     content: "";
 
     position: absolute;
-
-    width: 100%;
-
-    height: 100%;
-
-    background:
-        var(--yellow);
-
-    top: 20px;
-
-    left: 20px;
+    inset: 20px -20px -20px 20px;
 
     z-index: 0;
+
+    background: var(--yellow);
 }
 
 .hero-image img {
-
     position: relative;
-
     z-index: 1;
 
     width: 100%;
+    height: min(72vh, 700px);
 
-    height: 75vh;
+    display: block;
 
     object-fit: cover;
-
-    border-radius: 2px;
 }
 
 
-
-/* =========================
+/* ==================================================
    STAR MARQUEE
-   ========================= */
+   ================================================== */
 
 .marquee {
     width: 100%;
@@ -260,20 +289,20 @@ h1 {
 
     overflow: hidden;
 
+    display: flex;
+    align-items: center;
+
     background: var(--cream);
 
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-
-    display: flex;
-    align-items: center;
 }
 
 .marquee-track {
+    width: max-content;
+
     display: flex;
     flex-shrink: 0;
-
-    width: max-content;
 
     animation: star-scroll 18s linear infinite;
 }
@@ -282,34 +311,23 @@ h1 {
     width: 100vw;
     min-width: 100vw;
 
-    flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: space-around;
-
-    padding: 0;
-    margin: 0;
+    flex-shrink: 0;
 }
 
 .marquee-group span {
     display: block;
+    flex-shrink: 0;
 
     font-size: 22px;
     line-height: 1;
 
     color: var(--pink-dark);
-
-    flex-shrink: 0;
 }
 
-
-/* =========================
-   STAR ANIMATION
-   ========================= */
-
 @keyframes star-scroll {
-
     from {
         transform: translateX(0);
     }
@@ -317,451 +335,346 @@ h1 {
     to {
         transform: translateX(-100vw);
     }
+}
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .marquee-track {
+        animation: none;
+    }
 }
 
 
 /* ==================================================
-   GENERAL SECTIONS
+   SHARED HOME SECTIONS
    ================================================== */
 
 .section {
-
-    padding:
-        7vw 5vw;
-
-    background:
-        var(--cream);
+    padding: 8vw 5vw;
 }
 
 .section-heading {
-
-    margin-bottom:
-        80px;
-
-    max-width:
-        1000px;
+    max-width: 1000px;
+    margin-bottom: 80px;
 }
-
-.section-heading h2,
-.about h2,
-.contact h2 {
-
-    font-size:
-        clamp(40px, 5vw, 70px);
-
-    font-weight: 400;
-
-    letter-spacing:
-        -0.04em;
-}
-
 
 
 /* ==================================================
-   PHOTOGRAPHY
+   HOME PHOTOGRAPHY PREVIEW
    ================================================== */
 
-#photography {
-
-    background:
-        var(--yellow-light);
-
-    padding-top:
-        6vw;
+.photography-section {
+    background: var(--yellow-light);
 }
 
-
-#photography .section-heading {
-
-    margin-bottom:
-        80px;
+.photo-category + .photo-category {
+    margin-top: 120px;
 }
 
+.category-heading {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
 
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
 
-/* ==================================================
-   PHOTO CATEGORIES
-   ================================================== */
-
-.photo-category {
-
-    margin-bottom:
-        130px;
+    border-bottom: 1px solid var(--border);
 }
 
-.photo-category:last-child {
-
-    margin-bottom:
-        0;
+.category-heading > div {
+    flex-shrink: 0;
 }
 
+.category-number {
+    margin-bottom: 8px;
 
-.photo-category-heading {
+    font-size: 11px;
+    letter-spacing: 0.12em;
 
-    margin-bottom:
-        40px;
-
-    padding-bottom:
-        18px;
-
-    border-bottom:
-        1px solid var(--border);
+    color: var(--pink-dark);
 }
 
-
-.photo-category-heading h3 {
-
-    font-size:
-        30px;
-
-    font-weight:
-        400;
-
-    text-transform:
-        lowercase;
-
-    margin-bottom:
-        8px;
+.category-heading h3 {
+    font-size: clamp(30px, 3vw, 44px);
+    letter-spacing: -0.035em;
 }
 
+.category-heading > p {
+    max-width: 320px;
 
-.photo-category-heading p {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: right;
 
-    font-size:
-        14px;
-
-    color:
-        var(--pink-dark);
-
-    line-height:
-        1.5;
+    color: var(--text-soft);
 }
 
+.landscape-preview {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    align-items: start;
+    gap: 22px;
+}
 
-
-/* ==================================================
-   LANDSCAPE PHOTOGRAPHY
-   ================================================== */
-
-.landscape-grid {
+.portrait-preview {
+    max-width: 1000px;
 
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap:
-        24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 22px;
 }
 
 
-.landscape-grid img {
+/* Preserve every portfolio image's original crop */
 
-    width:
-        100%;
+.photo-card {
+    margin: 0;
 
-    height:
-        500px;
+    overflow: hidden;
 
-    object-fit:
-        cover;
-
-    display:
-        block;
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+    background: transparent;
 }
 
+.photo-card img {
+    width: 100%;
+    height: auto;
 
-.landscape-grid img:first-child {
+    display: block;
 
-    grid-column:
-        span 2;
-
-    height:
-        650px;
+    transition: transform 0.5s ease;
 }
 
-
-.landscape-grid img:hover {
-
-    transform:
-        translateY(-6px);
-
-    box-shadow:
-        10px 10px 0 var(--pink);
+.photo-card:hover img {
+    transform: scale(1.02);
 }
-
-
-
-/* ==================================================
-   PORTRAIT PHOTOGRAPHY
-   ================================================== */
-
-.portrait-grid {
-
-    columns:
-        3;
-
-    column-gap:
-        24px;
-}
-
-
-.portrait-grid img {
-
-    width:
-        100%;
-
-    display:
-        block;
-
-    margin-bottom:
-        24px;
-
-    break-inside:
-        avoid;
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-
-.portrait-grid img:hover {
-
-    transform:
-        scale(1.015);
-
-    box-shadow:
-        10px 10px 0 var(--yellow);
-}
-
 
 
 /* ==================================================
    MARKETING
    ================================================== */
 
-.marketing {
-
-    background:
-        var(--pink);
-
-    color:
-        var(--text);
+.marketing-section {
+    background: var(--pink);
 }
 
-
-.marketing .eyebrow {
-
-    color:
-        var(--pink-dark);
+.marketing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
 }
 
+.marketing-card {
+    min-height: 320px;
+    padding: 35px;
 
-.marketing-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:
-        24px;
-}
-
-
-.marketing-content > div {
-
-    padding:
-        35px;
-
-    background:
-        var(--cream);
-
-    border:
-        1px solid var(--border);
-
-    min-height:
-        280px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        flex-end;
+    background: var(--cream);
+    border: 1px solid var(--border);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
+.marketing-card:hover {
+    transform: translateY(-8px);
 
-.marketing-content > div:hover {
-
-    transform:
-        translateY(-8px);
-
-    box-shadow:
-        10px 10px 0 var(--yellow);
+    box-shadow: 10px 10px 0 var(--yellow);
 }
 
+.card-number {
+    margin-bottom: auto;
 
-.marketing-content h3 {
+    font-size: 11px;
+    letter-spacing: 0.12em;
 
-    font-size:
-        20px;
-
-    font-weight:
-        400;
-
-    margin-bottom:
-        20px;
+    color: var(--pink-dark);
 }
 
+.marketing-card h3 {
+    margin: 50px 0 18px;
 
-.marketing-content p {
-
-    line-height:
-        1.7;
-
-    color:
-        #634953;
+    font-size: 22px;
 }
 
+.marketing-card p {
+    font-size: 15px;
+    line-height: 1.7;
+
+    color: var(--text-soft);
+}
 
 
 /* ==================================================
    ABOUT
    ================================================== */
 
-.about {
+.about-section {
+    padding: 10vw 5vw;
 
-    padding:
-        10vw 5vw;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10vw;
 
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:
-        10vw;
-
-    background:
-        var(--cream);
+    background: var(--cream);
 }
-
 
 .about-text {
+    max-width: 600px;
 
-    font-size:
-        22px;
-
-    line-height:
-        1.6;
+    font-size: 22px;
+    line-height: 1.6;
 }
-
 
 .about-text p + p {
-
-    margin-top:
-        30px;
+    margin-top: 30px;
 }
-
 
 
 /* ==================================================
    CONTACT
    ================================================== */
 
-.contact {
+.contact-section {
+    padding: 11vw 5vw;
 
-    padding:
-        12vw 5vw;
+    text-align: center;
 
-    text-align:
-        center;
-
-    background:
-        var(--yellow);
+    background: var(--yellow);
 }
 
-
-.contact .eyebrow {
-
-    color:
-        var(--pink-dark);
+.contact-section h2 {
+    margin-bottom: 35px;
 }
 
-
-.contact h2 {
-
-    margin-bottom:
-        30px;
+.contact-button {
+    background: var(--cream);
 }
-
-
-.contact a {
-
-    font-size:
-        20px;
-
-    background:
-        var(--cream);
-
-    padding:
-        14px 25px;
-
-    border-radius:
-        30px;
-
-    display:
-        inline-block;
-
-    transition:
-        transform 0.2s ease;
-}
-
-
-.contact a:hover {
-
-    transform:
-        translateY(-3px);
-}
-
 
 .contact-image {
-
-    margin-top:
-        30px;
+    margin-top: 40px;
 }
-
 
 .contact-image img {
+    width: 105px;
+    height: auto;
 
-    width:
-        100px;
+    display: block;
 
-    height:
-        auto;
-
-    display:
-        block;
-
-    margin:
-        0 auto;
+    margin: 0 auto;
 }
 
+
+/* ==================================================
+   FULL PHOTOGRAPHY PAGE
+   ================================================== */
+
+.portfolio-hero {
+    padding: 9vw 5vw;
+
+    background: var(--pink-light);
+}
+
+.portfolio-hero p:last-child {
+    max-width: 500px;
+    margin-top: 35px;
+
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.portfolio-gallery-section {
+    padding: 9vw 5vw;
+}
+
+.landscape-gallery-section {
+    background: var(--yellow-light);
+}
+
+.portrait-gallery-section {
+    background: var(--pink-light);
+}
+
+.gallery-heading {
+    margin-bottom: 60px;
+    padding-bottom: 25px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 50px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.gallery-heading h2 {
+    font-size: clamp(48px, 6vw, 88px);
+}
+
+.gallery-heading > p {
+    max-width: 320px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: right;
+
+    color: var(--text-soft);
+}
+
+
+/* Natural-height grids preserve original cropping */
+
+.full-landscape-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 25px;
+}
+
+.full-portrait-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 25px;
+}
+
+.gallery-photo {
+    margin: 0;
+
+    overflow: hidden;
+}
+
+.gallery-photo img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.gallery-photo:hover img {
+    transform: scale(1.015);
+}
+
+.return-home {
+    padding: 7vw 5vw;
+
+    text-align: center;
+
+    background: var(--cream);
+}
 
 
 /* ==================================================
@@ -769,20 +682,57 @@ h1 {
    ================================================== */
 
 footer {
+    padding: 28px 5vw;
 
-    padding:
-        30px 5vw;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 
-    background:
-        var(--pink-light);
+    background: var(--pink-light);
 
-    border-top:
-        1px solid var(--border);
+    border-top: 1px solid var(--border);
 
-    font-size:
-        12px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
 }
 
+
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (max-width: 950px) {
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        height: auto;
+    }
+
+    .marketing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .full-portrait-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
 
 
 /* ==================================================
@@ -791,267 +741,97 @@ footer {
 
 @media (max-width: 700px) {
 
-
-    /* NAV */
-
-    nav {
-
-        height:
-            auto;
-
-        padding:
-            25px 5vw;
-
-        align-items:
-            flex-start;
+    .site-nav {
+        align-items: flex-start;
     }
-
 
     .nav-links {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
 
-        gap:
-            12px;
-
-        flex-direction:
-            column;
-
-        text-align:
-            right;
+        text-align: right;
     }
 
+    h1 {
+        font-size: clamp(54px, 15vw, 82px);
+    }
 
-
-    /* HERO */
+    h2 {
+        font-size: clamp(43px, 12vw, 65px);
+    }
 
     .hero {
-
-        grid-template-columns:
-            1fr;
-
-        padding:
-            12vw 5vw;
+        min-height: auto;
+        padding: 15vw 7vw;
     }
 
-
-    .hero-image img {
-
-        height:
-            60vh;
+    .hero-image::after {
+        inset: 12px -12px -12px 12px;
     }
-
-
-
-    /* MARQUEE */
 
     .marquee {
-
-        height:
-            48px;
+        height: 48px;
     }
-
 
     .marquee-group span {
-
-        font-size:
-            20px;
+        font-size: 19px;
     }
 
-
-
-    /* PHOTOGRAPHY */
-
-    #photography {
-
-        padding-top:
-            12vw;
+    .section,
+    .portfolio-gallery-section {
+        padding: 18vw 7vw;
     }
-
 
     .section-heading {
-
-        margin-bottom:
-            60px;
+        margin-bottom: 60px;
     }
 
-
-    .photo-category {
-
-        margin-bottom:
-            80px;
+    .category-heading,
+    .gallery-heading {
+        display: block;
     }
 
+    .category-heading > p,
+    .gallery-heading > p {
+        margin-top: 15px;
 
-    .photo-category-heading h3 {
-
-        font-size:
-            26px;
+        text-align: left;
     }
 
-
-    .landscape-grid {
-
-        grid-template-columns:
-            1fr;
+    .landscape-preview,
+    .portrait-preview,
+    .full-landscape-grid,
+    .full-portrait-grid {
+        grid-template-columns: 1fr;
     }
 
-
-    .landscape-grid img {
-
-        height:
-            auto;
+    .photo-category + .photo-category {
+        margin-top: 85px;
     }
 
-
-    .landscape-grid img:first-child {
-
-        grid-column:
-            span 1;
-
-        height:
-            auto;
-    }
-
-
-    .portrait-grid {
-
-        columns:
-            1;
-    }
-
-
-
-    /* MARKETING */
-
-    .marketing-content {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-
-    /* ABOUT */
-
-    .about {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            50px;
-    }
-
-}
-/* =========================
-   PHOTOGRAPHY PORTFOLIO
-   ========================= */
-
-.photography {
-    background: var(--yellow-light);
-}
-
-.photo-category {
-    margin-top: 80px;
-}
-
-.category-heading {
-    margin-bottom: 30px;
-}
-
-.category-heading h3 {
-    font-size: 28px;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-}
-
-.category-heading p {
-    font-size: 15px;
-    color: #634953;
-    line-height: 1.5;
-}
-
-
-/* =========================
-   LANDSCAPE
-   ========================= */
-
-.landscape-grid {
-    display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    gap: 20px;
-    align-items: start;
-}
-
-
-/* =========================
-   PHOTO CARDS
-   ========================= */
-
-.photo-card {
-    margin: 0;
-    overflow: hidden;
-    background: var(--cream);
-}
-
-.photo-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-
-    transition: transform 0.5s ease;
-}
-
-.photo-card:hover img {
-    transform: scale(1.025);
-}
-
-
-/* =========================
-   PORTRAIT
-   ========================= */
-
-.portrait-category {
-    margin-top: 120px;
-}
-
-.portrait-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    align-items: start;
-}
-
-.portrait-grid .photo-card img {
-    width: 100%;
-    height: auto;
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 700px) {
-
-    .photo-category {
+    .portfolio-link-wrapper {
         margin-top: 60px;
     }
 
-    .landscape-grid {
-        grid-template-columns: 1fr;
+    .about-section {
+        padding: 18vw 7vw;
     }
 
-    .landscape-grid .photo-card,
-    .landscape-grid .photo-card.large {
-        height: auto;
+    .about-text {
+        font-size: 19px;
     }
 
-    .portrait-category {
-        margin-top: 80px;
+    .contact-section {
+        padding: 20vw 7vw;
     }
 
-    .portrait-grid {
-        grid-template-columns: 1fr;
+    .portfolio-hero {
+        padding: 18vw 7vw;
+    }
+
+    footer {
+        flex-direction: column;
     }
 
 }
