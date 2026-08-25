@@ -414,3 +414,34 @@ footer {
     }
 
 }
+/* =========================
+   MARQUEE
+   ========================= */
+
+.marquee {
+    overflow: hidden;
+    background: var(--pink);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+}
+
+.marquee-track {
+    width: max-content;
+
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--pink-dark);
+
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
