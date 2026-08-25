@@ -1,1057 +1,427 @@
-/* ==================================================
-   COLOR PALETTE
-   ================================================== */
+<!DOCTYPE html>
+<html lang="en">
 
-:root {
+<head>
+    <meta charset="UTF-8">
 
-    --pink: #F8D9E3;
-    --pink-light: #FCECEF;
-    --pink-dark: #A85C73;
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    --yellow: #F8E7A8;
-    --yellow-light: #FFF5CC;
+    <meta
+        name="description"
+        content="The photography, film, and marketing portfolio of Athena Brkanac."
+    >
 
-    --cream: #FFFDF8;
+    <title>Athena Brkanac — Photography & Marketing</title>
 
-    --text: #3F3035;
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    --border: #E8C7D0;
+<body>
 
-}
+    <!-- NAVIGATION -->
 
+    <nav class="site-nav">
 
+        <a href="index.html" class="logo">
+            ATHENA BRKANAC
+        </a>
 
-/* ==================================================
-   GENERAL
-   ================================================== */
+        <div class="nav-links">
+            <a href="#photography">Photography</a>
+            <a href="#marketing">Marketing</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    </nav>
 
-html {
-    scroll-behavior: smooth;
-}
 
-body {
+    <main>
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+        <!-- HERO -->
 
-    color: var(--text);
+        <section class="hero">
 
-    background: var(--cream);
+            <div class="hero-text">
 
-    overflow-x: hidden;
-}
+                <p class="eyebrow">
+                    PHOTOGRAPHY · FILM · MARKETING
+                </p>
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+                <h1>
+                    Hello!<br>
+                    I'm Athena <span class="accent-star">☆</span>
+                </h1>
 
-img {
-    max-width: 100%;
-}
+                <p class="intro">
+                    I am currently a student at Barnard College of Columbia
+                    University studying Economics and Film. My interests lie
+                    at the intersection of culture and visual media. I hope
+                    to explore these connections through my work.
+                </p>
 
+                <a href="#photography" class="pill-button">
+                    View my work ↓
+                </a>
 
+            </div>
 
-/* ==================================================
-   NAVIGATION
-   ================================================== */
 
-nav {
+            <div class="hero-image">
 
-    height: 80px;
+                <img
+                    src="images/athena.JPG"
+                    alt="Athena standing beside a large character display"
+                >
 
-    padding: 0 5vw;
+            </div>
 
-    display: flex;
+        </section>
 
-    align-items: center;
 
-    justify-content: space-between;
+        <!-- MOVING STAR BANNER -->
 
-    background: var(--pink);
+        <div class="marquee" aria-hidden="true">
 
-    border-bottom: 1px solid var(--border);
-}
+            <div class="marquee-track">
 
-.logo {
+                <div class="marquee-group">
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                </div>
 
-    font-size: 14px;
+                <div class="marquee-group">
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                </div>
 
-    font-weight: bold;
+            </div>
 
-    letter-spacing: 0.08em;
-}
+        </div>
 
-.nav-links {
 
-    display: flex;
+        <!-- PHOTOGRAPHY PREVIEW -->
 
-    gap: 30px;
-}
+        <section
+            id="photography"
+            class="section photography-section"
+        >
 
-.nav-links a {
+            <div class="section-heading">
 
-    font-size: 13px;
+                <p class="eyebrow">
+                    01 — PHOTOGRAPHY
+                </p>
 
-    transition:
-        color 0.2s ease;
-}
+                <h2>
+                    Selected work
+                    <span class="heading-star">✦</span>
+                </h2>
 
-.nav-links a:hover {
+                <p class="section-intro">
+                    A small selection of places, people, and moments.
+                </p>
 
-    color: var(--pink-dark);
-}
+            </div>
 
 
+            <!-- LANDSCAPE -->
 
-/* ==================================================
-   HERO
-   ================================================== */
+            <div class="photo-category">
 
-.hero {
+                <div class="category-heading">
 
-    min-height:
-        calc(100vh - 80px);
+                    <div>
+                        <p class="category-number">01</p>
+                        <h3>Landscape</h3>
+                    </div>
 
-    padding:
-        7vw 5vw;
+                    <p>
+                        Places I've been and things I've noticed.
+                    </p>
 
-    display: grid;
+                </div>
 
-    grid-template-columns:
-        1fr 1fr;
 
-    gap: 6vw;
+                <div class="landscape-preview">
 
-    align-items: center;
+                    <figure class="photo-card">
 
-    background:
-        var(--pink-light);
-}
+                        <img
+                            src="images/alpacha.jpg"
+                            alt="Alpacas standing in front of a multicolored mountain"
+                        >
 
-.hero-text {
-    position: relative;
-}
+                    </figure>
 
-.eyebrow {
 
-    font-size: 11px;
+                    <figure class="photo-card">
 
-    letter-spacing: 0.15em;
+                        <img
+                            src="images/duomo.JPG"
+                            alt="Interior architectural photography"
+                        >
 
-    margin-bottom: 25px;
+                    </figure>
 
-    color: var(--pink-dark);
-}
+                </div>
 
-h1 {
+            </div>
 
-    font-size:
-        clamp(50px, 6vw, 90px);
 
-    line-height: 0.95;
+            <!-- PORTRAIT -->
 
-    font-weight: 400;
+            <div class="photo-category portrait-category">
 
-    letter-spacing: -0.04em;
-}
+                <div class="category-heading">
 
-.intro {
+                    <div>
+                        <p class="category-number">02</p>
+                        <h3>Portrait</h3>
+                    </div>
 
-    max-width: 430px;
+                    <p>
+                        People, personalities, and little moments.
+                    </p>
 
-    margin-top: 35px;
+                </div>
 
-    font-size: 17px;
 
-    line-height: 1.6;
-}
+                <div class="portrait-preview">
 
-.button {
+                    <figure class="photo-card">
 
-    display: inline-block;
+                        <img
+                            src="images/cami.jpeg"
+                            alt="Close portrait featuring jewelry and painted nails"
+                        >
 
-    margin-top: 35px;
+                    </figure>
 
-    background:
-        var(--yellow);
 
-    padding:
-        14px 22px;
+                    <figure class="photo-card">
 
-    border-radius: 30px;
+                        <img
+                            src="images/elena.jpg"
+                            alt="Portrait photography by Athena Brkanac"
+                        >
 
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-}
+                    </figure>
 
-.button:hover {
+                </div>
 
-    background: #F4DB82;
+            </div>
 
-    transform:
-        translateY(-3px);
-}
 
+            <!-- FULL PORTFOLIO BUTTON -->
 
+            <div class="portfolio-link-wrapper">
 
-/* ==================================================
-   HERO IMAGE
-   ================================================== */
+                <a
+                    href="photography.html"
+                    class="portfolio-link"
+                >
+                    View full photography portfolio
+                    <span aria-hidden="true">→</span>
+                </a>
 
-.hero-image {
+            </div>
 
-    position: relative;
-}
+        </section>
 
-.hero-image::after {
 
-    content: "";
+        <!-- MARKETING -->
 
-    position: absolute;
+        <section
+            id="marketing"
+            class="section marketing-section"
+        >
 
-    width: 100%;
+            <div class="section-heading">
 
-    height: 100%;
+                <p class="eyebrow">
+                    02 — MARKETING
+                </p>
 
-    background:
-        var(--yellow);
+                <h2>
+                    Creative strategy &amp; content
+                    <span class="heading-star">✦</span>
+                </h2>
 
-    top: 20px;
+                <p class="section-intro">
+                    Combining visual storytelling with audience,
+                    identity, and purpose.
+                </p>
 
-    left: 20px;
+            </div>
 
-    z-index: 0;
-}
 
-.hero-image img {
+            <div class="marketing-grid">
 
-    position: relative;
+                <article class="marketing-card">
 
-    z-index: 1;
+                    <p class="card-number">01</p>
 
-    width: 100%;
+                    <h3>PR &amp; Social Media</h3>
 
-    height: 75vh;
+                    <p>
+                        Creating and managing social content, developing
+                        visual identities, and shaping digital presence
+                        for student organizations.
+                    </p>
 
-    object-fit: cover;
+                </article>
 
-    border-radius: 2px;
-}
 
+                <article class="marketing-card">
 
+                    <p class="card-number">02</p>
 
-/* =========================
-   STAR MARQUEE
-   ========================= */
+                    <h3>Photography &amp; Content</h3>
 
-.marquee {
-    width: 100%;
-    height: 54px;
+                    <p>
+                        Producing event photography and social-first visual
+                        content informed by audience, branding, and story.
+                    </p>
 
-    overflow: hidden;
+                </article>
 
-    background: var(--cream);
 
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+                <article class="marketing-card">
 
-    display: flex;
-    align-items: center;
-}
+                    <p class="card-number">03</p>
 
-.marquee-track {
-    display: flex;
-    flex-shrink: 0;
+                    <h3>Creative Direction</h3>
 
-    width: max-content;
+                    <p>
+                        Developing concepts, references, and campaigns
+                        that translate ideas into cohesive visual experiences.
+                    </p>
 
-    animation: star-scroll 18s linear infinite;
-}
+                </article>
 
-.marquee-group {
-    width: 100vw;
-    min-width: 100vw;
+            </div>
 
-    flex-shrink: 0;
+        </section>
 
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
 
-    padding: 0;
-    margin: 0;
-}
+        <!-- ABOUT -->
 
-.marquee-group span {
-    display: block;
+        <section id="about" class="about-section">
 
-    font-size: 22px;
-    line-height: 1;
+            <div class="about-heading">
 
-    color: var(--pink-dark);
+                <p class="eyebrow">
+                    03 — ABOUT
+                </p>
 
-    flex-shrink: 0;
-}
+                <h2>
+                    A little<br>
+                    about me. <span class="accent-star">☆</span>
+                </h2>
 
+            </div>
 
-/* =========================
-   STAR ANIMATION
-   ========================= */
 
-@keyframes star-scroll {
+            <div class="about-text">
 
-    from {
-        transform: translateX(0);
-    }
+                <p>
+                    I'm Athena, a Barnard student interested in the
+                    intersection of photography, film, marketing, and culture.
+                </p>
 
-    to {
-        transform: translateX(-100vw);
-    }
+                <p>
+                    I love creating images that feel personal and finding ways
+                    for visual storytelling to make people care about a brand,
+                    place, or idea.
+                </p>
 
-}
+                <p>
+                    Whether I am behind the camera or developing a creative
+                    strategy, I want my work to feel thoughtful, expressive,
+                    and memorable.
+                </p>
 
+            </div>
 
-/* ==================================================
-   GENERAL SECTIONS
-   ================================================== */
+        </section>
 
-.section {
 
-    padding:
-        7vw 5vw;
+        <!-- CONTACT -->
 
-    background:
-        var(--cream);
-}
+        <section id="contact" class="contact-section">
 
-.section-heading {
+            <p class="eyebrow">
+                04 — CONTACT
+            </p>
 
-    margin-bottom:
-        80px;
+            <h2>
+                Let's make something.
+            </h2>
 
-    max-width:
-        1000px;
-}
+            <a
+                href="mailto:ab5616@barnard.edu"
+                class="pill-button contact-button"
+            >
+                Email me!
+            </a>
 
-.section-heading h2,
-.about h2,
-.contact h2 {
 
-    font-size:
-        clamp(40px, 5vw, 70px);
+            <div class="contact-image">
 
-    font-weight: 400;
+                <img
+                    src="images/hellokitty.png"
+                    alt=""
+                >
 
-    letter-spacing:
-        -0.04em;
-}
+            </div>
 
+        </section>
 
+    </main>
 
-/* ==================================================
-   PHOTOGRAPHY
-   ================================================== */
 
-#photography {
+    <!-- FOOTER -->
 
-    background:
-        var(--yellow-light);
+    <footer>
 
-    padding-top:
-        6vw;
-}
+        <span>© 2026 Athena Brkanac</span>
 
+        <span>Photography · Film · Marketing</span>
 
-#photography .section-heading {
+    </footer>
 
-    margin-bottom:
-        80px;
-}
+</body>
 
-
-
-/* ==================================================
-   PHOTO CATEGORIES
-   ================================================== */
-
-.photo-category {
-
-    margin-bottom:
-        130px;
-}
-
-.photo-category:last-child {
-
-    margin-bottom:
-        0;
-}
-
-
-.photo-category-heading {
-
-    margin-bottom:
-        40px;
-
-    padding-bottom:
-        18px;
-
-    border-bottom:
-        1px solid var(--border);
-}
-
-
-.photo-category-heading h3 {
-
-    font-size:
-        30px;
-
-    font-weight:
-        400;
-
-    text-transform:
-        lowercase;
-
-    margin-bottom:
-        8px;
-}
-
-
-.photo-category-heading p {
-
-    font-size:
-        14px;
-
-    color:
-        var(--pink-dark);
-
-    line-height:
-        1.5;
-}
-
-
-
-/* ==================================================
-   LANDSCAPE PHOTOGRAPHY
-   ================================================== */
-
-.landscape-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap:
-        24px;
-}
-
-
-.landscape-grid img {
-
-    width:
-        100%;
-
-    height:
-        500px;
-
-    object-fit:
-        cover;
-
-    display:
-        block;
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-
-.landscape-grid img:first-child {
-
-    grid-column:
-        span 2;
-
-    height:
-        650px;
-}
-
-
-.landscape-grid img:hover {
-
-    transform:
-        translateY(-6px);
-
-    box-shadow:
-        10px 10px 0 var(--pink);
-}
-
-
-
-/* ==================================================
-   PORTRAIT PHOTOGRAPHY
-   ================================================== */
-
-.portrait-grid {
-
-    columns:
-        3;
-
-    column-gap:
-        24px;
-}
-
-
-.portrait-grid img {
-
-    width:
-        100%;
-
-    display:
-        block;
-
-    margin-bottom:
-        24px;
-
-    break-inside:
-        avoid;
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-
-.portrait-grid img:hover {
-
-    transform:
-        scale(1.015);
-
-    box-shadow:
-        10px 10px 0 var(--yellow);
-}
-
-
-
-/* ==================================================
-   MARKETING
-   ================================================== */
-
-.marketing {
-
-    background:
-        var(--pink);
-
-    color:
-        var(--text);
-}
-
-
-.marketing .eyebrow {
-
-    color:
-        var(--pink-dark);
-}
-
-
-.marketing-content {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:
-        24px;
-}
-
-
-.marketing-content > div {
-
-    padding:
-        35px;
-
-    background:
-        var(--cream);
-
-    border:
-        1px solid var(--border);
-
-    min-height:
-        280px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        flex-end;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-.marketing-content > div:hover {
-
-    transform:
-        translateY(-8px);
-
-    box-shadow:
-        10px 10px 0 var(--yellow);
-}
-
-
-.marketing-content h3 {
-
-    font-size:
-        20px;
-
-    font-weight:
-        400;
-
-    margin-bottom:
-        20px;
-}
-
-
-.marketing-content p {
-
-    line-height:
-        1.7;
-
-    color:
-        #634953;
-}
-
-
-
-/* ==================================================
-   ABOUT
-   ================================================== */
-
-.about {
-
-    padding:
-        10vw 5vw;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:
-        10vw;
-
-    background:
-        var(--cream);
-}
-
-
-.about-text {
-
-    font-size:
-        22px;
-
-    line-height:
-        1.6;
-}
-
-
-.about-text p + p {
-
-    margin-top:
-        30px;
-}
-
-
-
-/* ==================================================
-   CONTACT
-   ================================================== */
-
-.contact {
-
-    padding:
-        12vw 5vw;
-
-    text-align:
-        center;
-
-    background:
-        var(--yellow);
-}
-
-
-.contact .eyebrow {
-
-    color:
-        var(--pink-dark);
-}
-
-
-.contact h2 {
-
-    margin-bottom:
-        30px;
-}
-
-
-.contact a {
-
-    font-size:
-        20px;
-
-    background:
-        var(--cream);
-
-    padding:
-        14px 25px;
-
-    border-radius:
-        30px;
-
-    display:
-        inline-block;
-
-    transition:
-        transform 0.2s ease;
-}
-
-
-.contact a:hover {
-
-    transform:
-        translateY(-3px);
-}
-
-
-.contact-image {
-
-    margin-top:
-        30px;
-}
-
-
-.contact-image img {
-
-    width:
-        100px;
-
-    height:
-        auto;
-
-    display:
-        block;
-
-    margin:
-        0 auto;
-}
-
-
-
-/* ==================================================
-   FOOTER
-   ================================================== */
-
-footer {
-
-    padding:
-        30px 5vw;
-
-    background:
-        var(--pink-light);
-
-    border-top:
-        1px solid var(--border);
-
-    font-size:
-        12px;
-}
-
-
-
-/* ==================================================
-   MOBILE
-   ================================================== */
-
-@media (max-width: 700px) {
-
-
-    /* NAV */
-
-    nav {
-
-        height:
-            auto;
-
-        padding:
-            25px 5vw;
-
-        align-items:
-            flex-start;
-    }
-
-
-    .nav-links {
-
-        gap:
-            12px;
-
-        flex-direction:
-            column;
-
-        text-align:
-            right;
-    }
-
-
-
-    /* HERO */
-
-    .hero {
-
-        grid-template-columns:
-            1fr;
-
-        padding:
-            12vw 5vw;
-    }
-
-
-    .hero-image img {
-
-        height:
-            60vh;
-    }
-
-
-
-    /* MARQUEE */
-
-    .marquee {
-
-        height:
-            48px;
-    }
-
-
-    .marquee-group span {
-
-        font-size:
-            20px;
-    }
-
-
-
-    /* PHOTOGRAPHY */
-
-    #photography {
-
-        padding-top:
-            12vw;
-    }
-
-
-    .section-heading {
-
-        margin-bottom:
-            60px;
-    }
-
-
-    .photo-category {
-
-        margin-bottom:
-            80px;
-    }
-
-
-    .photo-category-heading h3 {
-
-        font-size:
-            26px;
-    }
-
-
-    .landscape-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .landscape-grid img {
-
-        height:
-            auto;
-    }
-
-
-    .landscape-grid img:first-child {
-
-        grid-column:
-            span 1;
-
-        height:
-            auto;
-    }
-
-
-    .portrait-grid {
-
-        columns:
-            1;
-    }
-
-
-
-    /* MARKETING */
-
-    .marketing-content {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-
-    /* ABOUT */
-
-    .about {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            50px;
-    }
-
-}
-/* =========================
-   PHOTOGRAPHY PORTFOLIO
-   ========================= */
-
-.photography {
-    background: var(--yellow-light);
-}
-
-.photo-category {
-    margin-top: 80px;
-}
-
-.category-heading {
-    margin-bottom: 30px;
-}
-
-.category-heading h3 {
-    font-size: 28px;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-}
-
-.category-heading p {
-    font-size: 15px;
-    color: #634953;
-    line-height: 1.5;
-}
-
-
-/* =========================
-   LANDSCAPE
-   ========================= */
-
-.landscape-grid {
-    display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    gap: 20px;
-    align-items: start;
-}
-
-
-/* =========================
-   PHOTO CARDS
-   ========================= */
-
-.photo-card {
-    margin: 0;
-    overflow: hidden;
-    background: var(--cream);
-}
-
-.photo-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-
-    transition: transform 0.5s ease;
-}
-
-.photo-card:hover img {
-    transform: scale(1.025);
-}
-
-
-/* =========================
-   PORTRAIT
-   ========================= */
-
-.portrait-category {
-    margin-top: 120px;
-}
-
-.portrait-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    align-items: start;
-}
-
-.portrait-grid .photo-card img {
-    width: 100%;
-    height: auto;
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 700px) {
-
-    .photo-category {
-        margin-top: 60px;
-    }
-
-    .landscape-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .landscape-grid .photo-card,
-    .landscape-grid .photo-card.large {
-        height: auto;
-    }
-
-    .portrait-category {
-        margin-top: 80px;
-    }
-
-    .portrait-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
+</html>
