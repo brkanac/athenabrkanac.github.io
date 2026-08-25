@@ -979,9 +979,14 @@ footer {
 .landscape-grid {
     display: grid;
     grid-template-columns: 1.35fr 1fr;
-    grid-template-rows: auto;
     gap: 20px;
+    align-items: start;
 }
+
+
+/* =========================
+   PHOTO CARDS
+   ========================= */
 
 .photo-card {
     margin: 0;
@@ -991,19 +996,10 @@ footer {
 
 .photo-card img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
-    object-fit: cover;
 
     transition: transform 0.5s ease;
-}
-
-.landscape-grid .photo-card {
-    height: 500px;
-}
-
-.landscape-grid .photo-card.large {
-    height: 650px;
 }
 
 .photo-card:hover img {
@@ -1023,13 +1019,13 @@ footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    max-width: 900px;
+    align-items: start;
 }
 
-.portrait-grid .photo-card {
-    aspect-ratio: 3 / 4;
+.portrait-grid .photo-card img {
+    width: 100%;
+    height: auto;
 }
-
 
 /* =========================
    MOBILE
