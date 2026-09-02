@@ -698,7 +698,7 @@ footer {
 
 
 /* ==================================================
-   PHOTO LIGHTBOX (SCROLL VIEWER)
+   PHOTO LIGHTBOX (ARROW VIEWER)
    ================================================== */
 
 body.lightbox-locked {
@@ -729,28 +729,16 @@ body.lightbox-locked {
         visibility 0s linear 0s;
 }
 
-.lightbox-track {
+.lightbox-stage {
     height: 100%;
-
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-
-    scroll-snap-type: y mandatory;
-}
-
-.lightbox-slide {
-    height: 100%;
-    padding: 40px 5vw;
+    padding: 40px 90px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
 }
 
-.lightbox-slide img {
+.lightbox-stage img {
     max-width: 100%;
     max-height: 100%;
 
@@ -761,14 +749,10 @@ body.lightbox-locked {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-.lightbox-close {
+.lightbox-close,
+.lightbox-arrow {
     position: fixed;
-    top: 20px;
-    right: 5vw;
     z-index: 101;
-
-    width: 44px;
-    height: 44px;
 
     display: flex;
     align-items: center;
@@ -778,12 +762,41 @@ body.lightbox-locked {
     border: none;
     border-radius: 100px;
 
-    font-size: 26px;
-    line-height: 1;
     color: var(--text);
     cursor: pointer;
 
     transition: transform 0.2s ease;
+}
+
+.lightbox-close {
+    top: 20px;
+    right: 5vw;
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 26px;
+    line-height: 1;
+}
+
+.lightbox-arrow {
+    top: 50%;
+
+    width: 54px;
+    height: 54px;
+
+    transform: translateY(-50%);
+
+    font-size: 30px;
+    line-height: 1;
+}
+
+.lightbox-arrow-prev {
+    left: 5vw;
+}
+
+.lightbox-arrow-next {
+    right: 5vw;
 }
 
 .lightbox-close:hover,
@@ -791,10 +804,9 @@ body.lightbox-locked {
     transform: scale(1.08);
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .lightbox-track {
-        scroll-behavior: auto;
-    }
+.lightbox-arrow:hover,
+.lightbox-arrow:focus-visible {
+    transform: translateY(-50%) scale(1.08);
 }
 
 
@@ -841,6 +853,25 @@ body.lightbox-locked {
    ================================================== */
 
 @media (max-width: 700px) {
+
+    .lightbox-stage {
+        padding: 40px 56px;
+    }
+
+    .lightbox-arrow {
+        width: 40px;
+        height: 40px;
+
+        font-size: 22px;
+    }
+
+    .lightbox-arrow-prev {
+        left: 10px;
+    }
+
+    .lightbox-arrow-next {
+        right: 10px;
+    }
 
     .site-nav {
         align-items: flex-start;

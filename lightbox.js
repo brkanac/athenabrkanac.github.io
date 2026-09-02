@@ -1,13 +1,34 @@
-// Fullscreen scrollable photo lightbox.
-// Click any gallery photo to open it fullscreen, then scroll to browse the rest.
+// Fullscreen photo lightbox with left/right arrow navigation.
+// Click any gallery photo to open it fullscreen, then use the arrow
+// buttons to move through the other photos in that same section only.
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const GROUP_SELECTOR =
+        ".landscape-preview, .portrait-preview, .full-landscape-grid, .full-portrait-grid";
 
     const triggers = Array.from(
         document.querySelectorAll(".gallery-photo img, .photo-card img")
     );
 
     if (triggers.length === 0) return;
+
+    // Group photos by their section so browsing stays within e.g. Landscape.
+    const groups = [];
+    const groupByContainer = new Map();
+
+    triggers.forEach((img) => {
+        const container = img.closest(GROUP_SELECTOR) || document.body;
+
+        let group = groupByContainer.get(container);
+        if (!group) {
+            group = [];
+            groupByContainer.set(container, group);
+            groups.push(group);
+        }
+
+        group.push({ src: img.src, alt: img.alt });
+    });
 
     const overlay = document.createElement("div");
     overlay.className = "lightbox-overlay";
@@ -18,36 +39,62 @@ document.addEventListener("DOMContentLoaded", () => {
     closeButton.setAttribute("aria-label", "Close photo viewer");
     closeButton.innerHTML = "&times;";
 
-    const track = document.createElement("div");
-    track.className = "lightbox-track";
+    const prevButton = document.createElement("button");
+    prevButton.className = "lightbox-arrow lightbox-arrow-prev";
+    prevButton.setAttribute("aria-label", "Previous photo");
+    prevButton.innerHTML = "&#8249;";
 
-    triggers.forEach((img) => {
-        const slide = document.createElement("div");
-        slide.className = "lightbox-slide";
+    const nextButton = document.createElement("button");
+    nextButton.className = "lightbox-arrow lightbox-arrow-next";
+    nextButton.setAttribute("aria-label", "Next photo");
+    nextButton.innerHTML = "&#8250;";
 
-        const slideImg = document.createElement("img");
-        slideImg.src = img.src;
-        slideImg.alt = img.alt;
+    const stage = document.createElement("div");
+    stage.className = "lightbox-stage";
 
-        slide.appendChild(slideImg);
-        track.appendChild(slide);
-    });
+    const stageImg = document.createElement("img");
+    stage.appendChild(stageImg);
 
     overlay.appendChild(closeButton);
-    overlay.appendChild(track);
+    overlay.appendChild(prevButton);
+    overlay.appendChild(stage);
+    overlay.appendChild(nextButton);
     document.body.appendChild(overlay);
 
-    const slides = Array.from(track.children);
+    let currentGroup = null;
+    let currentIndex = 0;
     let lastFocused = null;
 
-    function openLightbox(index) {
+    function render() {
+        const photo = currentGroup[currentIndex];
+        stageImg.src = photo.src;
+        stageImg.alt = photo.alt;
+
+        const hasMultiple = currentGroup.length > 1;
+        prevButton.hidden = !hasMultiple;
+        nextButton.hidden = !hasMultiple;
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+        render();
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % currentGroup.length;
+        render();
+    }
+
+    function openLightbox(group, index) {
         lastFocused = document.activeElement;
+
+        currentGroup = group;
+        currentIndex = index;
+        render();
 
         overlay.classList.add("is-open");
         overlay.setAttribute("aria-hidden", "false");
         document.body.classList.add("lightbox-locked");
-
-        slides[index].scrollIntoView({ block: "start", behavior: "instant" });
 
         closeButton.focus();
     }
@@ -60,11 +107,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (lastFocused) lastFocused.focus();
     }
 
-    triggers.forEach((img, index) => {
-        img.style.cursor = "zoom-in";
-        img.addEventListener("click", () => openLightbox(index));
+    let triggerIndex = 0;
+    groups.forEach((group) => {
+        group.forEach((photo, indexInGroup) => {
+            const img = triggers[triggerIndex];
+            triggerIndex += 1;
+
+            img.style.cursor = "zoom-in";
+            img.addEventListener("click", () => openLightbox(group, indexInGroup));
+        });
     });
 
+    prevButton.addEventListener("click", showPrev);
+    nextButton.addEventListener("click", showNext);
     closeButton.addEventListener("click", closeLightbox);
 
     overlay.addEventListener("click", (event) => {
@@ -72,9 +127,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && overlay.classList.contains("is-open")) {
-            closeLightbox();
-        }
+        if (!overlay.classList.contains("is-open")) return;
+
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowLeft") showPrev();
+        if (event.key === "ArrowRight") showNext();
     });
 
 });
