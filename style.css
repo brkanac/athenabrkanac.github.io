@@ -416,7 +416,7 @@ h2 {
 
 .landscape-preview {
     display: grid;
-    grid-template-columns: 1.35fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
     gap: 22px;
 }
@@ -631,26 +631,25 @@ h2 {
 }
 
 
-/* Natural-height grids preserve original cropping */
+/* Masonry columns: photos keep their original crop and aspect ratio,
+   and stack to fill the gaps left by mismatched heights */
 
 .full-landscape-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 25px;
+    columns: 2;
+    column-gap: 25px;
 }
 
 .full-portrait-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: start;
-    gap: 25px;
+    columns: 3;
+    column-gap: 25px;
 }
 
 .gallery-photo {
-    margin: 0;
+    margin: 0 0 25px;
 
     overflow: hidden;
+
+    break-inside: avoid;
 }
 
 .gallery-photo img {
@@ -846,7 +845,7 @@ body.lightbox-locked {
     }
 
     .full-portrait-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        columns: 2;
     }
 
 }
@@ -936,10 +935,13 @@ body.lightbox-locked {
     }
 
     .landscape-preview,
-    .portrait-preview,
+    .portrait-preview {
+        grid-template-columns: 1fr;
+    }
+
     .full-landscape-grid,
     .full-portrait-grid {
-        grid-template-columns: 1fr;
+        columns: 1;
     }
 
     .photo-category + .photo-category {
