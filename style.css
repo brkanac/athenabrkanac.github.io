@@ -758,11 +758,7 @@ body.lightbox-locked {
     align-items: center;
     justify-content: center;
 
-    background: var(--cream);
     border: none;
-    border-radius: 100px;
-
-    color: var(--text);
     cursor: pointer;
 
     transition: transform 0.2s ease;
@@ -775,6 +771,10 @@ body.lightbox-locked {
     width: 44px;
     height: 44px;
 
+    background: var(--cream);
+    border-radius: 100px;
+
+    color: var(--text);
     font-size: 26px;
     line-height: 1;
 }
@@ -787,8 +787,12 @@ body.lightbox-locked {
 
     transform: translateY(-50%);
 
-    font-size: 30px;
+    background: transparent;
+
+    color: #FFFFFF;
+    font-size: 42px;
     line-height: 1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
 }
 
 .lightbox-arrow-prev {
