@@ -414,26 +414,29 @@ h2 {
     color: var(--text-soft);
 }
 
-.landscape-preview {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
+.landscape-preview,
+.portrait-preview {
+    display: flex;
+    align-items: flex-start;
     gap: 22px;
 }
 
 .portrait-preview {
     max-width: 1000px;
-
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 22px;
 }
 
 
-/* Preserve every portfolio image's original crop */
+/* Preserve every portfolio image's original crop.
+
+   Each photo takes width in proportion to its own aspect ratio
+   (--photo-ratio, measured by gallery-layout.js), so photos sitting
+   side by side end up the same height without being cropped. Until
+   that runs they simply share the row evenly. */
 
 .photo-card {
+    flex: var(--photo-ratio, 1) 1 0;
+    min-width: 0;
+
     margin: 0;
 
     overflow: hidden;
@@ -936,7 +939,11 @@ body.lightbox-locked {
 
     .landscape-preview,
     .portrait-preview {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .photo-card {
+        flex: none;
     }
 
     .full-landscape-grid,
