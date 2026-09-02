@@ -527,6 +527,18 @@ h2 {
     background: var(--cream);
 }
 
+.about-image {
+    max-width: 480px;
+    margin: 50px 0 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
 .about-text {
     max-width: 600px;
 
