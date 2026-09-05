@@ -358,7 +358,7 @@ h2 {
 
 .section-heading {
     max-width: 1000px;
-    margin-bottom: 80px;
+    margin-bottom: 52px;
 }
 
 
@@ -371,7 +371,7 @@ h2 {
 }
 
 .photo-category + .photo-category {
-    margin-top: 120px;
+    margin-top: 80px;
 }
 
 .category-heading {
@@ -386,20 +386,9 @@ h2 {
     border-bottom: 1px solid var(--border);
 }
 
-.category-heading > div {
-    flex-shrink: 0;
-}
-
-.category-number {
-    margin-bottom: 8px;
-
-    font-size: 11px;
-    letter-spacing: 0.12em;
-
-    color: var(--pink-dark);
-}
-
 .category-heading h3 {
+    flex-shrink: 0;
+
     font-size: clamp(30px, 3vw, 44px);
     letter-spacing: -0.035em;
 }
@@ -950,7 +939,7 @@ body.lightbox-locked {
     }
 
     .section-heading {
-        margin-bottom: 60px;
+        margin-bottom: 40px;
     }
 
     .category-heading,
@@ -980,7 +969,7 @@ body.lightbox-locked {
     }
 
     .photo-category + .photo-category {
-        margin-top: 85px;
+        margin-top: 58px;
     }
 
     .portfolio-link-wrapper {
