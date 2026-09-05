@@ -744,11 +744,15 @@ body.lightbox-locked {
     padding: 40px 90px;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 18px;
 }
 
 .lightbox-stage img {
+    min-height: 0;
+
     max-width: 100%;
     max-height: 100%;
 
@@ -757,6 +761,22 @@ body.lightbox-locked {
     object-fit: contain;
 
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Per-photo caption, filled in from each photo's data-caption */
+
+.lightbox-caption {
+    flex-shrink: 0;
+
+    max-width: 620px;
+
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    text-align: center;
+
+    color: var(--pink-light);
 }
 
 .lightbox-close,

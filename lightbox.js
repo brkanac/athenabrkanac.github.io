@@ -1,6 +1,11 @@
 // Fullscreen photo lightbox with left/right arrow navigation.
 // Click any gallery photo to open it fullscreen, then use the arrow
 // buttons to move through the other photos in that same section only.
+//
+// To caption a photo, fill in its data-caption in the HTML:
+//     <img src="images/example.jpg" alt="..." data-caption="Rome, 2025">
+// The caption shows under the photo when it is enlarged. Photos with an
+// empty data-caption (or none at all) simply show no caption.
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -27,7 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
             groups.push(group);
         }
 
-        group.push({ src: img.src, alt: img.alt });
+        group.push({
+            src: img.src,
+            alt: img.alt,
+            caption: (img.dataset.caption || "").trim(),
+        });
     });
 
     const overlay = document.createElement("div");
@@ -49,11 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
     nextButton.setAttribute("aria-label", "Next photo");
     nextButton.innerHTML = "&#8250;";
 
-    const stage = document.createElement("div");
+    const stage = document.createElement("figure");
     stage.className = "lightbox-stage";
 
     const stageImg = document.createElement("img");
+
+    const caption = document.createElement("figcaption");
+    caption.className = "lightbox-caption";
+
     stage.appendChild(stageImg);
+    stage.appendChild(caption);
 
     overlay.appendChild(closeButton);
     overlay.appendChild(prevButton);
@@ -69,6 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const photo = currentGroup[currentIndex];
         stageImg.src = photo.src;
         stageImg.alt = photo.alt;
+
+        caption.textContent = photo.caption;
+        caption.hidden = photo.caption === "";
 
         const hasMultiple = currentGroup.length > 1;
         prevButton.hidden = !hasMultiple;
