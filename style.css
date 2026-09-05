@@ -5,6 +5,7 @@
 :root {
     --pink: #F8D9E3;
     --pink-light: #FCECEF;
+    --pink-mid: #F2B4C8;
     --pink-dark: #A85C73;
 
     --yellow: #F8E7A8;
@@ -190,7 +191,7 @@ h2 {
 }
 
 .portfolio-link-wrapper {
-    margin-top: 80px;
+    margin-top: 64px;
 
     text-align: center;
 }
@@ -216,6 +217,34 @@ h2 {
     gap: 22px;
 
     color: var(--pink-dark);
+}
+
+
+/* The homepage call to action is a full-width band, so it reads as the
+   obvious next step instead of another line of text. Scoped to the
+   wrapper so the "Return home" link keeps the plain underlined style. */
+
+.portfolio-link-wrapper .portfolio-link {
+    display: flex;
+    justify-content: center;
+
+    padding: 32px 24px;
+
+    background: var(--pink);
+    border-bottom: none;
+
+    font-size: clamp(19px, 2.4vw, 28px);
+
+    transition:
+        background 0.25s ease,
+        gap 0.25s ease;
+}
+
+.portfolio-link-wrapper .portfolio-link:hover,
+.portfolio-link-wrapper .portfolio-link:focus-visible {
+    background: var(--pink-mid);
+
+    color: var(--text);
 }
 
 
@@ -973,7 +1002,11 @@ body.lightbox-locked {
     }
 
     .portfolio-link-wrapper {
-        margin-top: 60px;
+        margin-top: 48px;
+    }
+
+    .portfolio-link-wrapper .portfolio-link {
+        padding: 24px 16px;
     }
 
     .about-section {
