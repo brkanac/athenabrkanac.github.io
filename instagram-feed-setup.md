@@ -12,8 +12,8 @@ Each tile is two things: a picture and a link.
 
 Put it in `images/marketing/` named `instagram-01.jpg` through
 `instagram-09.jpg`, matching the label printed on the tile you want to
-fill. Square crops look best — the grid crops to squares either way, from
-the middle.
+fill. Instagram's own grid is 3:4 portrait and this one matches it, so
+portrait crops sit best — anything else is cropped to 3:4 from the middle.
 
 Until a file exists, its tile shows that label instead of a broken image,
 so a half-finished grid still looks deliberate.

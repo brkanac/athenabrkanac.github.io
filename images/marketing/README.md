@@ -10,7 +10,8 @@ name here, or change the `src` on that slot in `marketing.html`.
 
 ## Instagram grid
 
-Square crops look best here — the grid mirrors Instagram.
+The grid mirrors Instagram's own, which is 3:4 portrait — so
+portrait crops sit best here.
 
     instagram-01.jpg
     instagram-02.jpg
