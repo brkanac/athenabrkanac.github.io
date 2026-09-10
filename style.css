@@ -1061,13 +1061,24 @@ body.lightbox-locked {
     background: var(--yellow-light);
 }
 
+/* The feed sits in the right-hand column, under the facts panel, so
+   the section reads as one block rather than a wall of text with a
+   grid tacked underneath. The columns are even, which gives the role
+   text less room than it had and the feed more. */
+
 .role-block {
     margin-bottom: 60px;
 
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     align-items: start;
-    gap: 6vw;
+    gap: 5vw;
+}
+
+.role-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .role-block h3 {
@@ -1079,8 +1090,8 @@ body.lightbox-locked {
 .role-block p {
     max-width: 520px;
 
-    font-size: 16px;
-    line-height: 1.75;
+    font-size: 15px;
+    line-height: 1.7;
 
     color: var(--text-soft);
 }
@@ -1136,8 +1147,6 @@ body.lightbox-locked {
    ================================================== */
 
 .feed-box {
-    max-width: 560px;
-
     padding: 20px 24px;
 
     display: flex;
@@ -1309,10 +1318,6 @@ body.lightbox-locked {
    set here — one is only used as a starting point, before their script
    has measured it, so the section does not jump as the page settles.
    ================================================== */
-
-.feed-widget {
-    margin-top: 40px;
-}
 
 .feed-widget iframe {
     width: 100%;
