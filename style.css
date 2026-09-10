@@ -1061,16 +1061,16 @@ body.lightbox-locked {
     background: var(--yellow-light);
 }
 
-/* The feed sits in the right-hand column, under the facts panel, so
-   the section reads as one block rather than a wall of text with a
-   grid tacked underneath. The columns are even, which gives the role
-   text less room than it had and the feed more. */
+/* Two columns that start on the same line: the facts panel over the
+   role text on the left, the profile box over the feed on the right.
+   Both columns lead with a cream panel, so the section opens on one
+   straight edge across. */
 
 .role-block {
     margin-bottom: 60px;
 
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: start;
     gap: 5vw;
 }
@@ -1108,6 +1108,7 @@ body.lightbox-locked {
 /* The facts list — role, chapter, and what the work covers */
 
 .role-facts {
+    margin-bottom: 34px;
     padding: 30px 32px;
 
     background: var(--cream);
