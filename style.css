@@ -1302,13 +1302,40 @@ body.lightbox-locked {
 
 
 /* ==================================================
-   THE EMBEDDED FEED
+   THE LIVE FEED
 
-   Posts are embedded live from Instagram, three across. A bare embed
-   cannot tell the page how tall it wants to be, so the row is given a
-   fixed height — raise or lower --feed-height if your posts sit with
-   too much empty space under them, or lose their caption off the
-   bottom.
+   A feed service's own widget, dropped in whole. It only takes up
+   room once it has something in it, so an unconfigured page shows no
+   empty box. Raise --widget-height if your feed is taller than the
+   space it is given — some services size themselves and ignore it.
+   ================================================== */
+
+.feed-widget {
+    --widget-height: 720px;
+}
+
+.feed-widget.is-live {
+    margin-top: 40px;
+}
+
+.feed-widget-frame {
+    width: 100%;
+    height: var(--widget-height);
+
+    display: block;
+
+    border: none;
+}
+
+
+/* ==================================================
+   THE HAND-PICKED FEED
+
+   The fallback: posts chosen by hand, embedded live from Instagram,
+   three across. A bare embed cannot tell the page how tall it wants to
+   be, so the row is given a fixed height — raise or lower --feed-height
+   if your posts sit with too much empty space under them, or lose their
+   caption off the bottom.
    ================================================== */
 
 .feed-embeds {

@@ -1,67 +1,116 @@
 // Puts the @axocolumbia posts on the page.
 //
-// Each post is embedded straight from Instagram, so it always shows the
-// real thing — current caption, current like count — rather than a copy
-// saved into this site.
+// There are two ways this section can be filled, and it uses whichever
+// one is set up:
 //
-// Which posts appear is set in marketing.html, in the .feed-posts list:
+//   1. A LIVE FEED that keeps itself current. Set data-widget-url on the
+//      .feed-widget div in marketing.html to the address an Instagram
+//      feed service gives you, and that service's feed is shown. New
+//      posts then appear on their own. If the service hands you a block
+//      of code rather than an address, pasting it inside that div works
+//      too — anything already in there is left exactly as it is.
 //
-//     <li><a href="https://www.instagram.com/p/ABC123/">Post 1</a></li>
+//   2. HAND-PICKED POSTS, used only when no live feed is set up. Each
+//      link in the .feed-posts list is embedded straight from Instagram:
 //
-// Instagram serves an embeddable version of any public post at that same
-// URL with "embed" on the end, which is what gets loaded here. It does
-// not allow a whole profile to be embedded this way, which is why the
-// feed is built from posts.
+//          <li><a href="https://www.instagram.com/p/ABC123/">Post 1</a></li>
 //
-// Anything in the list that is not a real post link is skipped. If none
-// of them are, nothing is added and the section is just the profile box
-// — so the page never shows a row of empty frames.
+//      These show the real posts, but the list only ever holds the ones
+//      chosen by hand.
+//
+// Either way the posts come from Instagram itself, so a caption or like
+// count is always current — nothing is copied into this site.
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const POST_PATTERN =
-        /^https?:\/\/(?:www\.)?instagram\.com\/(?:p|reel|tv)\/[^/?#]+/i;
-
-    // The list ships with placeholder links in it. Those are not posts,
-    // so they are ignored until they are replaced with real ones.
-    const PLACEHOLDER = "PASTE-A-POST-LINK-HERE";
-
+    const widget = document.querySelector(".feed-widget");
     const list = document.querySelector(".feed-posts");
 
-    if (!list) return;
+    if (buildLiveFeed()) return;
 
-    const posts = Array.from(list.querySelectorAll("a[href]"))
-        .map((link) => link.href)
-        .filter((href) => POST_PATTERN.test(href))
-        .filter((href) => !href.includes(PLACEHOLDER));
+    buildPickedPosts();
 
-    if (posts.length === 0) return;
 
-    // Turns a post link into its embeddable form.
-    function embedUrl(href) {
-        return POST_PATTERN.exec(href)[0].replace(/\/+$/, "") + "/embed";
-    }
+    // ---------- 1. the live feed ----------
 
-    const feed = document.createElement("div");
-    feed.className = "feed-embeds";
+    function buildLiveFeed() {
+        if (!widget) return false;
 
-    posts.forEach((href, index) => {
+        // A service that gave a block of code to paste has already put
+        // its own markup in here. Nothing left to do.
+        if (widget.children.length > 0) {
+            widget.classList.add("is-live");
+            return true;
+        }
+
+        const url = (widget.dataset.widgetUrl || "").trim();
+
+        if (url === "") return false;
+
         const embed = document.createElement("iframe");
 
-        embed.className = "feed-embed";
-        embed.src = embedUrl(href);
-        embed.title = "Instagram post " + (index + 1);
-
-        // Only the first row is worth fetching up front — the rest load
-        // as the visitor scrolls down to them.
-        embed.loading = index < 3 ? "eager" : "lazy";
+        embed.className = "feed-widget-frame";
+        embed.src = url;
+        embed.title = "Instagram feed for @axocolumbia";
 
         embed.setAttribute("scrolling", "no");
         embed.setAttribute("allowtransparency", "true");
 
-        feed.appendChild(embed);
-    });
+        widget.appendChild(embed);
+        widget.classList.add("is-live");
 
-    list.insertAdjacentElement("afterend", feed);
+        return true;
+    }
+
+
+    // ---------- 2. the hand-picked posts ----------
+
+    function buildPickedPosts() {
+        if (!list) return;
+
+        const POST_PATTERN =
+            /^https?:\/\/(?:www\.)?instagram\.com\/(?:p|reel|tv)\/[^/?#]+/i;
+
+        // The list ships with placeholder links in it. Those are not
+        // posts, so they are ignored until they are replaced.
+        const PLACEHOLDER = "PASTE-A-POST-LINK-HERE";
+
+        const posts = Array.from(list.querySelectorAll("a[href]"))
+            .map((link) => link.href)
+            .filter((href) => POST_PATTERN.test(href))
+            .filter((href) => !href.includes(PLACEHOLDER));
+
+        // Nothing set up either way — better an empty section than a row
+        // of empty frames.
+        if (posts.length === 0) return;
+
+        // Instagram serves an embeddable version of any public post at
+        // its own URL with "embed" on the end.
+        function embedUrl(href) {
+            return POST_PATTERN.exec(href)[0].replace(/\/+$/, "") + "/embed";
+        }
+
+        const feed = document.createElement("div");
+        feed.className = "feed-embeds";
+
+        posts.forEach((href, index) => {
+            const embed = document.createElement("iframe");
+
+            embed.className = "feed-embed";
+            embed.src = embedUrl(href);
+            embed.title = "Instagram post " + (index + 1);
+
+            // Only the first row is worth fetching up front — the rest
+            // load as the visitor scrolls down to them.
+            embed.loading = index < 3 ? "eager" : "lazy";
+
+            embed.setAttribute("scrolling", "no");
+            embed.setAttribute("allowtransparency", "true");
+
+            feed.appendChild(embed);
+        });
+
+        list.insertAdjacentElement("afterend", feed);
+    }
 
 });
