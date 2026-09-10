@@ -1030,3 +1030,453 @@ body.lightbox-locked {
     }
 
 }
+
+
+/* The marketing section is already pink, so its call-to-action band
+   takes the cream instead — otherwise it disappears into the section. */
+
+.marketing-section .portfolio-link-wrapper .portfolio-link {
+    background: var(--cream);
+}
+
+.marketing-section .portfolio-link-wrapper .portfolio-link:hover,
+.marketing-section .portfolio-link-wrapper .portfolio-link:focus-visible {
+    background: var(--yellow);
+}
+
+
+/* ==================================================
+   MARKETING PAGE — ROLE INTRO
+   ================================================== */
+
+.marketing-page-section {
+    padding: 9vw 5vw;
+}
+
+.instagram-section {
+    background: var(--pink-light);
+}
+
+.shoots-section {
+    background: var(--yellow-light);
+}
+
+.role-block {
+    margin-bottom: 60px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 6vw;
+}
+
+.role-block h3 {
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+.role-block h3 + p {
+    max-width: 520px;
+    margin-top: 22px;
+
+    font-size: 16px;
+    line-height: 1.75;
+
+    color: var(--text-soft);
+}
+
+
+/* The facts list — role, chapter, and what the work covers */
+
+.role-facts {
+    padding: 30px 32px;
+
+    background: var(--cream);
+    border: 1px solid var(--border);
+}
+
+.role-facts div + div {
+    margin-top: 20px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+.role-facts dt {
+    margin-bottom: 7px;
+
+    font-size: 11px;
+    letter-spacing: 0.14em;
+
+    color: var(--pink-dark);
+}
+
+.role-facts dd {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   INSTAGRAM GRID
+   ================================================== */
+
+.ig-card {
+    padding: 26px 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background: var(--cream);
+    border: 1px solid var(--border);
+}
+
+.ig-handle {
+    font-size: clamp(24px, 3vw, 38px);
+    letter-spacing: -0.035em;
+}
+
+.ig-card p {
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    color: var(--text-soft);
+}
+
+.ig-card .pill-button {
+    flex-shrink: 0;
+}
+
+
+/* Three across, square, and tight — the shape of a profile grid */
+
+.ig-grid {
+    margin-top: 8px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.ig-post {
+    position: relative;
+
+    display: block;
+
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+
+    background: var(--pink);
+}
+
+.ig-post img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.ig-post:hover img,
+.ig-post:focus-visible img {
+    transform: scale(1.05);
+}
+
+
+/* The little badge that says a tile opens the real post */
+
+.ig-post::after {
+    content: "View post ↗";
+
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+
+    padding: 30px 14px 12px;
+
+    background: linear-gradient(
+        to top,
+        rgba(63, 48, 53, 0.75),
+        rgba(63, 48, 53, 0)
+    );
+
+    color: #FFFFFF;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+.ig-post:hover::after,
+.ig-post:focus-visible::after {
+    opacity: 1;
+}
+
+/* Tiles with no post linked yet are not pretending to be clickable */
+
+.ig-post.is-unlinked::after {
+    content: none;
+}
+
+
+/* ==================================================
+   PHOTOSHOOT GROUPS
+   ================================================== */
+
+.shot-group + .shot-group {
+    margin-top: 90px;
+}
+
+/* A contact sheet: one row across, nothing cropped. Photos sit at their
+   own natural height and line up along the top, so a portrait frame next
+   to a landscape one still reads as one set. */
+
+.shot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px;
+}
+
+.shot {
+    margin: 0;
+
+    overflow: hidden;
+}
+
+.shot img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.shot:hover img {
+    transform: scale(1.015);
+}
+
+
+/* ==================================================
+   EMPTY PHOTO SLOTS
+
+   Every photo on this page points at a file in images/marketing/.
+   Until that file exists, its slot shows this label instead of a
+   broken image. Drop the named file into the folder and the photo
+   simply appears — no HTML to edit.
+   ================================================== */
+
+.js img[data-slot] {
+    display: none;
+}
+
+.slot-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 18px;
+
+    aspect-ratio: 4 / 5;
+
+    background: var(--pink-light);
+    border: 1px dashed var(--border);
+
+    text-align: center;
+}
+
+.ig-post .slot-label {
+    position: absolute;
+    inset: 0;
+
+    aspect-ratio: auto;
+}
+
+/* photo-slots.js hides a label once its photo loads. This has to beat
+   the display: flex above, or the label stays sitting on the photo. */
+
+.slot-label[hidden] {
+    display: none;
+}
+
+.slot-label .slot-star {
+    font-size: 20px;
+
+    color: var(--pink-mid);
+}
+
+.slot-label .slot-file {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    word-break: break-all;
+
+    color: var(--pink-dark);
+}
+
+
+/* ==================================================
+   INSTAGRAM POST POPUP
+   ================================================== */
+
+.ig-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    visibility: hidden;
+    opacity: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    background: rgba(63, 48, 53, 0.97);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0s linear 0.25s;
+}
+
+.ig-popup.is-open {
+    visibility: visible;
+    opacity: 1;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0s linear 0s;
+}
+
+.ig-popup-frame {
+    position: relative;
+
+    width: min(420px, 100%);
+    height: min(720px, 100%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ig-popup iframe {
+    flex: 1;
+    min-height: 0;
+
+    width: 100%;
+
+    background: var(--cream);
+    border: none;
+    border-radius: 4px;
+}
+
+.ig-popup-fallback {
+    flex-shrink: 0;
+
+    font-size: 13px;
+    text-align: center;
+
+    color: var(--pink-light);
+}
+
+.ig-popup-fallback a {
+    border-bottom: 1px solid var(--pink-mid);
+}
+
+.ig-popup-close {
+    position: fixed;
+    top: 20px;
+    right: 5vw;
+    z-index: 101;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--cream);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+
+    color: var(--text);
+    font-size: 26px;
+    line-height: 1;
+
+    transition: transform 0.2s ease;
+}
+
+.ig-popup-close:hover,
+.ig-popup-close:focus-visible {
+    transform: scale(1.08);
+}
+
+
+/* ==================================================
+   MARKETING PAGE — TABLET AND MOBILE
+   ================================================== */
+
+@media (max-width: 950px) {
+
+    .role-block {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .shot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .marketing-page-section {
+        padding: 18vw 7vw;
+    }
+
+    .ig-card {
+        display: block;
+    }
+
+    .ig-card .pill-button {
+        margin-top: 22px;
+    }
+
+    .ig-grid {
+        gap: 5px;
+    }
+
+    .shot-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .shot-group + .shot-group {
+        margin-top: 62px;
+    }
+
+    .role-facts {
+        padding: 26px 24px;
+    }
+
+}
