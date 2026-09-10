@@ -203,71 +203,232 @@
 
 
 
-                <!-- THE PROFILE BOX -->
-
-                <a
-                    class="feed-box"
-                    href="https://www.instagram.com/axocolumbia"
-                    target="_blank"
-                    rel="noopener"
-                >
-
-                    <span class="feed-box-mark" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="26" height="26">
-                            <rect
-                                x="3" y="3" width="18" height="18" rx="5"
-                                fill="none" stroke="currentColor" stroke-width="1.6"
-                            />
-                            <circle
-                                cx="12" cy="12" r="4.2"
-                                fill="none" stroke="currentColor" stroke-width="1.6"
-                            />
-                            <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" />
-                        </svg>
-                    </span>
-
-                    <span class="feed-box-text">
-                        <span class="feed-box-handle">@axocolumbia</span>
-                        <span class="feed-box-note">
-                            Alpha Chi Omega · Columbia University
-                        </span>
-                    </span>
-
-                    <span class="feed-box-action">
-                        Follow ↗
-                    </span>
-
-                </a>
-
-
                 <!--
-                THE LIVE FEED
+                THE FEED
 
-                This is the LightWidget embed for @axocolumbia. It reads
-                the account directly, so new posts appear here on their
-                own — there is nothing to edit when you post.
+                A grid of your posts, updated by hand. Each tile needs
+                two things:
 
-                To change what it shows — how many posts, how many
-                across, spacing — edit the widget in your LightWidget
-                account rather than here. The changes come through on
-                their own; this code stays the same.
+                  1. The picture. Put it in images/marketing/ with the
+                     name printed on the tile — instagram-01.jpg and so
+                     on — and it appears. Instagram's own grid is 3:4
+                     portrait, so portrait crops sit best.
 
-                If you ever rebuild the widget from scratch, LightWidget
-                gives you a fresh block of code to paste in place of the
-                two lines below.
+                  2. The post it opens. Paste the post's link into that
+                     tile's href. On Instagram, open the post, tap the
+                     three dots, then "Copy link". A tile still pointing
+                     at the profile simply opens the profile.
+
+                To swap a post out later, replace its picture in
+                images/marketing/ and change its href. To show more or
+                fewer, copy or delete a whole <a class="feed-tile">
+                block — the grid is three across, so nine, six, or three
+                fill it neatly.
                 -->
 
-                <div class="feed-widget">
+                <div class="feed-card">
 
-                    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+                    <div class="feed-card-head">
 
-                    <iframe
-                        src="https://lightwidget.com/widgets/a4f2fc0998fc5cd7be42ba3c8580fc01.html"
-                        class="lightwidget-widget"
-                        title="Instagram feed for @axocolumbia"
-                        scrolling="no"
-                        allowtransparency="true"
-                    ></iframe>
+                        <span class="feed-card-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <rect
+                                    x="3" y="3" width="18" height="18" rx="5"
+                                    fill="none" stroke="currentColor" stroke-width="1.6"
+                                />
+                                <circle
+                                    cx="12" cy="12" r="4.2"
+                                    fill="none" stroke="currentColor" stroke-width="1.6"
+                                />
+                                <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" />
+                            </svg>
+                        </span>
+
+                        <span class="feed-card-text">
+                            <span class="feed-card-handle">@axocolumbia</span>
+                            <span class="feed-card-note">
+                                Alpha Chi Omega · Columbia University
+                            </span>
+                        </span>
+
+                        <a
+                            class="feed-card-follow"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Follow
+                        </a>
+
+                    </div>
+
+
+                    <div class="feed-grid">
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-01.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-01.jpg</span>
+                        </span>
+                    </a>
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-02.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-02.jpg</span>
+                        </span>
+                    </a>
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-03.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-03.jpg</span>
+                        </span>
+                    </a>
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-04.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-04.jpg</span>
+                        </span>
+                    </a>
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-05.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-05.jpg</span>
+                        </span>
+                    </a>
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-06.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-06.jpg</span>
+                        </span>
+                    </a>
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-07.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-07.jpg</span>
+                        </span>
+                    </a>
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-08.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-08.jpg</span>
+                        </span>
+                    </a>
+
+                    <a
+                        class="feed-tile"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="images/marketing/instagram-09.jpg"
+                            alt="Post from @axocolumbia"
+                            data-slot
+                        >
+                        <span class="slot-label">
+                            <span class="slot-star" aria-hidden="true">☆</span>
+                            <span class="slot-file">instagram-09.jpg</span>
+                        </span>
+                    </a>
+
+                    </div>
+
+
+                    <a
+                        class="feed-card-foot"
+                        href="https://www.instagram.com/axocolumbia"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        View on Instagram ↗
+                    </a>
 
                 </div>
 

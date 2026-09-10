@@ -1140,40 +1140,34 @@ body.lightbox-locked {
 
 
 /* ==================================================
-   INSTAGRAM FEED BOX
+   THE FEED CARD
 
-   One small card standing in for the whole feed. Clicking it opens
-   the posts themselves, loaded live from Instagram — see the popup
-   further down, and instagram-popup.js.
+   A profile grid built from Athena's own images, updated by hand.
+   It borrows the shape of the feed widgets those services sell —
+   a header, a square grid, a way through to the profile — without
+   depending on one.
    ================================================== */
 
-.feed-box {
-    padding: 20px 24px;
+.feed-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+}
+
+.feed-card-head {
+    padding: 16px 18px;
 
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 14px;
 
-    background: var(--cream);
-    border: 1px solid var(--border);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    border-bottom: 1px solid var(--border);
 }
 
-.feed-box:hover,
-.feed-box:focus-visible {
-    transform: translateY(-4px);
-
-    box-shadow: 8px 8px 0 var(--yellow);
-}
-
-.feed-box-mark {
+.feed-card-mark {
     flex-shrink: 0;
 
-    width: 46px;
-    height: 46px;
+    width: 42px;
+    height: 42px;
 
     display: flex;
     align-items: center;
@@ -1185,37 +1179,138 @@ body.lightbox-locked {
     color: var(--pink-dark);
 }
 
-.feed-box-text {
+.feed-card-text {
     min-width: 0;
 
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
 }
 
-.feed-box-handle {
-    font-size: 20px;
-    letter-spacing: -0.02em;
+.feed-card-handle {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
-.feed-box-note {
+.feed-card-note {
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1.4;
 
     color: var(--text-soft);
 }
 
-.feed-box-action {
+.feed-card-follow {
     flex-shrink: 0;
     margin-left: auto;
 
-    padding: 11px 18px;
+    padding: 9px 16px;
 
     background: var(--yellow);
     border-radius: 100px;
 
-    font-size: 13px;
+    font-size: 12px;
     white-space: nowrap;
+
+    transition: background 0.25s ease;
+}
+
+.feed-card-follow:hover,
+.feed-card-follow:focus-visible {
+    background: #F4DB82;
+}
+
+
+/* Three across at 3:4, the shape of an Instagram profile grid */
+
+.feed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3px;
+
+    padding: 3px;
+}
+
+.feed-tile {
+    position: relative;
+
+    display: block;
+
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+
+    background: var(--pink-light);
+}
+
+.feed-tile img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.feed-tile:hover img,
+.feed-tile:focus-visible img {
+    transform: scale(1.06);
+}
+
+.feed-tile::after {
+    content: "View on Instagram ↗";
+
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+
+    padding: 28px 10px 9px;
+
+    background: linear-gradient(
+        to top,
+        rgba(63, 48, 53, 0.78),
+        rgba(63, 48, 53, 0)
+    );
+
+    color: #FFFFFF;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+.feed-tile:hover::after,
+.feed-tile:focus-visible::after {
+    opacity: 1;
+}
+
+.feed-card-foot {
+    padding: 14px;
+
+    display: block;
+
+    border-top: 1px solid var(--border);
+
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-align: center;
+
+    color: var(--text-soft);
+
+    transition: background 0.25s ease;
+}
+
+.feed-card-foot:hover,
+.feed-card-foot:focus-visible {
+    background: var(--pink-light);
+
+    color: var(--text);
 }
 
 
@@ -1288,6 +1383,13 @@ body.lightbox-locked {
     text-align: center;
 }
 
+.feed-tile .slot-label {
+    position: absolute;
+    inset: 0;
+
+    aspect-ratio: auto;
+}
+
 /* photo-slots.js hides a label once its photo loads. This has to beat
    the display: flex above, or the label stays sitting on the photo. */
 
@@ -1308,26 +1410,6 @@ body.lightbox-locked {
     word-break: break-all;
 
     color: var(--pink-dark);
-}
-
-
-/* ==================================================
-   THE LIVE FEED
-
-   LightWidget's embed, which reads @axocolumbia directly. Their own
-   script sizes the iframe to whatever the feed needs, so no height is
-   set here — one is only used as a starting point, before their script
-   has measured it, so the section does not jump as the page settles.
-   ================================================== */
-
-.feed-widget iframe {
-    width: 100%;
-    min-height: 320px;
-
-    display: block;
-
-    border: none;
-    overflow: hidden;
 }
 
 
@@ -1354,17 +1436,12 @@ body.lightbox-locked {
         padding: 18vw 7vw;
     }
 
-    .feed-box {
-        display: block;
+    .feed-grid {
+        gap: 2px;
     }
 
-    .feed-box-text {
-        margin-top: 16px;
-    }
-
-    .feed-box-action {
-        display: inline-block;
-        margin: 18px 0 0;
+    .feed-card-head {
+        padding: 14px;
     }
 
     .shot-grid {
