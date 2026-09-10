@@ -9,35 +9,28 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const TRIGGER_SELECTOR =
+        ".gallery-photo img, .photo-card img, .shot img";
+
     const GROUP_SELECTOR =
-        ".landscape-preview, .portrait-preview, .full-landscape-grid, .full-portrait-grid";
+        ".landscape-preview, .portrait-preview, .full-landscape-grid, .full-portrait-grid, .shot-grid";
 
     const triggers = Array.from(
-        document.querySelectorAll(".gallery-photo img, .photo-card img")
+        document.querySelectorAll(TRIGGER_SELECTOR)
     );
 
     if (triggers.length === 0) return;
 
-    // Group photos by their section so browsing stays within e.g. Landscape.
-    const groups = [];
-    const groupByContainer = new Map();
-
-    triggers.forEach((img) => {
+    // The photos browsed from a given one: its own section only, and
+    // read fresh at click time so marketing slots still waiting on their
+    // file are passed over rather than opened as a blank frame.
+    function groupFor(img) {
         const container = img.closest(GROUP_SELECTOR) || document.body;
 
-        let group = groupByContainer.get(container);
-        if (!group) {
-            group = [];
-            groupByContainer.set(container, group);
-            groups.push(group);
-        }
-
-        group.push({
-            src: img.src,
-            alt: img.alt,
-            caption: (img.dataset.caption || "").trim(),
-        });
-    });
+        return Array.from(
+            container.querySelectorAll(TRIGGER_SELECTOR)
+        ).filter((photo) => photo.dataset.slotEmpty !== "true");
+    }
 
     const overlay = document.createElement("div");
     overlay.className = "lightbox-overlay";
@@ -84,8 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
         stageImg.src = photo.src;
         stageImg.alt = photo.alt;
 
-        caption.textContent = photo.caption;
-        caption.hidden = photo.caption === "";
+        const text = (photo.dataset.caption || "").trim();
+        caption.textContent = text;
+        caption.hidden = text === "";
 
         const hasMultiple = currentGroup.length > 1;
         prevButton.hidden = !hasMultiple;
@@ -124,15 +118,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (lastFocused) lastFocused.focus();
     }
 
-    let triggerIndex = 0;
-    groups.forEach((group) => {
-        group.forEach((photo, indexInGroup) => {
-            const img = triggers[triggerIndex];
-            triggerIndex += 1;
+    triggers.forEach((img) => {
 
-            img.style.cursor = "zoom-in";
-            img.addEventListener("click", () => openLightbox(group, indexInGroup));
+        img.style.cursor = "zoom-in";
+
+        img.addEventListener("click", () => {
+            const group = groupFor(img);
+            const index = group.indexOf(img);
+
+            if (index === -1) return;
+
+            openLightbox(group, index);
         });
+
     });
 
     prevButton.addEventListener("click", showPrev);

@@ -1030,3 +1030,383 @@ body.lightbox-locked {
     }
 
 }
+
+
+/* The marketing section is already pink, so its call-to-action band
+   takes the cream instead — otherwise it disappears into the section. */
+
+.marketing-section .portfolio-link-wrapper .portfolio-link {
+    background: var(--cream);
+}
+
+.marketing-section .portfolio-link-wrapper .portfolio-link:hover,
+.marketing-section .portfolio-link-wrapper .portfolio-link:focus-visible {
+    background: var(--yellow);
+}
+
+
+/* ==================================================
+   MARKETING PAGE — ROLE INTRO
+   ================================================== */
+
+.marketing-page-section {
+    padding: 9vw 5vw;
+}
+
+.instagram-section {
+    background: var(--pink-light);
+}
+
+.shoots-section {
+    background: var(--yellow-light);
+}
+
+.role-block {
+    margin-bottom: 60px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 6vw;
+}
+
+.role-block h3 {
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+.role-block p {
+    max-width: 520px;
+
+    font-size: 16px;
+    line-height: 1.75;
+
+    color: var(--text-soft);
+}
+
+.role-block h3 + p {
+    margin-top: 22px;
+}
+
+.role-block p + p {
+    margin-top: 18px;
+}
+
+
+/* The facts list — role, chapter, and what the work covers */
+
+.role-facts {
+    padding: 30px 32px;
+
+    background: var(--cream);
+    border: 1px solid var(--border);
+}
+
+.role-facts div + div {
+    margin-top: 20px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+.role-facts dt {
+    margin-bottom: 7px;
+
+    font-size: 11px;
+    letter-spacing: 0.14em;
+
+    color: var(--pink-dark);
+}
+
+.role-facts dd {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   INSTAGRAM FEED BOX
+
+   One small card standing in for the whole feed. Clicking it opens
+   the posts themselves, loaded live from Instagram — see the popup
+   further down, and instagram-popup.js.
+   ================================================== */
+
+.feed-box {
+    max-width: 560px;
+
+    padding: 20px 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: var(--cream);
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.feed-box:hover,
+.feed-box:focus-visible {
+    transform: translateY(-4px);
+
+    box-shadow: 8px 8px 0 var(--yellow);
+}
+
+.feed-box-mark {
+    flex-shrink: 0;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--pink-light);
+    border-radius: 100px;
+
+    color: var(--pink-dark);
+}
+
+.feed-box-text {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.feed-box-handle {
+    font-size: 20px;
+    letter-spacing: -0.02em;
+}
+
+.feed-box-note {
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: var(--text-soft);
+}
+
+.feed-box-action {
+    flex-shrink: 0;
+    margin-left: auto;
+
+    padding: 11px 18px;
+
+    background: var(--yellow);
+    border-radius: 100px;
+
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   PHOTOSHOOT GROUPS
+   ================================================== */
+
+.shot-group + .shot-group {
+    margin-top: 90px;
+}
+
+/* A contact sheet: one row across, nothing cropped. Photos sit at their
+   own natural height and line up along the top, so a portrait frame next
+   to a landscape one still reads as one set. */
+
+.shot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px;
+}
+
+.shot {
+    margin: 0;
+
+    overflow: hidden;
+}
+
+.shot img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.shot:hover img {
+    transform: scale(1.015);
+}
+
+
+/* ==================================================
+   EMPTY PHOTO SLOTS
+
+   Every photo on this page points at a file in images/marketing/.
+   Until that file exists, its slot shows this label instead of a
+   broken image. Drop the named file into the folder and the photo
+   simply appears — no HTML to edit.
+   ================================================== */
+
+.js img[data-slot] {
+    display: none;
+}
+
+.slot-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 18px;
+
+    aspect-ratio: 4 / 5;
+
+    background: var(--pink-light);
+    border: 1px dashed var(--border);
+
+    text-align: center;
+}
+
+/* photo-slots.js hides a label once its photo loads. This has to beat
+   the display: flex above, or the label stays sitting on the photo. */
+
+.slot-label[hidden] {
+    display: none;
+}
+
+.slot-label .slot-star {
+    font-size: 20px;
+
+    color: var(--pink-mid);
+}
+
+.slot-label .slot-file {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    word-break: break-all;
+
+    color: var(--pink-dark);
+}
+
+
+/* ==================================================
+   THE EMBEDDED FEED
+
+   Posts are embedded live from Instagram, three across. A bare embed
+   cannot tell the page how tall it wants to be, so the row is given a
+   fixed height — raise or lower --feed-height if your posts sit with
+   too much empty space under them, or lose their caption off the
+   bottom.
+   ================================================== */
+
+.feed-embeds {
+    --feed-height: 680px;
+
+    margin-top: 40px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.feed-embed {
+    width: 100%;
+    height: var(--feed-height);
+
+    display: block;
+
+    background: var(--cream);
+    border: 1px solid var(--border);
+}
+
+
+/* Without JavaScript the posts cannot be embedded, so the plain list of
+   links stays on the page as the way through to them. With it, the list
+   is only the instruction sheet for building the feed above. */
+
+.feed-posts {
+    margin-top: 30px;
+    padding-left: 20px;
+
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.feed-posts a {
+    border-bottom: 1px solid var(--border);
+}
+
+.js .feed-posts {
+    display: none;
+}
+
+
+/* ==================================================
+   MARKETING PAGE — TABLET AND MOBILE
+   ================================================== */
+
+@media (max-width: 950px) {
+
+    .role-block {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .shot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feed-embeds {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .marketing-page-section {
+        padding: 18vw 7vw;
+    }
+
+    .feed-box {
+        display: block;
+    }
+
+    .feed-box-text {
+        margin-top: 16px;
+    }
+
+    .feed-box-action {
+        display: inline-block;
+        margin: 18px 0 0;
+    }
+
+    .shot-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feed-embeds {
+        grid-template-columns: 1fr;
+    }
+
+    .shot-group + .shot-group {
+        margin-top: 62px;
+    }
+
+    .role-facts {
+        padding: 26px 24px;
+    }
+
+}
