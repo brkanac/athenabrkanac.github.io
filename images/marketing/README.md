@@ -8,6 +8,22 @@ place.
 If your file is a `.jpeg`, `.png`, or `.JPG`, either rename it to match the
 name here, or change the `src` on that slot in `marketing.html`.
 
+## Instagram grid
+
+Square crops look best here — the grid mirrors Instagram.
+
+    instagram-01.jpg
+    instagram-02.jpg
+    instagram-03.jpg
+    instagram-04.jpg
+    instagram-05.jpg
+    instagram-06.jpg
+    instagram-07.jpg
+    instagram-08.jpg
+    instagram-09.jpg
+
+Each tile also links to a post — see `instagram-feed-setup.md`.
+
 ## Merch photoshoot
 
     merch-01.jpg
