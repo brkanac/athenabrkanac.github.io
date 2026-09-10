@@ -1,12 +1,15 @@
-# Updating the Instagram grid
+# Updating the selected posts
 
-The marketing page shows a grid of @axocolumbia posts. It is yours — your
-images, served from this repository — so nothing expires, nothing charges
-you, and no other company sits between your site and your visitors. The
-trade is that it does not refresh itself: when you want the grid to show
-newer posts, you update it here.
+The marketing page shows a grid of @axocolumbia posts you made. It is not
+a live feed — it is a selection, chosen by hand — which is the point: a
+feed that stops moving looks abandoned, while a selection is finished the
+day you make it and only changes when you have something better to show.
 
-Each tile is two things: a picture and a link.
+It is also yours: your images, served from this repository, so nothing
+expires, nothing charges you, and no other company sits between your site
+and your visitors.
+
+Each tile is three things: a picture, a link, and a note.
 
 ## 1. The picture
 
@@ -34,18 +37,33 @@ the three dots, then *Copy link*. It should look like
 A tile still pointing at the profile is not broken — it just opens the
 profile instead of that post.
 
+## 3. The note
+
+Between that tile's `<figcaption>` tags, write what you did on the post:
+
+    <figcaption class="feed-note">Shot + edited</figcaption>
+
+A few words is plenty — *Shot + edited*, *Concept, styling, and shot*,
+*Graphic design*, *Concept + copy*.
+
+This is the part that makes the grid worth having. Without it the grid
+shows that an account exists; with it, it shows which of the work was
+yours. Leave it empty and no caption appears, so a tile you have not got
+to yet still looks finished.
+
 ## Swapping a post out
 
 Replace its picture in `images/marketing/` with a new one under the same
-name, and change that tile's `href` to the new post. The grid is three
+name, change that tile's `href` to the new post, and rewrite its note. The grid is three
 across, so nine, six, or three tiles fill it neatly — copy or delete a
-whole `<a class="feed-tile">` block to change how many there are.
+whole `<figure class="feed-item">` block to change how many there are.
 
 ## Why not a feed that updates itself
 
 Those exist — LightWidget, SnapWidget and the like — and they do keep
 themselves current by reading the account through Instagram's API. They
 also charge for it, and the free tiers stamp their own name on your page.
-This grid trades that automation for costing nothing and being entirely
-under your control. If you ever change your mind, the section is a single
+This grid trades that automation for costing nothing, being entirely
+under your control, and — because it is chosen rather than mirrored —
+saying what your part in each post was. If you ever change your mind, the section is a single
 block in `marketing.html` and can be swapped for one of their embeds.

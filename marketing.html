@@ -133,12 +133,12 @@
                         01 — SOCIAL MEDIA
                     </p>
 
-                    <h2>The feed</h2>
+                    <h2>Selected posts</h2>
                 </div>
 
                 <p>
-                    Everything on @axocolumbia — shot, edited,
-                    written, and scheduled — straight from the feed.
+                    A selection of posts I made for @axocolumbia,
+                    and what I did on each.
                 </p>
 
             </div>
@@ -204,10 +204,10 @@
 
 
                 <!--
-                THE FEED
+                SELECTED POSTS
 
-                A grid of your posts, updated by hand. Each tile needs
-                two things:
+                Nine posts chosen by hand — not a live feed, so it never
+                goes stale. Each tile needs three things:
 
                   1. The picture. Put it in images/marketing/ with the
                      name printed on the tile — instagram-01.jpg and so
@@ -219,11 +219,26 @@
                      three dots, then "Copy link". A tile still pointing
                      at the profile simply opens the profile.
 
+                  3. What you did on it, written between the
+                     <figcaption> tags. This is the part that makes the
+                     grid worth having — it says which of the work was
+                     yours. A few words is plenty:
+
+                         Shot + edited
+                         Concept, styling, and shot
+                         Graphic design
+                         Concept + copy
+                         Shot, edited, and scheduled
+
+                     Leave it empty and no caption shows, so a tile you
+                     have not got to yet still looks finished.
+
                 To swap a post out later, replace its picture in
-                images/marketing/ and change its href. To show more or
-                fewer, copy or delete a whole <a class="feed-tile">
-                block — the grid is three across, so nine, six, or three
-                fill it neatly.
+                images/marketing/, change its href, and rewrite its
+                caption. The grid is three across, so nine, six, or
+                three tiles fill it neatly — copy or delete a whole
+                <figure class="feed-item"> block to change how many
+                there are.
                 -->
 
                 <div class="feed-card">
@@ -265,158 +280,212 @@
 
                     <div class="feed-grid">
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-01.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-01.jpg</span>
-                        </span>
-                    </a>
+                    <figure class="feed-item">
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-02.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
                         >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-02.jpg</span>
-                        </span>
-                    </a>
+                            <img
+                                src="images/marketing/instagram-01.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-01.jpg</span>
+                            </span>
+                        </a>
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-03.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-03.jpg</span>
-                        </span>
-                    </a>
+                        <figcaption class="feed-note"></figcaption>
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-04.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-04.jpg</span>
-                        </span>
-                    </a>
+                    </figure>
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-05.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-05.jpg</span>
-                        </span>
-                    </a>
+                    <figure class="feed-item">
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-06.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
                         >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-06.jpg</span>
-                        </span>
-                    </a>
+                            <img
+                                src="images/marketing/instagram-02.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-02.jpg</span>
+                            </span>
+                        </a>
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-07.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-07.jpg</span>
-                        </span>
-                    </a>
+                        <figcaption class="feed-note"></figcaption>
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-08.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-08.jpg</span>
-                        </span>
-                    </a>
+                    </figure>
 
-                    <a
-                        class="feed-tile"
-                        href="https://www.instagram.com/axocolumbia"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <img
-                            src="images/marketing/instagram-09.jpg"
-                            alt="Post from @axocolumbia"
-                            data-slot
+                    <figure class="feed-item">
+
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
                         >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">instagram-09.jpg</span>
-                        </span>
-                    </a>
+                            <img
+                                src="images/marketing/instagram-03.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-03.jpg</span>
+                            </span>
+                        </a>
+
+                        <figcaption class="feed-note"></figcaption>
+
+                    </figure>
+
+                    <figure class="feed-item">
+
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="images/marketing/instagram-04.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-04.jpg</span>
+                            </span>
+                        </a>
+
+                        <figcaption class="feed-note"></figcaption>
+
+                    </figure>
+
+                    <figure class="feed-item">
+
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="images/marketing/instagram-05.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-05.jpg</span>
+                            </span>
+                        </a>
+
+                        <figcaption class="feed-note"></figcaption>
+
+                    </figure>
+
+                    <figure class="feed-item">
+
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="images/marketing/instagram-06.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-06.jpg</span>
+                            </span>
+                        </a>
+
+                        <figcaption class="feed-note"></figcaption>
+
+                    </figure>
+
+                    <figure class="feed-item">
+
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="images/marketing/instagram-07.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-07.jpg</span>
+                            </span>
+                        </a>
+
+                        <figcaption class="feed-note"></figcaption>
+
+                    </figure>
+
+                    <figure class="feed-item">
+
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="images/marketing/instagram-08.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-08.jpg</span>
+                            </span>
+                        </a>
+
+                        <figcaption class="feed-note"></figcaption>
+
+                    </figure>
+
+                    <figure class="feed-item">
+
+                        <a
+                            class="feed-tile"
+                            href="https://www.instagram.com/axocolumbia"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="images/marketing/instagram-09.jpg"
+                                alt="Post from @axocolumbia"
+                                data-slot
+                            >
+                            <span class="slot-label">
+                                <span class="slot-star" aria-hidden="true">☆</span>
+                                <span class="slot-file">instagram-09.jpg</span>
+                            </span>
+                        </a>
+
+                        <figcaption class="feed-note"></figcaption>
+
+                    </figure>
 
                     </div>
 

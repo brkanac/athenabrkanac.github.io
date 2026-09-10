@@ -1140,12 +1140,13 @@ body.lightbox-locked {
 
 
 /* ==================================================
-   THE FEED CARD
+   THE SELECTED POSTS CARD
 
-   A profile grid built from Athena's own images, updated by hand.
-   It borrows the shape of the feed widgets those services sell —
-   a header, a square grid, a way through to the profile — without
-   depending on one.
+   A profile grid built from Athena's own images. It borrows the
+   shape of the feed widgets those services sell — a header, a
+   portrait grid, a way through to the profile — but the posts are
+   chosen rather than pulled, and each carries a note saying what
+   the work on it was.
    ================================================== */
 
 .feed-card {
@@ -1221,14 +1222,38 @@ body.lightbox-locked {
 }
 
 
-/* Three across at 3:4, the shape of an Instagram profile grid */
+/* Three across at 3:4, the shape of an Instagram profile grid —
+   loosened just enough to give each post its caption. */
 
 .feed-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 3px;
+    gap: 16px 12px;
 
-    padding: 3px;
+    padding: 14px;
+}
+
+.feed-item {
+    margin: 0;
+}
+
+
+/* What the work on a post was. Empty until it is written in, and
+   nothing shows until then, so an unfinished tile still looks
+   finished. */
+
+.feed-note {
+    margin-top: 9px;
+
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 0.03em;
+
+    color: var(--text-soft);
+}
+
+.feed-note:empty {
+    display: none;
 }
 
 .feed-tile {
@@ -1437,7 +1462,9 @@ body.lightbox-locked {
     }
 
     .feed-grid {
-        gap: 2px;
+        gap: 14px 8px;
+
+        padding: 10px;
     }
 
     .feed-card-head {
