@@ -1302,117 +1302,54 @@ body.lightbox-locked {
 
 
 /* ==================================================
-   INSTAGRAM POST POPUP
+   THE EMBEDDED FEED
+
+   Posts are embedded live from Instagram, three across. A bare embed
+   cannot tell the page how tall it wants to be, so the row is given a
+   fixed height — raise or lower --feed-height if your posts sit with
+   too much empty space under them, or lose their caption off the
+   bottom.
    ================================================== */
 
-.ig-popup {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
+.feed-embeds {
+    --feed-height: 680px;
 
-    visibility: hidden;
-    opacity: 0;
+    margin-top: 40px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 40px 20px;
-
-    background: rgba(63, 48, 53, 0.97);
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0s linear 0.25s;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
 }
 
-.ig-popup.is-open {
-    visibility: visible;
-    opacity: 1;
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0s linear 0s;
-}
-
-.ig-popup-frame {
-    position: relative;
-
-    width: min(420px, 100%);
-    height: min(760px, 100%);
-
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-
-/* The posts scroll inside the popup, so it reads like a feed rather
-   than one post at a time. */
-
-.ig-popup-feed {
-    flex: 1;
-    min-height: 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-
-    overflow-y: auto;
-}
-
-.ig-popup-feed iframe {
-    flex-shrink: 0;
-
+.feed-embed {
     width: 100%;
-    height: 640px;
+    height: var(--feed-height);
+
+    display: block;
 
     background: var(--cream);
-    border: none;
-    border-radius: 4px;
+    border: 1px solid var(--border);
 }
 
-.ig-popup-fallback {
-    flex-shrink: 0;
 
-    font-size: 13px;
-    text-align: center;
+/* Without JavaScript the posts cannot be embedded, so the plain list of
+   links stays on the page as the way through to them. With it, the list
+   is only the instruction sheet for building the feed above. */
 
-    color: var(--pink-light);
+.feed-posts {
+    margin-top: 30px;
+    padding-left: 20px;
+
+    font-size: 14px;
+    line-height: 1.9;
 }
 
-.ig-popup-fallback a {
-    border-bottom: 1px solid var(--pink-mid);
+.feed-posts a {
+    border-bottom: 1px solid var(--border);
 }
 
-.ig-popup-close {
-    position: fixed;
-    top: 20px;
-    right: 5vw;
-    z-index: 101;
-
-    width: 44px;
-    height: 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--cream);
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-
-    color: var(--text);
-    font-size: 26px;
-    line-height: 1;
-
-    transition: transform 0.2s ease;
-}
-
-.ig-popup-close:hover,
-.ig-popup-close:focus-visible {
-    transform: scale(1.08);
+.js .feed-posts {
+    display: none;
 }
 
 
@@ -1428,6 +1365,10 @@ body.lightbox-locked {
     }
 
     .shot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feed-embeds {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1453,6 +1394,10 @@ body.lightbox-locked {
     }
 
     .shot-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feed-embeds {
         grid-template-columns: 1fr;
     }
 

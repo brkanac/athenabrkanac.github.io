@@ -138,7 +138,7 @@
 
                 <p>
                     Everything on @axocolumbia — shot, edited,
-                    written, and scheduled. Open the box to see it live.
+                    written, and scheduled — straight from the feed.
                 </p>
 
             </div>
@@ -202,23 +202,7 @@
             </div>
 
 
-            <!--
-            THE FEED BOX
-
-            Clicking this opens your posts in a popup, straight from
-            Instagram — the real thing, live, not copies saved here.
-
-            Paste your post links into the list below it. Open a post on
-            Instagram, tap the three dots, then "Copy link". Each link
-            should look like:
-
-                https://www.instagram.com/p/ABC123/
-                https://www.instagram.com/reel/ABC123/
-
-            Add as many as you like, or delete ones you are done with —
-            the popup shows them in the order they appear here. With no
-            links in the list, the box simply opens Instagram instead.
-            -->
+            <!-- THE PROFILE BOX -->
 
             <a
                 class="feed-box"
@@ -249,13 +233,35 @@
                 </span>
 
                 <span class="feed-box-action">
-                    Open the feed ↗
+                    Follow ↗
                 </span>
 
             </a>
 
 
-            <ul class="feed-posts" hidden>
+            <!--
+            THE FEED
+
+            These posts are embedded straight from Instagram, so each one
+            shows the real thing — current caption, current likes — rather
+            than a copy saved into this site.
+
+            To choose which posts appear, paste their links below. Open a
+            post on Instagram, tap the three dots, then "Copy link". Each
+            one should look like:
+
+                https://www.instagram.com/p/ABC123/
+                https://www.instagram.com/reel/ABC123/
+
+            Add as many as you like, or delete ones you are done with —
+            they appear in the order they are listed here. Rows are three
+            across, so three, six, or nine posts fill the row neatly.
+
+            Instagram only lets individual posts be embedded, not a whole
+            profile, so this list is how the feed gets built.
+            -->
+
+            <ul class="feed-posts">
 
                 <li><a href="https://www.instagram.com/p/PASTE-A-POST-LINK-HERE/">Post 1</a></li>
                 <li><a href="https://www.instagram.com/p/PASTE-A-POST-LINK-HERE/">Post 2</a></li>
@@ -560,7 +566,7 @@
     </footer>
 
     <script src="photo-slots.js"></script>
-    <script src="instagram-popup.js"></script>
+    <script src="instagram-feed.js"></script>
     <script src="lightbox.js"></script>
 
 </body>
