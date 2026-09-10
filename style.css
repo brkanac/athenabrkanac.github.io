@@ -1076,14 +1076,21 @@ body.lightbox-locked {
     letter-spacing: -0.035em;
 }
 
-.role-block h3 + p {
+.role-block p {
     max-width: 520px;
-    margin-top: 22px;
 
     font-size: 16px;
     line-height: 1.75;
 
     color: var(--text-soft);
+}
+
+.role-block h3 + p {
+    margin-top: 22px;
+}
+
+.role-block p + p {
+    margin-top: 18px;
 }
 
 
@@ -1121,115 +1128,84 @@ body.lightbox-locked {
 
 
 /* ==================================================
-   INSTAGRAM GRID
+   INSTAGRAM FEED BOX
+
+   One small card standing in for the whole feed. Clicking it opens
+   the posts themselves, loaded live from Instagram — see the popup
+   further down, and instagram-popup.js.
    ================================================== */
 
-.ig-card {
-    padding: 26px 32px;
+.feed-box {
+    max-width: 560px;
+
+    padding: 20px 24px;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;
+    gap: 18px;
 
     background: var(--cream);
     border: 1px solid var(--border);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.ig-handle {
-    font-size: clamp(24px, 3vw, 38px);
-    letter-spacing: -0.035em;
+.feed-box:hover,
+.feed-box:focus-visible {
+    transform: translateY(-4px);
+
+    box-shadow: 8px 8px 0 var(--yellow);
 }
 
-.ig-card p {
-    margin-top: 8px;
+.feed-box-mark {
+    flex-shrink: 0;
 
-    font-size: 13px;
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--pink-light);
+    border-radius: 100px;
+
+    color: var(--pink-dark);
+}
+
+.feed-box-text {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.feed-box-handle {
+    font-size: 20px;
+    letter-spacing: -0.02em;
+}
+
+.feed-box-note {
+    font-size: 12px;
+    line-height: 1.5;
 
     color: var(--text-soft);
 }
 
-.ig-card .pill-button {
+.feed-box-action {
     flex-shrink: 0;
-}
+    margin-left: auto;
 
+    padding: 11px 18px;
 
-/* Three across, square, and tight — the shape of a profile grid */
+    background: var(--yellow);
+    border-radius: 100px;
 
-.ig-grid {
-    margin-top: 8px;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-}
-
-.ig-post {
-    position: relative;
-
-    display: block;
-
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-
-    background: var(--pink);
-}
-
-.ig-post img {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition: transform 0.5s ease;
-}
-
-.ig-post:hover img,
-.ig-post:focus-visible img {
-    transform: scale(1.05);
-}
-
-
-/* The little badge that says a tile opens the real post */
-
-.ig-post::after {
-    content: "View post ↗";
-
-    position: absolute;
-    inset: auto 0 0 0;
-    z-index: 2;
-
-    padding: 30px 14px 12px;
-
-    background: linear-gradient(
-        to top,
-        rgba(63, 48, 53, 0.75),
-        rgba(63, 48, 53, 0)
-    );
-
-    color: #FFFFFF;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-
-    opacity: 0;
-
-    transition: opacity 0.25s ease;
-}
-
-.ig-post:hover::after,
-.ig-post:focus-visible::after {
-    opacity: 1;
-}
-
-/* Tiles with no post linked yet are not pretending to be clickable */
-
-.ig-post.is-unlinked::after {
-    content: none;
+    font-size: 13px;
+    white-space: nowrap;
 }
 
 
@@ -1302,13 +1278,6 @@ body.lightbox-locked {
     text-align: center;
 }
 
-.ig-post .slot-label {
-    position: absolute;
-    inset: 0;
-
-    aspect-ratio: auto;
-}
-
 /* photo-slots.js hides a label once its photo loads. This has to beat
    the display: flex above, or the label stays sitting on the photo. */
 
@@ -1370,18 +1339,33 @@ body.lightbox-locked {
     position: relative;
 
     width: min(420px, 100%);
-    height: min(720px, 100%);
+    height: min(760px, 100%);
 
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
-.ig-popup iframe {
+
+/* The posts scroll inside the popup, so it reads like a feed rather
+   than one post at a time. */
+
+.ig-popup-feed {
     flex: 1;
     min-height: 0;
 
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    overflow-y: auto;
+}
+
+.ig-popup-feed iframe {
+    flex-shrink: 0;
+
     width: 100%;
+    height: 640px;
 
     background: var(--cream);
     border: none;
@@ -1455,16 +1439,17 @@ body.lightbox-locked {
         padding: 18vw 7vw;
     }
 
-    .ig-card {
+    .feed-box {
         display: block;
     }
 
-    .ig-card .pill-button {
-        margin-top: 22px;
+    .feed-box-text {
+        margin-top: 16px;
     }
 
-    .ig-grid {
-        gap: 5px;
+    .feed-box-action {
+        display: inline-block;
+        margin: 18px 0 0;
     }
 
     .shot-grid {
