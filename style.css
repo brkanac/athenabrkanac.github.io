@@ -1304,79 +1304,24 @@ body.lightbox-locked {
 /* ==================================================
    THE LIVE FEED
 
-   A feed service's own widget, dropped in whole. It only takes up
-   room once it has something in it, so an unconfigured page shows no
-   empty box. Raise --widget-height if your feed is taller than the
-   space it is given — some services size themselves and ignore it.
+   LightWidget's embed, which reads @axocolumbia directly. Their own
+   script sizes the iframe to whatever the feed needs, so no height is
+   set here — one is only used as a starting point, before their script
+   has measured it, so the section does not jump as the page settles.
    ================================================== */
 
 .feed-widget {
-    --widget-height: 720px;
-}
-
-.feed-widget.is-live {
     margin-top: 40px;
 }
 
-.feed-widget-frame {
+.feed-widget iframe {
     width: 100%;
-    height: var(--widget-height);
+    min-height: 320px;
 
     display: block;
 
     border: none;
-}
-
-
-/* ==================================================
-   THE HAND-PICKED FEED
-
-   The fallback: posts chosen by hand, embedded live from Instagram,
-   three across. A bare embed cannot tell the page how tall it wants to
-   be, so the row is given a fixed height — raise or lower --feed-height
-   if your posts sit with too much empty space under them, or lose their
-   caption off the bottom.
-   ================================================== */
-
-.feed-embeds {
-    --feed-height: 680px;
-
-    margin-top: 40px;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.feed-embed {
-    width: 100%;
-    height: var(--feed-height);
-
-    display: block;
-
-    background: var(--cream);
-    border: 1px solid var(--border);
-}
-
-
-/* Without JavaScript the posts cannot be embedded, so the plain list of
-   links stays on the page as the way through to them. With it, the list
-   is only the instruction sheet for building the feed above. */
-
-.feed-posts {
-    margin-top: 30px;
-    padding-left: 20px;
-
-    font-size: 14px;
-    line-height: 1.9;
-}
-
-.feed-posts a {
-    border-bottom: 1px solid var(--border);
-}
-
-.js .feed-posts {
-    display: none;
+    overflow: hidden;
 }
 
 
@@ -1392,10 +1337,6 @@ body.lightbox-locked {
     }
 
     .shot-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .feed-embeds {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1421,10 +1362,6 @@ body.lightbox-locked {
     }
 
     .shot-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .feed-embeds {
         grid-template-columns: 1fr;
     }
 

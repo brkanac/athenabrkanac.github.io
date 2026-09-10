@@ -240,75 +240,35 @@
 
 
             <!--
-            THE LIVE FEED  ← set this up once and it updates itself
+            THE LIVE FEED
 
-            Paste your widget's address between the quotes on
-            data-widget-url below, and this section becomes your real
-            Instagram feed — new posts show up here on their own, with
-            nothing to edit ever again.
+            This is the LightWidget embed for @axocolumbia. It reads the
+            account directly, so new posts appear here on their own —
+            there is nothing to edit when you post.
 
-            To get that address, sign up with an Instagram feed service
-            and connect @axocolumbia. LightWidget and SnapWidget both
-            have free plans and both hand you an address that looks like
-            one of these:
+            To change what it shows — how many posts, how many across,
+            spacing — edit the widget in your LightWidget account rather
+            than here. The changes come through on their own; this code
+            stays the same.
 
-                https://cdn.lightwidget.com/widgets/xxxxxxxx.html
-                https://snapwidget.com/embed/xxxxxxx
-
-            (Free plans usually show a small credit line from the
-            service, and most of these need @axocolumbia to be a
-            Business or Creator account — that switch is free, in
-            Instagram under Settings → Account type.)
-
-            If the service gives you a whole block of code instead of a
-            plain address, paste that block INSIDE this div rather than
-            using data-widget-url. Either way works.
-
-            Until one of those is filled in, the page falls back to the
-            hand-picked posts listed further down, so the section always
-            has something in it.
+            If you ever rebuild the widget from scratch, LightWidget
+            gives you a fresh block of code to paste in place of the two
+            lines below.
             -->
 
-            <div class="feed-widget" data-widget-url=""></div>
+            <div class="feed-widget">
 
+                <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
 
-            <!--
-            THE FALLBACK POSTS
+                <iframe
+                    src="https://lightwidget.com/widgets/a4f2fc0998fc5cd7be42ba3c8580fc01.html"
+                    class="lightwidget-widget"
+                    title="Instagram feed for @axocolumbia"
+                    scrolling="no"
+                    allowtransparency="true"
+                ></iframe>
 
-            These are used only while the live feed above is not set up.
-            They do not update on their own — each one is a post you pick
-            by hand.
-
-            They are embedded straight from Instagram, so each one shows
-            the real post rather than a copy saved into this site.
-
-            To choose them, paste their links below. Open a post on
-            Instagram, tap the three dots, then "Copy link". Each one
-            should look like:
-
-                https://www.instagram.com/p/ABC123/
-                https://www.instagram.com/reel/ABC123/
-
-            Add as many as you like, or delete ones you are done with —
-            they appear in the order they are listed here. Rows are three
-            across, so three, six, or nine posts fill the row neatly.
-
-            Instagram only lets individual posts be embedded, not a
-            whole profile, which is why picking them by hand needs a list
-            like this — and why the widget above is the better answer if
-            you want it to keep itself current.
-            -->
-
-            <ul class="feed-posts">
-
-                <li><a href="https://www.instagram.com/p/PASTE-A-POST-LINK-HERE/">Post 1</a></li>
-                <li><a href="https://www.instagram.com/p/PASTE-A-POST-LINK-HERE/">Post 2</a></li>
-                <li><a href="https://www.instagram.com/p/PASTE-A-POST-LINK-HERE/">Post 3</a></li>
-                <li><a href="https://www.instagram.com/p/PASTE-A-POST-LINK-HERE/">Post 4</a></li>
-                <li><a href="https://www.instagram.com/p/PASTE-A-POST-LINK-HERE/">Post 5</a></li>
-                <li><a href="https://www.instagram.com/p/PASTE-A-POST-LINK-HERE/">Post 6</a></li>
-
-            </ul>
+            </div>
 
         </section>
 
@@ -604,7 +564,6 @@
     </footer>
 
     <script src="photo-slots.js"></script>
-    <script src="instagram-feed.js"></script>
     <script src="lightbox.js"></script>
 
 </body>

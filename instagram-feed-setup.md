@@ -1,67 +1,47 @@
-# Setting up the live Instagram feed
+# The Instagram feed
 
-The marketing page can show the @axocolumbia feed in one of two ways. The
-first keeps itself up to date; the second is a stand-in until it does.
+The marketing page shows the **@axocolumbia** feed through
+[LightWidget](https://lightwidget.com), which reads the account directly.
+New posts appear on the site on their own — there is nothing to edit here
+when you post.
 
-## 1. The live feed (set up once, then forget it)
+## Changing what the feed looks like
 
-An Instagram feed service connects to the account and hands you an address
-to point the site at. New posts then appear on the site on their own.
+Log in to LightWidget and edit the widget there: how many posts it shows,
+how many across, the spacing, whether captions appear. Save it, and the
+site picks the change up on its own.
 
-1. Sign up with a feed service. **LightWidget** and **SnapWidget** both
-   have free plans and both give you a plain address to paste, which is
-   what this site expects. Behold and Elfsight work too.
-2. Connect the **@axocolumbia** account. You will need to be logged in to
-   that account, and it usually has to be a **Business or Creator**
-   account — that switch is free, in the Instagram app under
-   *Settings → Account type and tools*.
-3. Build the feed in their editor — the grid layout and a row of six or
-   nine posts suits this page best.
-4. Copy the address they give you. It looks something like:
+Do not edit the feed's appearance in `marketing.html` — the code there is
+just the address of your widget, and LightWidget controls the rest.
 
-       https://cdn.lightwidget.com/widgets/xxxxxxxxxxxx.html
-       https://snapwidget.com/embed/xxxxxxx
+## The code on the page
 
-5. Open `marketing.html`, find this line, and paste it between the quotes:
+In `marketing.html`, inside the Instagram section:
 
-       <div class="feed-widget" data-widget-url=""></div>
+    <div class="feed-widget">
+        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+        <iframe
+            src="https://lightwidget.com/widgets/a4f2fc0998fc5cd7be42ba3c8580fc01.html"
+            ...
+        ></iframe>
+    </div>
 
-That is the whole change. Save, commit, and the feed is live.
+The long string in the address is your widget's id. If you ever rebuild
+the widget from scratch, LightWidget hands you a new block of code —
+paste it over the two lines inside that div.
 
-If the service gives you a **block of code** instead of a plain address,
-paste that block inside the div instead:
+The script is LightWidget's, and its job is to measure the feed and set
+the iframe's height. That is why no height is set in `style.css`, only a
+starting `min-height` so the page does not jump while it loads.
 
-       <div class="feed-widget">
-           ...their code here...
-       </div>
+## If the feed stops showing
 
-Either form works — the site uses whichever it finds.
-
-### If the feed looks too short or too tall
-
-Open `style.css`, find `--widget-height: 720px` under "THE LIVE FEED", and
-change that number. Some services size their own feed and will ignore it.
-
-### Worth knowing
-
-- Free plans usually show a small credit line from the service.
-- These services read the account through Instagram's official API, so if
-  the chapter ever revokes the connection the feed stops updating.
-
-## 2. The hand-picked posts (the fallback)
-
-Used only while no live feed is set up. In `marketing.html` there is a
-list of post links:
-
-    <li><a href="https://www.instagram.com/p/ABC123/">Post 1</a></li>
-
-Paste real post links in — on Instagram, open a post, tap the three dots,
-then *Copy link*. Add or delete lines freely; they appear in the order
-listed, three across, so three, six, or nine fill the rows neatly.
-
-These are real embeds pulled from Instagram, so each shows its current
-caption and likes — but the list only ever holds the posts you chose, so
-it does not keep itself current.
-
-With neither set up, the section is just the profile box, which is the
-intended state — nothing broken-looking appears.
+- Check the widget is still live in your LightWidget account. These
+  services connect through Instagram's official API, and that connection
+  can expire or be revoked — reconnecting the account in LightWidget
+  usually fixes it.
+- Free plans normally show a small LightWidget credit line, and can cap
+  how often the feed refreshes.
+- A browser extension that blocks third-party content will hide the feed
+  for that visitor. The **@axocolumbia** box above it is a plain link, so
+  there is always a way through to Instagram either way.
