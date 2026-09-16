@@ -580,9 +580,9 @@ h2 {
     padding: 10vw 5vw;
 
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
     align-items: start;
-    gap: 50px 10vw;
+    gap: 50px 5vw;
 
     background: var(--cream);
 }
@@ -600,6 +600,8 @@ h2 {
 
 .about-text {
     grid-column: 2;
+
+    max-width: 680px;
 }
 
 .about-image img {
