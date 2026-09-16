@@ -163,6 +163,10 @@ h2 {
     color: var(--text-soft);
 }
 
+.section-intro:empty {
+    display: none;
+}
+
 
 /* ==================================================
    BUTTONS AND LINKS
@@ -658,6 +662,10 @@ h2 {
     padding: 9vw 5vw;
 }
 
+.projects-gallery-section {
+    background: var(--pink-light);
+}
+
 .landscape-gallery-section {
     background: var(--yellow-light);
 }
@@ -1094,62 +1102,41 @@ body.lightbox-locked {
     background: var(--yellow-light);
 }
 
-/* The role reads down the left, and what backs it up — the facts, then
-   the account itself — stacks on the right. */
+/* The credentials, stated once and briefly. The work below is the part
+   worth spending time on, so this says what the role is and gets out of
+   the way. */
 
 .role-block {
     margin-bottom: 60px;
-
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    align-items: start;
-    gap: 5vw;
 }
 
 .role-side {
+    max-width: 980px;
+
     display: flex;
     flex-direction: column;
     gap: 24px;
-}
-
-.role-block h3 {
-    font-size: clamp(28px, 3vw, 42px);
-    line-height: 1.05;
-    letter-spacing: -0.035em;
-}
-
-.role-block p {
-    max-width: 520px;
-
-    font-size: 15px;
-    line-height: 1.7;
-
-    color: var(--text-soft);
-}
-
-.role-block h3 + p {
-    margin-top: 22px;
-}
-
-.role-block p + p {
-    margin-top: 18px;
 }
 
 
 /* The facts list — role, chapter, and what the work covers */
 
 .role-facts {
-    padding: 30px 32px;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr) minmax(0, 1.75fr);
 
     background: var(--cream);
     border: 1px solid var(--border);
 }
 
-.role-facts div + div {
-    margin-top: 20px;
-    padding-top: 20px;
+.role-facts div {
+    padding: 26px 32px;
+}
 
-    border-top: 1px solid var(--border);
+.role-facts div + div {
+    border-left: 1px solid var(--border);
 }
 
 .role-facts dt {
@@ -1252,6 +1239,62 @@ body.lightbox-locked {
    PROJECTS
    ================================================== */
 
+
+/* An embedded video — from YouTube, Vimeo, or a file. Whatever is
+   pasted in is stretched to the width of the page and held at 16:9,
+   which is the shape nearly every video is. Empty, it explains
+   itself instead of leaving a hole. */
+
+.video-frame {
+    margin-top: 32px;
+    max-width: 900px;
+}
+
+.video-frame iframe,
+.video-frame video {
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    display: block;
+
+    background: var(--text);
+    border: none;
+}
+
+/* The placeholder is laid over the frame rather than sat inside it, so
+   its text can never push the page wider than the screen. */
+
+.video-frame:empty {
+    position: relative;
+
+    aspect-ratio: 16 / 9;
+
+    background: var(--cream);
+    border: 1px dashed var(--border);
+}
+
+.video-frame:empty::before {
+    content: "☆  Your video goes here";
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    color: var(--pink-dark);
+}
+
 .shot-group + .shot-group {
     margin-top: 90px;
 }
@@ -1346,9 +1389,13 @@ body.lightbox-locked {
 
 @media (max-width: 950px) {
 
-    .role-block {
+    .role-facts {
         grid-template-columns: 1fr;
-        gap: 40px;
+    }
+
+    .role-facts div + div {
+        border-top: 1px solid var(--border);
+        border-left: none;
     }
 
     .shot-grid {
@@ -1384,8 +1431,8 @@ body.lightbox-locked {
         margin-top: 62px;
     }
 
-    .role-facts {
-        padding: 26px 24px;
+    .role-facts div {
+        padding: 22px 24px;
     }
 
 }
