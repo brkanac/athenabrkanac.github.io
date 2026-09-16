@@ -572,19 +572,34 @@ h2 {
    ABOUT
    ================================================== */
 
+/* The heading spans the top, then the photo and the text start on the
+   same line beneath it — so they run level, rather than the text
+   beginning up beside the heading with the photo well below it. */
+
 .about-section {
     padding: 10vw 5vw;
 
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 10vw;
+    align-items: start;
+    gap: 50px 10vw;
 
     background: var(--cream);
 }
 
+.about-heading {
+    grid-column: 1 / -1;
+}
+
 .about-image {
+    grid-column: 1;
+
     max-width: 480px;
-    margin: 50px 0 0;
+    margin: 0;
+}
+
+.about-text {
+    grid-column: 2;
 }
 
 .about-image img {
@@ -931,7 +946,13 @@ body.lightbox-locked {
 
     .about-section {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 40px;
+    }
+
+    .about-heading,
+    .about-image,
+    .about-text {
+        grid-column: 1;
     }
 
     .full-portrait-grid {
