@@ -594,7 +594,7 @@ h2 {
 .about-image {
     grid-column: 1;
 
-    max-width: 480px;
+    max-width: 340px;
     margin: 0;
 }
 
