@@ -8,23 +8,6 @@ place.
 If your file is a `.jpeg`, `.png`, or `.JPG`, either rename it to match the
 name here, or change the `src` on that slot in `marketing.html`.
 
-## Instagram grid
-
-The grid mirrors Instagram's own, which is 3:4 portrait — so
-portrait crops sit best here.
-
-    instagram-01.jpg
-    instagram-02.jpg
-    instagram-03.jpg
-    instagram-04.jpg
-    instagram-05.jpg
-    instagram-06.jpg
-    instagram-07.jpg
-    instagram-08.jpg
-    instagram-09.jpg
-
-Each tile also links to a post — see `instagram-feed-setup.md`.
-
 ## Merch photoshoot
 
     merch-01.jpg
@@ -46,7 +29,13 @@ Each tile also links to a post — see `instagram-feed-setup.md`.
     cocojune-03.jpg
     cocojune-04.jpg
 
-## Adding more photos
+## Adding more photos to a project
 
 Copy one of the `<figure class="shot">` blocks in `marketing.html`, change
 the `src`, the `alt`, and the placeholder label inside it.
+
+## Adding a whole new project
+
+Copy a `<div class="shot-group">` block in `marketing.html`. Give it a
+heading, a short description of what the work was, and its own set of
+photo slots — then list their file names here so they are easy to find.
