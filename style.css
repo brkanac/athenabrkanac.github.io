@@ -531,20 +531,35 @@ h2 {
 }
 
 
-/* Each card leads somewhere, so each says where */
+/* Each card leads two ways: to the work here, and to the account it
+   came from */
 
-.card-action {
+.card-links {
     margin-top: 22px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+}
+
+.card-links a {
+    padding-bottom: 3px;
+
+    border-bottom: 1px solid var(--border);
 
     font-size: 14px;
 
     color: var(--text);
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
-.marketing-card:hover .card-action,
-.marketing-card:focus-visible .card-action {
+.card-links a:hover,
+.card-links a:focus-visible {
+    border-bottom-color: var(--pink-dark);
+
     color: var(--pink-dark);
 }
 
