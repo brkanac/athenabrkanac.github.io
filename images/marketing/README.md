@@ -33,7 +33,8 @@ clips short and well under 2MB.
 
     cocojune-01.jpg
     cocojune-02.mp4   the clip
-    cocojune-02.jpg   the frame shown before the clip plays
+    cocojune-02.webm  the same clip, for browsers that cannot play mp4
+    cocojune-02.jpg   the frame shown until the clip gets going
     cocojune-03.jpg
     cocojune-04.jpg
 

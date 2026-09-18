@@ -1,4 +1,4 @@
-// Photo slots for the marketing page.
+// Photo slots, and the clips that sit among them.
 //
 // Every photo on marketing.html points at a file in images/marketing/
 // that may not exist yet. Rather than showing a broken image, each slot
@@ -39,5 +39,33 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("error", leaveEmpty);
 
     });
+
+});
+
+
+// Clips in the project grids play on their own, silently and on a loop.
+// Anyone who has asked their system to reduce motion gets them stopped
+// with controls instead, so a moving picture is never forced on them.
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (!window.matchMedia) return;
+
+    const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    function settle() {
+        document.querySelectorAll(".shot video").forEach((clip) => {
+
+            if (!stillness.matches) return;
+
+            clip.autoplay = false;
+            clip.controls = true;
+            clip.pause();
+
+        });
+    }
+
+    settle();
+    stillness.addEventListener("change", settle);
 
 });
