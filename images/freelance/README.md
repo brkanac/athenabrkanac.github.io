@@ -10,10 +10,10 @@ place.
 The files are named `stars-`, the project is called Stars4Ever — the two
 do not have to match.
 
-    stars-01.jpg
-    stars-02.jpg
-    stars-03.jpg
-    stars-04.jpg
+    stars-01.jpg  ┐
+    stars-02.jpg  ├ the film set
+    stars-03.jpg  │
+    stars-04.jpg  ┘
 
 Photos straight off a phone or camera are several megabytes each, which is
 slow to load. Aim for under about 800KB — 2000px on the long edge at good
