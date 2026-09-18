@@ -1377,6 +1377,18 @@ body.lightbox-locked {
     overflow: hidden;
 }
 
+
+/* A project whose photographs were not all shot upright. Three across
+   and close to square, so a landscape frame keeps most of itself. */
+
+.shot-grid-three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shot-grid-three .shot {
+    aspect-ratio: 1 / 1;
+}
+
 .shot img,
 .shot video {
     width: 100%;
@@ -1487,7 +1499,8 @@ body.lightbox-locked {
         border-left: none;
     }
 
-    .shot-grid {
+    .shot-grid,
+    .shot-grid-three {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1512,7 +1525,8 @@ body.lightbox-locked {
         margin: 18px 0 0;
     }
 
-    .shot-grid {
+    .shot-grid,
+    .shot-grid-three {
         grid-template-columns: 1fr;
     }
 
