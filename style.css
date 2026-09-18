@@ -1399,6 +1399,15 @@ body.lightbox-locked {
 }
 
 
+/* A tall photograph whose subject sits high in the frame. The tile takes
+   what it needs off the bottom rather than off both ends, so nobody
+   loses the top of their head to it. */
+
+.shot.shot-from-top img {
+    object-position: center top;
+}
+
+
 .shot img,
 .shot video {
     width: 100%;
