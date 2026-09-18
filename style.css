@@ -1285,12 +1285,14 @@ body.lightbox-locked {
     flex-shrink: 0;
     margin-left: auto;
 
+    min-width: 280px;
     padding: 17px 30px;
 
     background: var(--yellow);
     border-radius: 100px;
 
     font-size: 16px;
+    text-align: center;
     white-space: nowrap;
 
     transition: background 0.25s ease;
