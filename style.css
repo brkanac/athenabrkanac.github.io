@@ -1433,6 +1433,19 @@ body.lightbox-locked {
 }
 
 
+/* The button that opens up a grid holding more than it shows. */
+
+.reveal-button {
+    margin-top: 24px;
+
+    border: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 14px;
+}
+
+
 /* A project that came with writing of its own. Wider leading than a
    one-line description, and its opening line set larger so the piece
    introduces itself before it explains itself. */

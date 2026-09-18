@@ -15,7 +15,7 @@ Two things happen here:
      does — by naming its own figures in EXTRA_WARMTH below.
 """
 from PIL import Image, ImageCms, ImageOps, ImageEnhance
-import io, os, sys
+import io, os, sys, glob, re
 
 WARM = 0.03   # how far red is lifted and blue eased
 SAT  = 1.05   # saturation multiplier
@@ -70,11 +70,16 @@ def build(src, dst, crop=False, quality=82, cap=2000):
     im.save(dst, "JPEG", quality=quality, optimize=True, progressive=True, icc_profile=srgb_bytes)
     return os.path.getsize(dst)//1024
 
-jobs = [
-    ("images/originals/stars-01.jpg", "images/freelance/stars-01.jpg", False),
-    ("images/originals/stars-02.JPG", "images/freelance/stars-02.jpg", False),
-    ("images/originals/stars-03.JPG", "images/freelance/stars-03.jpg", False),
-    ("images/originals/stars-04.JPG", "images/freelance/stars-04.jpg", False),
+# Stars4Ever is still being added to, so its photographs are found rather
+# than listed. Drop stars-05, -06 and so on into images/originals/ — any
+# extension — and they are picked up on the next run with no edit here.
+jobs = []
+for src in sorted(glob.glob("images/originals/stars-*")):
+    match = re.match(r"stars-(\d+)", os.path.basename(src))
+    if match:
+        jobs.append((src, f"images/freelance/stars-{int(match.group(1)):02d}.jpg", False))
+
+jobs += [
     ("images/originals/grad-01.jpg",  "images/marketing/grad-01.jpg",  False),
     ("images/originals/grad-02.jpg",  "images/marketing/grad-02.jpg",  False),
     ("images/originals/grad-03.jpg",  "images/marketing/grad-03.jpg",  False),
