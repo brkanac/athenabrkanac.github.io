@@ -279,27 +279,19 @@
                     </a>
                 </p>
 
+                <!--
+                Two clips among the photographs. They play on their own,
+                silently, round and round — muted is what lets a browser
+                start one without being asked. Each poster is a frame
+                from its own clip, shown until it gets going, so a tile
+                is never black.
+
+                Each clip ships twice: browsers take the first they can
+                play, which is the smaller .mp4 for nearly everyone,
+                with the .webm there for the few that cannot.
+                -->
+
                 <div class="shot-grid">
-
-                    <figure class="shot">
-                        <img
-                            src="images/marketing/cocojune-01.jpg"
-                            alt="Cocojune brand collaboration content"
-                            data-caption="cocojune × axo"
-                        >
-                    </figure>
-
-                    <!--
-                    The clip. It plays on its own, silently, round and
-                    round — muted is what lets a browser start it
-                    without being asked. Its poster is the frame shown
-                    until it gets going, so the tile is never black.
-
-                    Two copies of the same clip: browsers take the first
-                    they can play, which is the smaller .mp4 for nearly
-                    everyone, with the .webm there for the few that
-                    cannot.
-                    -->
 
                     <figure class="shot">
                         <video
@@ -326,6 +318,25 @@
                             alt="Cocojune brand collaboration content"
                             data-caption="cocojune × axo"
                         >
+                    </figure>
+
+                    <figure class="shot">
+                        <video
+                            poster="images/marketing/cocojune-05.jpg"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                        >
+                            <source
+                                src="images/marketing/cocojune-05.mp4"
+                                type="video/mp4"
+                            >
+                            <source
+                                src="images/marketing/cocojune-05.webm"
+                                type="video/webm"
+                            >
+                        </video>
                     </figure>
 
                     <figure class="shot">
