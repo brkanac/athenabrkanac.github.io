@@ -36,3 +36,16 @@ anything over 100MB.
 Copy a `<div class="shot-group">` block in `freelance.html`. Give it a
 heading, a line or two about what the work was, and its own photo slots —
 then list their file names here.
+
+## About the colour of these files
+
+They are not straight copies of the originals. `images/build-photos.py`
+rebuilds each one: it converts from Display P3 — which is what a phone
+shoots — into sRGB, which is what browsers assume, and adds a little
+warmth on top.
+
+Without that conversion the photographs come out looking grey, because
+P3 numbers read as sRGB are duller than they were shot.
+
+To change how warm they are, edit `WARM` and `SAT` at the top of that
+script and run it again.
