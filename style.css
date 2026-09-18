@@ -576,58 +576,49 @@ h2 {
    same line beneath it — so they run level, rather than the text
    beginning up beside the heading with the photo well below it. */
 
+/* The words read down the left — heading, then the writing under it —
+   and the photo holds the right edge, running the height of both. */
+
 .about-section {
     padding: 10vw 5vw;
 
     display: grid;
-    grid-template-columns: auto minmax(0, 300px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto 1fr;
     align-items: start;
-    gap: 50px 4vw;
+    gap: 40px 6vw;
 
     background: var(--cream);
 }
 
 .about-heading {
     grid-column: 1;
+    grid-row: 1;
 }
 
-.about-section h2 {
-    font-size: clamp(32px, 3.2vw, 46px);
+.about-text {
+    grid-column: 1;
+    grid-row: 2;
+
+    max-width: 620px;
 }
 
 .about-image {
     grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
 
-    max-width: 300px;
+    width: min(34vw, 400px);
+    max-width: 400px;
     margin: 0;
 }
 
-.about-text {
-    grid-column: 3;
 
-    max-width: 680px;
-}
-
-
-/* Three across needs real width. Below that the heading goes back to
-   spanning the top, with the photo and text on the line beneath. */
-
-@media (max-width: 1150px) {
-
-    .about-section {
-        grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
-    }
-
-    .about-heading {
-        grid-column: 1 / -1;
-    }
+@media (max-width: 950px) {
 
     .about-image {
-        grid-column: 1;
-    }
-
-    .about-text {
-        grid-column: 2;
+        width: 100%;
+        max-width: 340px;
     }
 
 }
@@ -976,6 +967,7 @@ body.lightbox-locked {
 
     .about-section {
         grid-template-columns: 1fr;
+        grid-template-rows: none;
         gap: 40px;
     }
 
@@ -983,6 +975,8 @@ body.lightbox-locked {
     .about-image,
     .about-text {
         grid-column: 1;
+        grid-row: auto;
+        justify-self: start;
     }
 
     .full-portrait-grid {
@@ -1368,13 +1362,52 @@ body.lightbox-locked {
     overflow: hidden;
 }
 
-.shot img {
+.shot img,
+.shot video {
     width: 100%;
     height: auto;
 
     display: block;
 
     transition: transform 0.5s ease;
+}
+
+
+/* A clip sits in the grid like a photograph, but it is the visitor's
+   to start — no autoplay, and the poster frame stands in until they do. */
+
+.shot video {
+    background: var(--pink-light);
+}
+
+.shot:hover video {
+    transform: none;
+}
+
+
+/* Where a project has somewhere to go — the post it ran as */
+
+.project-link {
+    margin-top: 18px;
+}
+
+.project-link a {
+    padding-bottom: 3px;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 14px;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.project-link a:hover,
+.project-link a:focus-visible {
+    border-bottom-color: var(--pink-dark);
+
+    color: var(--pink-dark);
 }
 
 .shot:hover img {
