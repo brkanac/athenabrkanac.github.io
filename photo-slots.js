@@ -69,3 +69,47 @@ document.addEventListener("DOMContentLoaded", () => {
     stillness.addEventListener("change", settle);
 
 });
+
+
+// Grids that hold more than they show.
+//
+// A grid marked data-reveal="4" shows its first four tiles and keeps the
+// rest back behind a button. The button is built here rather than
+// written into the page, so it only exists when there is something for
+// it to reveal — a project with four photographs and a "View all" that
+// reveals nothing would just be a lie.
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll(".shot-grid[data-reveal]").forEach((grid) => {
+
+        const shown = parseInt(grid.dataset.reveal, 10);
+        const tiles = Array.from(grid.children);
+
+        if (!shown || tiles.length <= shown) return;
+
+        const hidden = tiles.slice(shown);
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "pill-button reveal-button";
+
+        function settle(open) {
+            hidden.forEach((tile) => { tile.hidden = !open; });
+            button.textContent = open
+                ? "Show fewer ↑"
+                : `View all ${tiles.length} photos ↓`;
+            button.setAttribute("aria-expanded", String(open));
+        }
+
+        settle(false);
+
+        button.addEventListener("click", () => {
+            settle(button.getAttribute("aria-expanded") !== "true");
+        });
+
+        grid.insertAdjacentElement("afterend", button);
+
+    });
+
+});
