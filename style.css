@@ -580,28 +580,56 @@ h2 {
     padding: 10vw 5vw;
 
     display: grid;
-    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 300px) minmax(0, 1fr);
     align-items: start;
-    gap: 50px 5vw;
+    gap: 50px 4vw;
 
     background: var(--cream);
 }
 
 .about-heading {
-    grid-column: 1 / -1;
+    grid-column: 1;
+}
+
+.about-section h2 {
+    font-size: clamp(32px, 3.2vw, 46px);
 }
 
 .about-image {
-    grid-column: 1;
+    grid-column: 2;
 
-    max-width: 340px;
+    max-width: 300px;
     margin: 0;
 }
 
 .about-text {
-    grid-column: 2;
+    grid-column: 3;
 
     max-width: 680px;
+}
+
+
+/* Three across needs real width. Below that the heading goes back to
+   spanning the top, with the photo and text on the line beneath. */
+
+@media (max-width: 1150px) {
+
+    .about-section {
+        grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    }
+
+    .about-heading {
+        grid-column: 1 / -1;
+    }
+
+    .about-image {
+        grid-column: 1;
+    }
+
+    .about-text {
+        grid-column: 2;
+    }
+
 }
 
 .about-image img {
@@ -614,8 +642,8 @@ h2 {
 .about-text {
     max-width: 600px;
 
-    font-size: 22px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.7;
 }
 
 .about-text p + p {
