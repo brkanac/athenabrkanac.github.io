@@ -19,17 +19,12 @@ Photos straight off a phone or camera are several megabytes each, which is
 slow to load. Aim for under about 800KB — 2000px on the long edge at good
 quality gets there. Keep the full-size file in `images/originals/`.
 
-## The film
+## The film — done
 
-The video is not a file in here by default — it is embedded from YouTube
-or Vimeo, which handle the playing, the quality, and the phone-sized
-version for you. See the note above `<div class="video-frame">` in
-`freelance.html` for where to paste the embed code.
-
-If you would rather serve the file yourself, put the `.mp4` in this folder
-and use `<video src="images/freelance/film.mp4" controls></video>` in that
-same spot. Worth it only for a short, small file — GitHub will not take
-anything over 100MB.
+Embedded from YouTube, so there is no file in here for it. To point it at
+a different video, change the id in the address in `freelance.html` — the
+part after `/embed/` — to the one from the video's own link, the bit
+after `v=`.
 
 ## Adding another project
 
