@@ -15,12 +15,17 @@ full-size file in `images/originals/` if you want it.
 For video, `.mp4` is the format every browser plays; `.mov` is not. Keep
 clips short and well under 2MB.
 
-## Merch photoshoot
+## Merch photoshoot — done
 
     merch-01.jpg
     merch-02.jpg
     merch-03.jpg
-    merch-04.jpg
+
+Three photographs rather than four, and this project's grid is three
+across and square — its shots were not all taken upright, and the tall
+crop the other projects use would have cut the wide ones in half.
+
+The full-size files these came from are in `images/originals/`.
 
 ## Senior photoshoot — done
 

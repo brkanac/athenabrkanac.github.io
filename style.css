@@ -1285,13 +1285,20 @@ body.lightbox-locked {
     flex-shrink: 0;
     margin-left: auto;
 
-    padding: 11px 18px;
+    padding: 17px 30px;
 
     background: var(--yellow);
     border-radius: 100px;
 
-    font-size: 13px;
+    font-size: 16px;
     white-space: nowrap;
+
+    transition: background 0.25s ease;
+}
+
+.ig-link:hover .ig-link-action,
+.ig-link:focus-visible .ig-link-action {
+    background: #F4DB82;
 }
 
 
@@ -1375,6 +1382,18 @@ body.lightbox-locked {
 
     aspect-ratio: 9 / 16;
     overflow: hidden;
+}
+
+
+/* A project whose photographs were not all shot upright. Three across
+   and close to square, so a landscape frame keeps most of itself. */
+
+.shot-grid-three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shot-grid-three .shot {
+    aspect-ratio: 1 / 1;
 }
 
 .shot img,
@@ -1487,7 +1506,8 @@ body.lightbox-locked {
         border-left: none;
     }
 
-    .shot-grid {
+    .shot-grid,
+    .shot-grid-three {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1512,7 +1532,8 @@ body.lightbox-locked {
         margin: 18px 0 0;
     }
 
-    .shot-grid {
+    .shot-grid,
+    .shot-grid-three {
         grid-template-columns: 1fr;
     }
 
