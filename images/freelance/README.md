@@ -5,7 +5,10 @@ appear on `freelance.html` automatically. You do not need to edit any
 HTML — until a file exists, the site shows a labelled placeholder in its
 place.
 
-## Stars by Anna — done
+## Stars4Ever — done
+
+The files are named `stars-`, the project is called Stars4Ever — the two
+do not have to match.
 
     stars-01.jpg
     stars-02.jpg
