@@ -310,34 +310,30 @@
                 <p class="section-intro"></p>
 
                 <!--
-                THE VIDEO
+                THE FILM
 
-                Paste your video's embed code between the tags below and
-                it appears, sized to the page. Until you do, the empty
-                frame shows a note instead.
+                Embedded from YouTube. To swap it for a different video,
+                replace the id in the address below — the part after
+                /embed/ — with the one from the video's own link, the
+                bit after "v=".
 
-                FROM YOUTUBE: open the video, click Share, then Embed,
-                and copy the whole <iframe ...></iframe> block.
-
-                FROM VIMEO: click Share, then copy the Embed code.
-
-                Those are the two worth using — they handle the playing,
-                the quality, and the phone-sized version for you, and
-                they cost nothing. An unlisted video is fine: unlisted
-                means it does not show up in search, but anyone with the
-                link, including this page, can play it.
-
-                FROM A FILE, if you would rather not use either: put the
-                .mp4 in images/freelance/ and use
-
-                    <video src="images/freelance/film.mp4" controls></video>
-
-                instead. Only worth it for a short, small file — GitHub
-                will not take anything over 100MB, and a big video is
-                slow to load for whoever is watching.
+                It is loaded from youtube-nocookie.com rather than
+                youtube.com, which is YouTube's own address for embeds
+                that do not set tracking cookies until someone presses
+                play.
                 -->
 
-                <div class="video-frame"></div>
+                <div class="video-frame">
+
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/2BOyvgmRGMQ"
+                        title="A short film by Athena Brkanac"
+                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+
+                </div>
 
             </div>
         </section>
