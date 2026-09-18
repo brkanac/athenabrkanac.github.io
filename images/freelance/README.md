@@ -5,12 +5,12 @@ appear on `freelance.html` automatically. You do not need to edit any
 HTML — until a file exists, the site shows a labelled placeholder in its
 place.
 
-## Stars by Anna
+## Stars by Anna — done
 
-    starsbyanna-01.jpg
-    starsbyanna-02.jpg
-    starsbyanna-03.jpg
-    starsbyanna-04.jpg
+    stars-01.jpg
+    stars-02.jpg
+    stars-03.jpg
+    stars-04.jpg
 
 Photos straight off a phone or camera are several megabytes each, which is
 slow to load. Aim for under about 800KB — 2000px on the long edge at good
