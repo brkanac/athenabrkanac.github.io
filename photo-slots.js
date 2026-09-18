@@ -71,44 +71,41 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Grids that hold more than they show.
+// A set of photographs the page holds back until asked.
 //
-// A grid marked data-reveal="4" shows its first four tiles and keeps the
-// rest back behind a button. The button is built here rather than
-// written into the page, so it only exists when there is something for
-// it to reveal — a project with four photographs and a "View all" that
-// reveals nothing would just be a lie.
+// A block marked data-more="the digital set" starts hidden, and a button
+// is built just before it reading "View the digital set". The button is
+// made here rather than written into the page, so it cannot end up
+// pointing at a set that is not there.
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.querySelectorAll(".shot-grid[data-reveal]").forEach((grid) => {
+    document.querySelectorAll("[data-more]").forEach((set) => {
 
-        const shown = parseInt(grid.dataset.reveal, 10);
-        const tiles = Array.from(grid.children);
+        const what = set.dataset.more.trim();
+        const count = set.querySelectorAll(".shot").length;
 
-        if (!shown || tiles.length <= shown) return;
-
-        const hidden = tiles.slice(shown);
+        if (count === 0) return;
 
         const button = document.createElement("button");
         button.type = "button";
         button.className = "pill-button reveal-button";
 
         function settle(open) {
-            hidden.forEach((tile) => { tile.hidden = !open; });
-            button.textContent = open
-                ? "Show fewer ↑"
-                : `View all ${tiles.length} photos ↓`;
+            set.hidden = !open;
+            button.textContent = open ? "Show fewer ↑" : `View ${what} ↓`;
             button.setAttribute("aria-expanded", String(open));
         }
 
         settle(false);
 
         button.addEventListener("click", () => {
-            settle(button.getAttribute("aria-expanded") !== "true");
+            const opening = button.getAttribute("aria-expanded") !== "true";
+            settle(opening);
+            if (opening) set.scrollIntoView({ block: "nearest", behavior: "smooth" });
         });
 
-        grid.insertAdjacentElement("afterend", button);
+        set.insertAdjacentElement("beforebegin", button);
 
     });
 

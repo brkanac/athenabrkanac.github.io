@@ -225,67 +225,102 @@
                 </p>
 
                 <!--
-                data-reveal="4" means the first four show and anything
-                beyond them waits behind a "View all" button. Add more
-                photographs by copying a <figure class="shot"> block and
-                giving it the next number; the button appears on its own
-                once there are more than four, and stays away while
-                there are not.
+                Two sets: the film photographs, and the digital ones
+                behind a button. The button is built by the page, and
+                names whatever data-more says — so adding a third set
+                needs no new code, only another block like the second.
                 -->
 
-                <div class="shot-grid" data-reveal="4">
+                <div class="shot-set">
 
-                    <figure class="shot">
-                        <img
-                            src="images/freelance/stars-01.jpg"
-                            alt="Stars4Ever project photography by Athena Brkanac"
-                            data-caption="stars4ever"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">stars-01.jpg</span>
-                        </span>
-                    </figure>
+                    <p class="shot-set-label">Film</p>
 
-                    <figure class="shot">
-                        <img
-                            src="images/freelance/stars-02.jpg"
-                            alt="Stars4Ever project photography by Athena Brkanac"
-                            data-caption="stars4ever"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">stars-02.jpg</span>
-                        </span>
-                    </figure>
+                    <div class="shot-grid">
 
-                    <figure class="shot">
-                        <img
-                            src="images/freelance/stars-03.jpg"
-                            alt="Stars4Ever project photography by Athena Brkanac"
-                            data-caption="stars4ever"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">stars-03.jpg</span>
-                        </span>
-                    </figure>
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-01.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — film"
+                            >
+                        </figure>
 
-                    <figure class="shot">
-                        <img
-                            src="images/freelance/stars-04.jpg"
-                            alt="Stars4Ever project photography by Athena Brkanac"
-                            data-caption="stars4ever"
-                            data-slot
-                        >
-                        <span class="slot-label">
-                            <span class="slot-star" aria-hidden="true">☆</span>
-                            <span class="slot-file">stars-04.jpg</span>
-                        </span>
-                    </figure>
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-02.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — film"
+                            >
+                        </figure>
+
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-03.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — film"
+                            >
+                        </figure>
+
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-04.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — film"
+                            >
+                        </figure>
+
+                    </div>
+
+                </div>
+
+
+                <div class="shot-set" data-more="the digital set" hidden>
+
+                    <p class="shot-set-label">Digital</p>
+
+                    <div class="shot-grid">
+
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-05.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — digital"
+                            >
+                        </figure>
+
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-06.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — digital"
+                            >
+                        </figure>
+
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-07.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — digital"
+                            >
+                        </figure>
+
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-08.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — digital"
+                            >
+                        </figure>
+
+                        <figure class="shot">
+                            <img
+                                src="images/freelance/stars-09.jpg"
+                                alt="Stars4Ever back to school shoot"
+                                data-caption="stars4ever — digital"
+                            >
+                        </figure>
+
+                    </div>
 
                 </div>
 
