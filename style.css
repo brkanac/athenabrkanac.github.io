@@ -1399,18 +1399,6 @@ body.lightbox-locked {
 }
 
 
-/* A photograph that should keep all of itself. It sits inside the tile
-   rather than filling it, so the tile's shape never takes a bite out of
-   the picture. */
-
-.shot-whole {
-    background: transparent;
-}
-
-.shot.shot-whole img {
-    object-fit: contain;
-}
-
 .shot img,
 .shot video {
     width: 100%;
