@@ -1285,13 +1285,20 @@ body.lightbox-locked {
     flex-shrink: 0;
     margin-left: auto;
 
-    padding: 11px 18px;
+    padding: 17px 30px;
 
     background: var(--yellow);
     border-radius: 100px;
 
-    font-size: 13px;
+    font-size: 16px;
     white-space: nowrap;
+
+    transition: background 0.25s ease;
+}
+
+.ig-link:hover .ig-link-action,
+.ig-link:focus-visible .ig-link-action {
+    background: #F4DB82;
 }
 
 
