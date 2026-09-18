@@ -22,12 +22,14 @@ clips short and well under 2MB.
     merch-03.jpg
     merch-04.jpg
 
-## Senior photoshoot
+## Senior photoshoot — done
 
-    senior-01.jpg
-    senior-02.jpg
-    senior-03.jpg
-    senior-04.jpg
+    grad-01.jpg
+    grad-02.jpg
+    grad-03.jpg
+    grad-04.jpg
+
+The full-size files these came from are in `images/originals/`.
 
 ## Cocojune collaboration — done
 
