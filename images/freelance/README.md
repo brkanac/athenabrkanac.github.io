@@ -5,12 +5,16 @@ appear on `freelance.html` automatically. You do not need to edit any
 HTML — until a file exists, the site shows a labelled placeholder in its
 place.
 
-## Stars4Ever
+## Stars by Anna
 
-    stars4ever-01.jpg
-    stars4ever-02.jpg
-    stars4ever-03.jpg
-    stars4ever-04.jpg
+    starsbyanna-01.jpg
+    starsbyanna-02.jpg
+    starsbyanna-03.jpg
+    starsbyanna-04.jpg
+
+Photos straight off a phone or camera are several megabytes each, which is
+slow to load. Aim for under about 800KB — 2000px on the long edge at good
+quality gets there. Keep the full-size file in `images/originals/`.
 
 ## The film
 
