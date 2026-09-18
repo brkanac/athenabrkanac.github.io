@@ -1161,9 +1161,10 @@ body.lightbox-locked {
     margin-bottom: 60px;
 }
 
-.role-side {
-    max-width: 980px;
+/* Full width, so the panels line up with the rule under the heading
+   rather than stopping short of it. */
 
+.role-side {
     display: flex;
     flex-direction: column;
     gap: 24px;
