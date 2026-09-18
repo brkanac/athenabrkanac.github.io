@@ -49,3 +49,6 @@ P3 numbers read as sRGB are duller than they were shot.
 
 To change how warm they are, edit `WARM` and `SAT` at the top of that
 script and run it again.
+
+Stars4Ever is warmer than the rest of the site — it has its own figures
+under `EXTRA_WARMTH`, also at the top of the script.

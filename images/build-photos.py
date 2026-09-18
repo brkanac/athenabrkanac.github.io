@@ -10,6 +10,9 @@ Two things happen here:
   2. A little warmth on top, at Athena's asking: reds lifted and blues
      eased by 3%, saturation by 5%. Gentle enough to read as sunlight
      rather than a filter. Change WARM and SAT to taste and re-run.
+
+     A project can ask for more than the house setting — Stars4Ever
+     does — by naming its own figures in EXTRA_WARMTH below.
 """
 from PIL import Image, ImageCms, ImageOps, ImageEnhance
 import io, os, sys
@@ -17,15 +20,36 @@ import io, os, sys
 WARM = 0.03   # how far red is lifted and blue eased
 SAT  = 1.05   # saturation multiplier
 
-srgb = ImageCms.createProfile("sRGB")
-srgb_bytes = ImageCms.ImageCmsProfile(srgb).tobytes()
+# Projects that want a warmer hand than the rest of the site.
+# Keyed on the start of the file name.
+EXTRA_WARMTH = {
+    "stars-": (0.055, 1.10),
+}
 
-def warm(img):
+srgb = ImageCms.createProfile("sRGB")
+
+# A fresh profile stamps itself with the current time, which would make
+# every run produce new bytes for pictures that have not actually
+# changed. Blanking that stamp keeps a rebuild honest: only the photos
+# whose settings moved come out different.
+_raw = bytearray(ImageCms.ImageCmsProfile(srgb).tobytes())
+_raw[24:36] = b"\x00" * 12
+srgb_bytes = bytes(_raw)
+
+def warmth_for(dst):
+    name = os.path.basename(dst)
+    for prefix, setting in EXTRA_WARMTH.items():
+        if name.startswith(prefix):
+            return setting
+    return WARM, SAT
+
+
+def warm(img, amount, saturation):
     r, g, b = img.split()
-    r = r.point(lambda v: min(255, int(v * (1 + WARM))))
-    b = b.point(lambda v: int(v * (1 - WARM)))
+    r = r.point(lambda v: min(255, int(v * (1 + amount))))
+    b = b.point(lambda v: int(v * (1 - amount)))
     out = Image.merge("RGB", (r, g, b))
-    return ImageEnhance.Color(out).enhance(SAT)
+    return ImageEnhance.Color(out).enhance(saturation)
 
 def build(src, dst, crop=False, quality=82, cap=2000):
     im = Image.open(src)
@@ -41,7 +65,8 @@ def build(src, dst, crop=False, quality=82, cap=2000):
         im = im.crop((x0, y0, x0+side, y0+side))
         cap, quality = 1400, 84
     im.thumbnail((cap, cap), Image.LANCZOS)
-    im = warm(im)
+    amount, saturation = warmth_for(dst)
+    im = warm(im, amount, saturation)
     im.save(dst, "JPEG", quality=quality, optimize=True, progressive=True, icc_profile=srgb_bytes)
     return os.path.getsize(dst)//1024
 
@@ -62,4 +87,6 @@ jobs = [
     ("images/originals/ttyogapose.jpeg", "images/ttyogapose.jpeg", False),
 ]
 for src, dst, crop in jobs:
-    print(f"  {os.path.basename(dst):22} {build(src, dst, crop)}KB")
+    amount, saturation = warmth_for(dst)
+    note = "" if (amount, saturation) == (WARM, SAT) else f"  (warmer: {amount:.3f} / {saturation:.2f})"
+    print(f"  {os.path.basename(dst):22} {build(src, dst, crop)}KB{note}")
