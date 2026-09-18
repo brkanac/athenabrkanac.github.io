@@ -38,12 +38,16 @@ The full-size files these came from are in `images/originals/`.
 
 ## Cocojune collaboration — done
 
-    cocojune-01.jpg
-    cocojune-02.mp4   the clip
+    cocojune-02.mp4   a clip
     cocojune-02.webm  the same clip, for browsers that cannot play mp4
-    cocojune-02.jpg   the frame shown until the clip gets going
+    cocojune-02.jpg   the frame shown until that clip gets going
     cocojune-03.jpg
+    cocojune-05.mp4   a clip
+    cocojune-05.webm
+    cocojune-05.jpg
     cocojune-04.jpg
+
+Shown in that order: clip, photograph, clip, photograph.
 
 The full-size files these came from are in `images/originals/`.
 
