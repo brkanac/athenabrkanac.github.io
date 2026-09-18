@@ -1373,15 +1373,18 @@ body.lightbox-locked {
 .shot {
     margin: 0;
 
+    aspect-ratio: 9 / 16;
     overflow: hidden;
 }
 
 .shot img,
 .shot video {
     width: 100%;
-    height: auto;
+    height: 100%;
 
     display: block;
+
+    object-fit: cover;
 
     transition: transform 0.5s ease;
 }
@@ -1402,26 +1405,13 @@ body.lightbox-locked {
 /* Where a project has somewhere to go — the post it ran as */
 
 .project-link {
-    margin-top: 18px;
+    margin: 24px 0 34px;
 }
 
-.project-link a {
-    padding-bottom: 3px;
-
-    border-bottom: 1px solid var(--border);
+.project-link .pill-button {
+    padding: 13px 22px;
 
     font-size: 14px;
-
-    transition:
-        color 0.25s ease,
-        border-color 0.25s ease;
-}
-
-.project-link a:hover,
-.project-link a:focus-visible {
-    border-bottom-color: var(--pink-dark);
-
-    color: var(--pink-dark);
 }
 
 .shot:hover img {

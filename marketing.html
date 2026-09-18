@@ -431,6 +431,7 @@
                 <p class="project-link">
                     <a
                         href="https://www.instagram.com/p/DdFTZrBHZXR/"
+                        class="pill-button"
                         target="_blank"
                         rel="noopener"
                     >
@@ -449,20 +450,34 @@
                     </figure>
 
                     <!--
-                    The clip. Its poster is the frame shown before it
-                    plays, so the tile is never a black box.
+                    The clip. It plays on its own, silently, round and
+                    round — muted is what lets a browser start it
+                    without being asked. Its poster is the frame shown
+                    until it gets going, so the tile is never black.
+
+                    Two copies of the same clip: browsers take the first
+                    they can play, which is the smaller .mp4 for nearly
+                    everyone, with the .webm there for the few that
+                    cannot.
                     -->
 
                     <figure class="shot">
                         <video
-                            src="images/marketing/cocojune-02.mp4"
                             poster="images/marketing/cocojune-02.jpg"
-                            controls
+                            autoplay
                             loop
                             muted
                             playsinline
-                            preload="metadata"
-                        ></video>
+                        >
+                            <source
+                                src="images/marketing/cocojune-02.mp4"
+                                type="video/mp4"
+                            >
+                            <source
+                                src="images/marketing/cocojune-02.webm"
+                                type="video/webm"
+                            >
+                        </video>
                     </figure>
 
                     <figure class="shot">
