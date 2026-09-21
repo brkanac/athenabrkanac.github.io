@@ -15,6 +15,20 @@ do not have to match.
     stars-03.jpg  │
     stars-04.jpg  ┘
 
+    stars-05.jpg  ┐
+    stars-06.jpg  │
+    stars-07.jpg  │
+    stars-08.jpg  │
+    stars-09.jpg  ├ the digital set, behind the button on the page
+    stars-10.jpg  │
+    stars-11.jpg  │
+    stars-12.jpg  ┘
+
+To add another digital one, drop the full-size file into
+`images/originals/` as `stars-13`, run `images/build-photos.py`, and add
+a `<figure class="shot">` for it to the digital block in
+`freelance.html`. The script names and sizes the served copy itself.
+
 Photos straight off a phone or camera are several megabytes each, which is
 slow to load. Aim for under about 800KB — 2000px on the long edge at good
 quality gets there. Keep the full-size file in `images/originals/`.
@@ -45,5 +59,10 @@ P3 numbers read as sRGB are duller than they were shot.
 To change how warm they are, edit `WARM` and `SAT` at the top of that
 script and run it again.
 
-Stars4Ever is warmer than the rest of the site — it has its own figures
-under `EXTRA_WARMTH`, also at the top of the script.
+Stars4Ever's two sets are treated differently, both at the top of that
+script. The film set — stars-01 to stars-04 — is warmer than the rest of
+the site, under `EXTRA_WARMTH`. The digital set is left exactly as it was
+shot, with no warming at all, only the P3 to sRGB conversion.
+
+Which stars photos count as film is the number in `STARS_FILM_SET`:
+everything above it is treated as digital.

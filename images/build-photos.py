@@ -11,8 +11,9 @@ Two things happen here:
      eased by 3%, saturation by 5%. Gentle enough to read as sunlight
      rather than a filter. Change WARM and SAT to taste and re-run.
 
-     A project can ask for more than the house setting — Stars4Ever
-     does — by naming its own figures in EXTRA_WARMTH below.
+     A project can ask for more than the house setting — Stars4Ever's
+     film set does — by naming its own figures in EXTRA_WARMTH below,
+     or for none at all, like Stars4Ever's digital set. See STARS_FILM_SET.
 """
 from PIL import Image, ImageCms, ImageOps, ImageEnhance
 import io, os, sys, glob, re
@@ -26,6 +27,16 @@ EXTRA_WARMTH = {
     "stars-": (0.055, 1.10),
 }
 
+# Some photographs are left exactly as they were shot, with only the
+# colour conversion above and no warming at all.
+NO_WARMTH = (0.0, 1.0)
+
+# Stars4Ever comes in two sets. stars-01 to stars-04 are the film ones,
+# and they are the warm ones; everything from stars-05 on is the digital
+# set, which Athena wants untouched. Move this number if the film set
+# ever grows.
+STARS_FILM_SET = 4
+
 srgb = ImageCms.createProfile("sRGB")
 
 # A fresh profile stamps itself with the current time, which would make
@@ -38,9 +49,15 @@ srgb_bytes = bytes(_raw)
 
 def warmth_for(dst):
     name = os.path.basename(dst)
+
+    stars = re.match(r"stars-(\d+)", name)
+    if stars and int(stars.group(1)) > STARS_FILM_SET:
+        return NO_WARMTH
+
     for prefix, setting in EXTRA_WARMTH.items():
         if name.startswith(prefix):
             return setting
+
     return WARM, SAT
 
 
@@ -66,7 +83,8 @@ def build(src, dst, crop=False, quality=82, cap=2000):
         cap, quality = 1400, 84
     im.thumbnail((cap, cap), Image.LANCZOS)
     amount, saturation = warmth_for(dst)
-    im = warm(im, amount, saturation)
+    if (amount, saturation) != NO_WARMTH:
+        im = warm(im, amount, saturation)
     im.save(dst, "JPEG", quality=quality, optimize=True, progressive=True, icc_profile=srgb_bytes)
     return os.path.getsize(dst)//1024
 
@@ -93,5 +111,10 @@ jobs += [
 ]
 for src, dst, crop in jobs:
     amount, saturation = warmth_for(dst)
-    note = "" if (amount, saturation) == (WARM, SAT) else f"  (warmer: {amount:.3f} / {saturation:.2f})"
+    if (amount, saturation) == (WARM, SAT):
+        note = ""
+    elif (amount, saturation) == NO_WARMTH:
+        note = "  (as shot)"
+    else:
+        note = f"  (warmer: {amount:.3f} / {saturation:.2f})"
     print(f"  {os.path.basename(dst):22} {build(src, dst, crop)}KB{note}")
