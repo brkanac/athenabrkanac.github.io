@@ -787,8 +787,17 @@ h2 {
     transform: scale(1.015);
 }
 
+/* Holds one link or two side by side — the project pages offer the
+   other project as well as home. Two links wrap onto separate lines
+   rather than squeezing when the screen is narrow. */
+
 .return-home {
     padding: 7vw 5vw;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px 48px;
 
     text-align: center;
 
