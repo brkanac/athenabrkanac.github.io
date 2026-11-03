@@ -576,6 +576,59 @@ h2 {
 }
 
 
+/* A row of photographs from each page, at the top of its card, so the
+   work is seen before it is read about. The whole row links to the
+   page. Shown whole, in one shared height, like the project rows. */
+
+.card-preview {
+    margin-top: 22px;
+
+    display: flex;
+    gap: 8px;
+}
+
+.card-preview img {
+    flex: var(--shape) 1 0;
+    min-width: 0;
+
+    aspect-ratio: var(--shape);
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    transition: opacity 0.25s ease;
+}
+
+.card-preview:hover img,
+.card-preview:focus-visible img {
+    opacity: 0.85;
+}
+
+.card-preview + h3 {
+    margin-top: 28px;
+}
+
+/* The way into the work is a button, not one link among two. */
+
+.card-links {
+    align-items: center;
+}
+
+.card-links a.card-cta {
+    padding: 13px 22px;
+
+    border-bottom: none;
+
+    color: var(--text);
+}
+
+.card-links a.card-cta:hover,
+.card-links a.card-cta:focus-visible {
+    color: var(--text);
+}
+
+
 /* ==================================================
    ABOUT
    ================================================== */
