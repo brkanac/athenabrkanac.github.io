@@ -7,9 +7,11 @@ place.
 
 ## Wyclef Jean × Music Industry Club — done
 
-    wyclef-01.jpg … wyclef-08.jpg
+    wyclef-01.jpg … wyclef-08.jpg            the digital set
+    wyclef-film-01.jpg … wyclef-film-06.jpg  the film set
 
-Black and white, so `build-photos.py` leaves them exactly as shot — no
+The digital set is black and white, so `build-photos.py` leaves both
+sets exactly as shot — no
 warming, which would tint them. They are shown uncropped, in rows of one
 shared height; each `<figure>` in `freelance.html` carries `--shape`, the
 photo's width divided by its height (1.5 wide, 0.6667 tall).
@@ -19,16 +21,25 @@ photo's width divided by its height (1.5 wide, 0.6667 tall).
 The files are named `stars-`, the project is called Stars4Ever — the two
 do not have to match.
 
-    stars-01.jpg  ┐
-    stars-02.jpg  ├ the film set
-    stars-03.jpg  │
-    stars-04.jpg  ┘
+    stars-01.jpg       ┐
+    stars-02.jpg       │
+    stars-03.jpg       │
+    stars-04.jpg       ├ the film set
+    stars-film-05.jpg  │
+     …                 │
+    stars-film-10.jpg  ┘
+
+The first four were the whole film set once; the later film scans are
+named `stars-film-` so the plain numbers can stay as they are. To add
+another film one, drop it into `images/originals/` as `stars-film-11`,
+add a line for it to the jobs in `images/build-photos.py`, run it, and
+add a `<figure class="shot">` to the film set in `freelance.html`.
 
     stars-05.jpg  ┐
     stars-06.jpg  │
     stars-07.jpg  │
     stars-08.jpg  │
-    stars-09.jpg  ├ the digital set, behind the button on the page
+    stars-09.jpg  ├ the digital set
     stars-10.jpg  │
     stars-11.jpg  │
     stars-12.jpg  ┘
@@ -75,3 +86,11 @@ shot, with no warming at all, only the P3 to sRGB conversion.
 
 Which stars photos count as film is the number in `STARS_FILM_SET`:
 everything above it is treated as digital.
+
+## One row, then "View more"
+
+Each set on the page shows one row, and the rest sit inside a
+`<div class="shot-more" data-more="more film" hidden>` just below it.
+The page builds the "View more film" button from that `data-more`, so
+to move a photo between the first row and the rest, move its
+`<figure>` in or out of that block.

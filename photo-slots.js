@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // A set of photographs the page holds back until asked.
 //
-// A block marked data-more="the digital set" starts hidden, and a button
-// is built just before it reading "View the digital set". The button is
+// A block marked data-more="more film" starts hidden, and a button is
+// built just before it reading "View more film". The button is
 // made here rather than written into the page, so it cannot end up
 // pointing at a set that is not there.
 
@@ -91,10 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
         button.type = "button";
         button.className = "pill-button reveal-button";
 
+        // Closed, the button sits where the set would start. Open, it
+        // moves to the end of the set, so "Show fewer" is under the
+        // photographs it would put away rather than in the middle of them.
         function settle(open) {
             set.hidden = !open;
             button.textContent = open ? "Show fewer ↑" : `View ${what} ↓`;
             button.setAttribute("aria-expanded", String(open));
+            set.insertAdjacentElement(open ? "afterend" : "beforebegin", button);
         }
 
         settle(false);
@@ -102,10 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
             const opening = button.getAttribute("aria-expanded") !== "true";
             settle(opening);
+            button.focus({ preventScroll: true });
             if (opening) set.scrollIntoView({ block: "nearest", behavior: "smooth" });
+            else button.scrollIntoView({ block: "nearest", behavior: "smooth" });
         });
-
-        set.insertAdjacentElement("beforebegin", button);
 
     });
 

@@ -1430,7 +1430,8 @@ body.lightbox-locked {
     margin-top: 34px;
 }
 
-.shot-row + .shot-row {
+.shot-row + .shot-row,
+.shot-row + .shot-more {
     margin-top: 20px;
 }
 

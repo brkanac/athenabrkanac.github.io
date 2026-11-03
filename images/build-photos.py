@@ -44,8 +44,9 @@ GALLERY_AS_SHOT = {
 
 # Stars4Ever comes in two sets. stars-01 to stars-04 are the film ones,
 # and they are the warm ones; everything from stars-05 on is the digital
-# set, which Athena wants untouched. Move this number if the film set
-# ever grows.
+# set, which Athena wants untouched. The film set has since grown, by
+# stars-film-05 onwards: those are named apart so the numbers above stay
+# put, and they are warmed like the first four.
 STARS_FILM_SET = 4
 
 srgb = ImageCms.createProfile("sRGB")
@@ -112,6 +113,12 @@ for src in sorted(glob.glob("images/originals/stars-*")):
         jobs.append((src, f"images/freelance/stars-{int(match.group(1)):02d}.jpg", False))
 
 jobs += [
+    ("images/originals/stars-film-05.jpg", "images/freelance/stars-film-05.jpg", False),
+    ("images/originals/stars-film-06.jpg", "images/freelance/stars-film-06.jpg", False),
+    ("images/originals/stars-film-07.jpg", "images/freelance/stars-film-07.jpg", False),
+    ("images/originals/stars-film-08.jpg", "images/freelance/stars-film-08.jpg", False),
+    ("images/originals/stars-film-09.jpg", "images/freelance/stars-film-09.jpg", False),
+    ("images/originals/stars-film-10.jpg", "images/freelance/stars-film-10.jpg", False),
     ("images/originals/america.JPG", "images/america.jpg", False),
     ("images/originals/cassie.JPG", "images/cassie.jpg", False),
     ("images/originals/berry-picking.JPG", "images/berry-picking.jpg", False),
