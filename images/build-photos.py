@@ -25,7 +25,9 @@ SAT  = 1.05   # saturation multiplier
 # Keyed on the start of the file name.
 EXTRA_WARMTH = {
     "stars-": (0.055, 1.10),
-    # Black and white — any warmth would tint it, so it is left as shot.
+    # Wyclef Jean: the digital set is black and white, which any warmth
+    # would tint, and the film set keeps the colour of its scans. Both
+    # are left as shot.
     "wyclef-": (0.0, 1.0),
 }
 
@@ -116,6 +118,12 @@ jobs += [
     ("images/originals/market.JPG", "images/market.jpg", False),
     ("images/originals/kyoto.JPG", "images/kyoto.jpg", False),
     ("images/originals/firework.JPG", "images/firework.jpg", False),
+    ("images/originals/wyclef-film-01.jpg", "images/freelance/wyclef-film-01.jpg", False),
+    ("images/originals/wyclef-film-02.jpg", "images/freelance/wyclef-film-02.jpg", False),
+    ("images/originals/wyclef-film-03.jpg", "images/freelance/wyclef-film-03.jpg", False),
+    ("images/originals/wyclef-film-04.jpg", "images/freelance/wyclef-film-04.jpg", False),
+    ("images/originals/wyclef-film-05.jpg", "images/freelance/wyclef-film-05.jpg", False),
+    ("images/originals/wyclef-film-06.jpg", "images/freelance/wyclef-film-06.jpg", False),
     ("images/originals/wyclef-01.jpg", "images/freelance/wyclef-01.jpg", False),
     ("images/originals/wyclef-02.jpg", "images/freelance/wyclef-02.jpg", False),
     ("images/originals/wyclef-03.jpg", "images/freelance/wyclef-03.jpg", False),
