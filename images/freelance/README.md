@@ -5,7 +5,7 @@ appear on `freelance.html` automatically. You do not need to edit any
 HTML — until a file exists, the site shows a labelled placeholder in its
 place.
 
-## Wyclef Jean × Music Industry Club — done
+## Wyclef Jean × Music Industry Collective — done
 
     wyclef-01.jpg … wyclef-08.jpg            the digital set
     wyclef-film-01.jpg … wyclef-film-06.jpg  the film set
