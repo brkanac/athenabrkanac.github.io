@@ -5,6 +5,15 @@ appear on `freelance.html` automatically. You do not need to edit any
 HTML — until a file exists, the site shows a labelled placeholder in its
 place.
 
+## Wyclef Jean × Music Industry Club — done
+
+    wyclef-01.jpg … wyclef-08.jpg
+
+Black and white, so `build-photos.py` leaves them exactly as shot — no
+warming, which would tint them. They are shown uncropped, in rows of one
+shared height; each `<figure>` in `freelance.html` carries `--shape`, the
+photo's width divided by its height (1.5 wide, 0.6667 tall).
+
 ## Stars4Ever — done
 
 The files are named `stars-`, the project is called Stars4Ever — the two

@@ -25,6 +25,8 @@ SAT  = 1.05   # saturation multiplier
 # Keyed on the start of the file name.
 EXTRA_WARMTH = {
     "stars-": (0.055, 1.10),
+    # Black and white — any warmth would tint it, so it is left as shot.
+    "wyclef-": (0.0, 1.0),
 }
 
 # Some photographs are left exactly as they were shot, with only the
@@ -98,6 +100,14 @@ for src in sorted(glob.glob("images/originals/stars-*")):
         jobs.append((src, f"images/freelance/stars-{int(match.group(1)):02d}.jpg", False))
 
 jobs += [
+    ("images/originals/wyclef-01.jpg", "images/freelance/wyclef-01.jpg", False),
+    ("images/originals/wyclef-02.jpg", "images/freelance/wyclef-02.jpg", False),
+    ("images/originals/wyclef-03.jpg", "images/freelance/wyclef-03.jpg", False),
+    ("images/originals/wyclef-04.jpg", "images/freelance/wyclef-04.jpg", False),
+    ("images/originals/wyclef-05.jpg", "images/freelance/wyclef-05.jpg", False),
+    ("images/originals/wyclef-06.jpg", "images/freelance/wyclef-06.jpg", False),
+    ("images/originals/wyclef-07.jpg", "images/freelance/wyclef-07.jpg", False),
+    ("images/originals/wyclef-08.jpg", "images/freelance/wyclef-08.jpg", False),
     ("images/originals/grad-01.jpg",  "images/marketing/grad-01.jpg",  False),
     ("images/originals/grad-02.jpg",  "images/marketing/grad-02.jpg",  False),
     ("images/originals/grad-03.jpg",  "images/marketing/grad-03.jpg",  False),
