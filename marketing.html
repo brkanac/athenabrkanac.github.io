@@ -443,26 +443,17 @@
                     and stories that launched the drop.
                 </p>
 
-                <p class="project-link">
-                    <a
-                        href="https://www.instagram.com/p/DIRti2YRgi3/"
-                        class="pill-button"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        View the post on Instagram ↗
-                    </a>
-                </p>
-
                 <!--
-                Three across rather than four, and a squarer crop than
-                the other projects, because these were not all shot
-                upright — a tall crop would cut the wide ones in half.
+                Shown whole, never cropped. Each row shares one height and
+                every photo takes the width its own shape needs, so the
+                tall, square and wide ones all fit. --shape is the photo's
+                width / height; change it if you swap a photo for one of a
+                different shape.
                 -->
 
-                <div class="shot-grid shot-grid-three">
+                <div class="shot-row">
 
-                    <figure class="shot shot-from-top">
+                    <figure class="shot" style="--shape: 0.75">
                         <img
                             src="images/marketing/merch-01.jpg"
                             alt="Alpha Chi Omega merchandise photoshoot"
@@ -470,7 +461,7 @@
                         >
                     </figure>
 
-                    <figure class="shot">
+                    <figure class="shot" style="--shape: 1">
                         <img
                             src="images/marketing/merch-02.jpg"
                             alt="Alpha Chi Omega merchandise photoshoot"
@@ -478,7 +469,7 @@
                         >
                     </figure>
 
-                    <figure class="shot">
+                    <figure class="shot" style="--shape: 1.5">
                         <img
                             src="images/marketing/merch-03.jpg"
                             alt="Alpha Chi Omega merchandise photoshoot"
@@ -486,7 +477,11 @@
                         >
                     </figure>
 
-                    <figure class="shot">
+                </div>
+
+                <div class="shot-row">
+
+                    <figure class="shot" style="--shape: 0.75">
                         <img
                             src="images/marketing/merch-04.jpg"
                             alt="Alpha Chi Omega merchandise photoshoot"
@@ -494,7 +489,7 @@
                         >
                     </figure>
 
-                    <figure class="shot">
+                    <figure class="shot" style="--shape: 0.75">
                         <img
                             src="images/marketing/merch-05.jpg"
                             alt="Alpha Chi Omega merchandise photoshoot"
@@ -502,7 +497,7 @@
                         >
                     </figure>
 
-                    <figure class="shot">
+                    <figure class="shot" style="--shape: 1.5">
                         <img
                             src="images/marketing/merch-06.jpg"
                             alt="Alpha Chi Omega merchandise photoshoot"

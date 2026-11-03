@@ -1408,6 +1408,30 @@ body.lightbox-locked {
 }
 
 
+/* A project shown uncropped. Photos of different shapes sit in rows
+   of one shared height: each one grows by its own width-to-height
+   ratio, so the space left after the gaps is shared out exactly in
+   proportion and every photo in the row comes out the same height. */
+
+.shot-row {
+    display: flex;
+    gap: 20px;
+}
+
+.section-intro + .shot-row {
+    margin-top: 34px;
+}
+
+.shot-row + .shot-row {
+    margin-top: 20px;
+}
+
+.shot-row .shot {
+    flex: var(--shape) 1 0;
+    aspect-ratio: var(--shape);
+}
+
+
 /* A tall photograph whose subject sits high in the frame. The tile takes
    what it needs off the bottom rather than off both ends, so nobody
    loses the top of their head to it. */
@@ -1629,6 +1653,15 @@ body.lightbox-locked {
     .shot-grid,
     .shot-grid-three {
         grid-template-columns: 1fr;
+    }
+
+    .shot-row {
+        flex-direction: column;
+    }
+
+    .shot-row .shot {
+        flex: none;
+        width: 100%;
     }
 
     .shot-group + .shot-group {
