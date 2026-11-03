@@ -1418,7 +1418,7 @@ body.lightbox-locked {
     gap: 20px;
 }
 
-.section-intro + .shot-row {
+.section-intro + .shot-rows {
     margin-top: 34px;
 }
 

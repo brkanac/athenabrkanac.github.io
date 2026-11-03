@@ -33,6 +33,13 @@ EXTRA_WARMTH = {
 # colour conversion above and no warming at all.
 NO_WARMTH = (0.0, 1.0)
 
+# Photographs in the Places and People galleries are left as shot too,
+# to match the rest of those galleries. Keyed on the served file name.
+GALLERY_AS_SHOT = {
+    "america.jpg", "cassie.jpg", "berry-picking.jpg",
+    "market.jpg", "kyoto.jpg", "firework.jpg",
+}
+
 # Stars4Ever comes in two sets. stars-01 to stars-04 are the film ones,
 # and they are the warm ones; everything from stars-05 on is the digital
 # set, which Athena wants untouched. Move this number if the film set
@@ -51,6 +58,9 @@ srgb_bytes = bytes(_raw)
 
 def warmth_for(dst):
     name = os.path.basename(dst)
+
+    if name in GALLERY_AS_SHOT:
+        return NO_WARMTH
 
     stars = re.match(r"stars-(\d+)", name)
     if stars and int(stars.group(1)) > STARS_FILM_SET:
@@ -100,6 +110,12 @@ for src in sorted(glob.glob("images/originals/stars-*")):
         jobs.append((src, f"images/freelance/stars-{int(match.group(1)):02d}.jpg", False))
 
 jobs += [
+    ("images/originals/america.JPG", "images/america.jpg", False),
+    ("images/originals/cassie.JPG", "images/cassie.jpg", False),
+    ("images/originals/berry-picking.JPG", "images/berry-picking.jpg", False),
+    ("images/originals/market.JPG", "images/market.jpg", False),
+    ("images/originals/kyoto.JPG", "images/kyoto.jpg", False),
+    ("images/originals/firework.JPG", "images/firework.jpg", False),
     ("images/originals/wyclef-01.jpg", "images/freelance/wyclef-01.jpg", False),
     ("images/originals/wyclef-02.jpg", "images/freelance/wyclef-02.jpg", False),
     ("images/originals/wyclef-03.jpg", "images/freelance/wyclef-03.jpg", False),

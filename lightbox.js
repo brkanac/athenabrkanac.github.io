@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ".gallery-photo img, .photo-card img, .shot img";
 
     const GROUP_SELECTOR =
-        ".landscape-preview, .portrait-preview, .full-landscape-grid, .full-portrait-grid, .shot-grid";
+        ".landscape-preview, .portrait-preview, .full-landscape-grid, .full-portrait-grid, .shot-grid, .shot-rows";
 
     const triggers = Array.from(
         document.querySelectorAll(TRIGGER_SELECTOR)
