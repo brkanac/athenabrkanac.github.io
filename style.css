@@ -112,8 +112,16 @@ main {
 }
 
 .nav-links a:hover::after,
-.nav-links a:focus-visible::after {
+.nav-links a:focus-visible::after,
+.nav-links a[aria-current="page"]::after {
     width: 100%;
+}
+
+/* The page you are on stays underlined, so the menu also says where
+   you are. */
+
+.nav-links a[aria-current="page"] {
+    font-weight: 600;
 }
 
 
