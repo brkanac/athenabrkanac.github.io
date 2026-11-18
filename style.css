@@ -733,6 +733,13 @@ h2 {
     margin-bottom: 35px;
 }
 
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
 .contact-button {
     background: var(--cream);
 }
