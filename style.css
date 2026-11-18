@@ -1857,3 +1857,11 @@ footer {
 .marquee {
     background: var(--yellow-light);
 }
+
+/* The account boxes on the marketing page: a soft yellow, so they read
+   as boxes against the white rather than fading into it. */
+
+.role-facts,
+.ig-link {
+    background: var(--yellow-light);
+}
