@@ -1878,3 +1878,15 @@ footer {
 .instagram-section .role-block {
     margin-bottom: 0;
 }
+
+/* "See the feed" in white, so it stands out on the yellow box; it
+   turns yellow on hover. */
+
+.ig-link-action {
+    background: #fff;
+}
+
+.ig-link:hover .ig-link-action,
+.ig-link:focus-visible .ig-link-action {
+    background: var(--yellow);
+}
