@@ -16,7 +16,7 @@ warming, which would tint them. They are shown uncropped, in rows of one
 shared height; each `<figure>` in `freelance.html` carries `--shape`, the
 photo's width divided by its height (1.5 wide, 0.6667 tall).
 
-## Stars4Ever — done
+## Stars4Ever back to school — done
 
 The files are named `stars-`, the project is called Stars4Ever — the two
 do not have to match.
@@ -57,7 +57,7 @@ quality gets there. Keep the full-size file in `images/originals/`.
 
     stars-fall-01.jpg … stars-fall-15.jpg
 
-Its own project on `freelance.html`, above the back to school shoot.
+Its own project, first on `freelance.html`; newest work goes on top.
 The full-size files are in `images/originals/` under the same names.
 `build-photos.py` leaves them as shot, with only the colour conversion
 and no warming. To add another, drop it into `images/originals/` as
