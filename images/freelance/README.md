@@ -53,6 +53,17 @@ Photos straight off a phone or camera are several megabytes each, which is
 slow to load. Aim for under about 800KB — 2000px on the long edge at good
 quality gets there. Keep the full-size file in `images/originals/`.
 
+## Stars4Ever fall campaign — done
+
+    stars-fall-01.jpg … stars-fall-15.jpg
+
+Its own project on `freelance.html`, above the back to school shoot.
+The full-size files are in `images/originals/` under the same names.
+`build-photos.py` leaves them as shot, with only the colour conversion
+and no warming. To add another, drop it into `images/originals/` as
+`stars-fall-16.jpg`, add a line for it to the jobs in that script, run
+it, and add a `<figure class="shot">` for it in `freelance.html`.
+
 ## The film — done
 
 Embedded from YouTube, so there is no file in here for it. To point it at
