@@ -65,8 +65,8 @@ def warmth_for(dst):
     if name in GALLERY_AS_SHOT:
         return NO_WARMTH
 
-    # The Stars4Ever fall campaign is digital, and like the digital
-    # back to school set it is left as shot.
+    # The Stars4Ever fall campaign is on film, but Athena wants its
+    # colours left exactly as they are: no warming.
     if name.startswith("stars-fall-"):
         return NO_WARMTH
 
