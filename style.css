@@ -1804,7 +1804,6 @@ body.lightbox-locked {
 body,
 .site-nav,
 footer,
-.marquee,
 .about-section,
 .return-home {
     background: var(--paper);
@@ -1850,4 +1849,11 @@ footer {
 .contact-button,
 .social-button {
     background: #fff;
+}
+
+/* The star strip in the same light yellow, so it bridges the pink hero
+   and the white below instead of being a white band of its own. */
+
+.marquee {
+    background: var(--yellow-light);
 }
