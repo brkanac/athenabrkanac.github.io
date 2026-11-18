@@ -1865,3 +1865,16 @@ footer {
 .ig-link {
     background: var(--yellow-light);
 }
+
+/* On the marketing page the account and the projects used to sit on
+   different colours, and each kept its own full padding. Now both are
+   white, so the account section drops its bottom padding and the gap
+   between them is just the projects section's own top padding. */
+
+.instagram-section {
+    padding-bottom: 0;
+}
+
+.instagram-section .role-block {
+    margin-bottom: 0;
+}
