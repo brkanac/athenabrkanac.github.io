@@ -1787,3 +1787,55 @@ body.lightbox-locked {
     }
 
 }
+
+
+/* ==================================================
+   QUIETER PALETTE (mock-up)
+   Pink and yellow move from backgrounds to accents:
+   most sections sit on cream, so the photographs carry
+   the colour. The hero and the contact band keep theirs.
+   ================================================== */
+
+.site-nav,
+footer {
+    background: var(--cream);
+    border-color: var(--border);
+}
+
+.site-nav {
+    border-bottom: 1px solid var(--border);
+}
+
+footer {
+    border-top: 1px solid var(--border);
+}
+
+.photography-section,
+.marketing-section,
+.projects-gallery-section,
+.landscape-gallery-section,
+.portrait-gallery-section,
+.instagram-section,
+.shoots-section {
+    background: var(--cream);
+}
+
+.photography-section,
+.marketing-section,
+.about-section {
+    border-top: 1px solid var(--border);
+}
+
+.marketing-card {
+    background: #fff;
+    border: 1px solid var(--border);
+}
+
+.marketing-section .portfolio-link-wrapper .portfolio-link {
+    background: var(--pink);
+}
+
+.marketing-section .portfolio-link-wrapper .portfolio-link:hover,
+.marketing-section .portfolio-link-wrapper .portfolio-link:focus-visible {
+    background: var(--pink-mid);
+}
