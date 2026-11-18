@@ -1838,3 +1838,16 @@ footer {
 .marketing-card {
     background: #fff;
 }
+
+/* The contact band in a lighter yellow, so it eases out of the white
+   above it rather than jumping. Its buttons go plain white to stay
+   visible on it. */
+
+.contact-section {
+    background: var(--yellow-light);
+}
+
+.contact-button,
+.social-button {
+    background: #fff;
+}
