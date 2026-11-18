@@ -757,6 +757,41 @@ h2 {
     margin: 0 auto;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.social-button {
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: inherit;
+    background: var(--cream);
+
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.social-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.social-button:hover,
+.social-button:focus-visible {
+    transform: translateY(-2px);
+    background: #fff;
+}
+
 
 /* ==================================================
    FULL PHOTOGRAPHY PAGE
