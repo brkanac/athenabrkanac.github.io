@@ -1893,3 +1893,17 @@ footer {
 .ig-link:focus-visible .ig-link-action {
     background: var(--yellow);
 }
+
+/* "View full photography portfolio" in the deep rose, so it stands out
+   from the pale page and the pink section just below it. */
+
+.portfolio-link-wrapper .portfolio-link {
+    background: var(--pink-dark);
+    color: var(--paper);
+}
+
+.portfolio-link-wrapper .portfolio-link:hover,
+.portfolio-link-wrapper .portfolio-link:focus-visible {
+    background: var(--text);
+    color: var(--paper);
+}
