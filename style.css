@@ -18,9 +18,12 @@
 
     --border: #E8C7D0;
 
-    /* The quiet background most sections sit on: nearly white, with
-       none of the pink or yellow of the accents. */
-    --paper: #FEFEFD;
+    /* The quiet background most sections sit on: a pale cream yellow,
+       warm enough to flatter the film photographs and to give the
+       bright parts of the black and white ones an edge. Paler than
+       --yellow-light, so the star strip and contact band still read
+       as their own bands. */
+    --paper: #FFFAEC;
     --rule: #EEE6E8;
 }
 
