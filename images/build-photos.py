@@ -65,6 +65,11 @@ def warmth_for(dst):
     if name in GALLERY_AS_SHOT:
         return NO_WARMTH
 
+    # The Stars4Ever fall campaign is digital, and like the digital
+    # back to school set it is left as shot.
+    if name.startswith("stars-fall-"):
+        return NO_WARMTH
+
     stars = re.match(r"stars-(\d+)", name)
     if stars and int(stars.group(1)) > STARS_FILM_SET:
         return NO_WARMTH
@@ -119,6 +124,12 @@ jobs += [
     ("images/originals/stars-film-08.jpg", "images/freelance/stars-film-08.jpg", False),
     ("images/originals/stars-film-09.jpg", "images/freelance/stars-film-09.jpg", False),
     ("images/originals/stars-film-10.jpg", "images/freelance/stars-film-10.jpg", False),
+    ("images/originals/stars-fall-01.jpg", "images/freelance/stars-fall-01.jpg", False),
+    ("images/originals/stars-fall-02.jpg", "images/freelance/stars-fall-02.jpg", False),
+    ("images/originals/stars-fall-03.jpg", "images/freelance/stars-fall-03.jpg", False),
+    ("images/originals/stars-fall-04.jpg", "images/freelance/stars-fall-04.jpg", False),
+    ("images/originals/stars-fall-05.jpg", "images/freelance/stars-fall-05.jpg", False),
+    ("images/originals/stars-fall-06.jpg", "images/freelance/stars-fall-06.jpg", False),
     ("images/originals/america.JPG", "images/america.jpg", False),
     ("images/originals/cassie.JPG", "images/cassie.jpg", False),
     ("images/originals/berry-picking.JPG", "images/berry-picking.jpg", False),
