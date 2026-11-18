@@ -17,6 +17,11 @@
     --text-soft: #634953;
 
     --border: #E8C7D0;
+
+    /* The quiet background most sections sit on: nearly white, with
+       none of the pink or yellow of the accents. */
+    --paper: #FEFEFD;
+    --rule: #EEE6E8;
 }
 
 
@@ -1786,4 +1791,59 @@ body.lightbox-locked {
         padding: 22px 24px;
     }
 
+}
+
+
+/* ==================================================
+   QUIETER PALETTE
+   Pink and yellow move from backgrounds to accents:
+   most sections sit on near-white paper, so the photographs carry
+   the colour. The hero and the contact band keep theirs.
+   ================================================== */
+
+body,
+.site-nav,
+footer,
+.marquee,
+.about-section,
+.return-home {
+    background: var(--paper);
+}
+
+.site-nav {
+    border-bottom: 1px solid var(--rule);
+}
+
+footer {
+    border-top: 1px solid var(--rule);
+}
+
+.photography-section,
+.marketing-section,
+.projects-gallery-section,
+.landscape-gallery-section,
+.portrait-gallery-section,
+.instagram-section,
+.shoots-section {
+    background: var(--paper);
+}
+
+.photography-section,
+.marketing-section,
+.about-section {
+    border-top: 1px solid var(--rule);
+}
+
+.marketing-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+}
+
+.marketing-section .portfolio-link-wrapper .portfolio-link {
+    background: var(--pink);
+}
+
+.marketing-section .portfolio-link-wrapper .portfolio-link:hover,
+.marketing-section .portfolio-link-wrapper .portfolio-link:focus-visible {
+    background: var(--pink-mid);
 }
